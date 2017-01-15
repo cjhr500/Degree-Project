@@ -1,0 +1,192 @@
+\documentclass[12pt,14paper]{scrartcl}
+\usepackage{listings,UoYstyle}
+\lstset{language=[latex]tex,basicstyle=\sffamily,gobble=4}
+\title{\LaTeXe\ Problems for CSW}
+\author{Jeremy Jacob}
+\date{2009 May 28}
+\begin{document}
+\maketitle
+
+\section{Problems}
+
+These exercises are designed to be run using the \TeX{}live
+distribution.  It is best to use \lstinline{pdflatex} (rather than
+\lstinline{latex}), and view the output using a PDF viewer.  When
+completing these exercises you may wish to have by you a \LaTeX\ book,
+or other guide (see the reference manual for
+\lstinline{UoYCSproject}).
+
+\subsection{Very basic usage of \LaTeXe}
+
+Jim Hefferon's exercises at
+\url{http://tug.ctan.org/tex-archive/info/first-latex-doc/first-latex-doc.pdf}
+take you through the construction of a very simple \LaTeXe\ document.
+
+Notes:
+\begin{itemize}
+\item If you do these exercises on the Department's system you can
+  skip the `Get the software' section!
+\item A similar `boilerplate' ---but without the \lstinline{ams*}
+  packages--- to Hefferon's is provided for you by
+  \lstinline{UoYCSproject.cls}, so you do not need to use it for
+  documents of that class.
+\item I recommend that in your project report you use Bib\TeX, and do
+  \emph{not} build a bibliography by hand.
+\end{itemize}
+
+\subsection{Simple macro programming}\label{sec:simplemacro}
+
+These exercises introduce you to programming using \TeX\ macros
+through the \LaTeXe\ interface.  Suggested solutions can be found in
+\autoref{sec:solutions}.
+
+\begin{enumerate}
+\item Create an A4 document of the class \lstinline{article} whose
+  title is `Greetings', that has you as the author and today's date.
+  The body should have two sections, titled `Welcome' and `Farewell',
+  in that order.  Each section should have two sentences.  The first
+  should be one of `Hello world' or `Goodbye world' as appropriate.
+  The second should be a sentence of the shape `See also Section~n',
+  where `n' is the number of the other section.  The numbers should
+  not appear in your source [hint: use symbolic labels and
+  references].
+\item Create an identical document, but make it of class
+  \lstinline{scrartcl}.  Do you notice a difference in the output?
+  Which do you prefer?
+\item In the document you have created so far, you should have typed
+  `See also' twice.  Introduce a macro, \lstinline{\sa}, to typeset
+  `See also', and use it in both places (do not forget to protect the
+  following space).
+\item In the document you have created so far, you should have typed
+  the structure `\textless salute\textgreater\ world.' twice, once for
+  salutation `Hello' and once for salutation `Goodbye'.  Introduce a
+  macro, \lstinline{\sw}, with one parameter that is the salutation,
+  and use it in both places.
+\item If the package \lstinline{hyperref} is loaded\footnote{As
+    \lstinline{UoYCSproject} does.} then, as well as automatically
+  generating bookmarks and internal links, the macro
+  \lstinline|\autoref{label}| is available.  This macro knows the kind
+  of reference that a label refers to, so you do not have to type
+  `\lstinline|Section~|', and so on.  Make your document load the
+  package, and modify your document to use \lstinline{\autoref} rather
+  than \lstinline{\ref}.
+\item Your document consists of one structure repeated twice.  The
+  structure has three variables.  In the first instance it is
+  instantiated with \lstinline{Welcome}, \lstinline{Hello} and
+  \lstinline{Farewell}; in the second it is instantiated with
+  \lstinline{Farewell}, \lstinline{Goodbye} and \lstinline{Welcome}.
+  Create a 3-parameter macro, \lstinline{\st}, that captures this
+  structure and use it.  The body of your document should be
+  \lstinline{\maketitle} followed by two calls to your new macro, and
+  nothing else.\footnote{If you wish you can add a package to change
+    fonts from the default set; to create a good PDF document this
+    should always be done.  Suitable packages are \lstinline{mathpazo}
+    (Palatino) and \lstinline{mathptmx} (Times Roman), both combined
+    with \lstinline{helvet,courier}.  The package
+    \lstinline{microtype} is also recommended.  The package
+    \lstinline{hyperref} automatically turns references into
+    hyperlinks; it must usually be the last loaded package.}
+\end{enumerate}
+
+\newpage
+\appendix
+
+\section{Possible solutions for \autoref{sec:simplemacro}}
+\label{sec:solutions}
+
+\begin{enumerate}
+\item Your answer should have a different author, of course!  It may
+  also have different labels.  It should have more white space, but I
+  have compressed things here, to save paper.
+  \begin{lstlisting}
+    \documentclass[a4paper]{article}
+    \title{Greetings}
+    \author{Jeremy Jacob}
+    \begin{document}
+    \maketitle
+    \section{Welcome}\label{sec:Welcome}
+    Hello world.  See also Section~\ref{sec:Farewell}.
+    \section{Farewell}\label{sec:Farewell}
+    Goodbye world.  See also Section~\ref{sec:Welcome}.
+    \end{document}
+  \end{lstlisting}
+\item For completeness:
+  \begin{lstlisting}
+    \documentclass[a4paper]{scrartcl}
+    \title{Greetings}
+    \author{Jeremy Jacob}
+    \begin{document}
+    \maketitle
+    \section{Welcome}\label{sec:Welcome}
+    Hello world.  See also Section~\ref{sec:Farewell}.
+    \section{Farewell}\label{sec:Farewell}
+    Goodbye world.  See also Section~\ref{sec:Welcome}.
+    \end{document}
+  \end{lstlisting}
+\item\
+  \begin{lstlisting}
+    \documentclass[a4paper]{article}
+    \title{Greetings}
+    \author{Jeremy Jacob}
+    \newcommand*{\sa}{See also}
+    \maketitle
+    \begin{document}
+    \section{Welcome}\label{sec:Welcome}
+    Hello world.  \sa\ Section~\ref{sec:Farewell}.
+    \section{Farewell}\label{sec:Farewell}
+    Goodbye world.  \sa\ Section~\ref{sec:Welcome}.
+    \end{document}    
+  \end{lstlisting}
+  \newpage
+\item\
+  \begin{lstlisting}
+    \documentclass[a4paper]{article}
+    \title{Greetings}
+    \author{Jeremy Jacob}
+    \newcommand*{\sa}{See also}
+    \newcommand*{\sw}[1]{#1 world.}
+    \begin{document}
+    \maketitle
+    \section{Welcome}\label{sec:Welcome}
+    \sw{Hello}  \sa\ Section~\ref{sec:Farewell}.
+    \section{Farewell}\label{sec:Farewell}
+    \sw{Goodbye}  \sa\ Section~\ref{sec:Welcome}.
+    \end{document}    
+  \end{lstlisting}
+\item\
+  \begin{lstlisting}
+    \documentclass[a4paper]{article}
+    \usepackage{hyperref}
+    \title{Greetings}
+    \author{Jeremy Jacob}
+    \newcommand*{\sa}{See also}
+    \newcommand*{\sw}[1]{#1 world.}
+    \begin{document}
+    \maketitle
+    \section{Welcome}\label{sec:Welcome}
+    \sw{Hello}  \sa\ \autoref{sec:Farewell}.
+    \section{Farewell}\label{sec:Farewell}
+    \sw{Goodbye}  \sa\ \autoref{sec:Welcome}.
+    \end{document}    
+  \end{lstlisting}
+  \newpage
+\item\
+  \begin{lstlisting}
+    \documentclass[a4paper]{article}
+    \usepackage{hyperref}
+    \title{Greetings}
+    \author{Jeremy Jacob}
+    \newcommand*{\sa}{See also}
+    \newcommand*{\sw}[1]{#1 world.}
+    \newcommand*{\st}[3]{%
+      \section{#1}\label{sec:#1}\sw{#2}  \sa\ \autoref{sec:#3}.%
+    }
+    \begin{document}
+    \maketitle
+    \st{Welcome}{Hello}{Farewell}
+    \st{Farewell}{Goodbye}{Welcome}
+    \end{document}    
+  \end{lstlisting}
+\end{enumerate}
+
+\end{document}

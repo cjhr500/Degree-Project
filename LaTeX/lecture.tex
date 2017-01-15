@@ -1,0 +1,492 @@
+\documentclass{beamer}
+\usetheme[secheader]{Boadilla}
+
+\usepackage{mathpazo,amsmath,listings}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\lstset{language=[LaTeX]TeX,
+  basicstyle={\color{darkgreen}},
+  morekeywords={%
+    part,chapter,subsection,subsubsection,%
+    paragraph,subparagraph,%
+    appendix}}
+
+\newcommand*{\guide}[1][]{%
+  \beamergotobutton{%
+    \href{http://www-course.cs.york.ac.uk/csw/LaTeX/example.pdf}{Guide}%
+  }#1%
+}
+
+\title[\LaTeXe{} Intro]{An Introduction to Type-setting projects in
+  \LaTeXe{} with the \lstinline|UoYCSProject| class}
+
+\author[JLJ]{Jeremy Jacob}
+
+\institute[UoY, CS]{The University of York, Department of Computer
+  Science}
+
+\date{2012 July 24}
+
+\begin{document}
+
+\section{Title}
+
+\frame{\titlepage}
+
+\section{Introduction}
+
+\begin{frame}
+  \frametitle{What is \LaTeX?}
+
+  \LaTeXe{} is a \emph{document description language} built on top of
+  Donald Knuth's \TeX{} type-setting engine.
+
+  \vfill
+
+  Cf.\ \texttt{HTML} and \texttt{SGML}/\texttt{XML} applications.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{A minimal document}
+  
+    \begin{tabular}{lcl}
+    Source&&Output\\
+    \begin{lstlisting}[gobble=6,showspaces=true]
+      \documentclass{minimal}
+      \begin{document}
+      Hello World.
+      \end{document}
+    \end{lstlisting}
+    &&
+    \color{darkblue}\rmfamily\tiny
+    \framebox[50mm][l]{\begin{tabular}{l}\\Hello World.\\[60mm]\end{tabular}}
+  \end{tabular}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Why use \LaTeXe{}?}
+  \begin{itemize}
+  \item The sophisticated type-setting algorithm of \TeX, and the
+    enhanced algorithm of \emph{pdfe(la)tex}.
+    \beamergotobutton{\href{http://www.tug.org/texshowcase/}{the
+        \TeX{} showcase}.}
+  \item The huge number of pre-defined packages for doing common
+    things. \beamergotobutton{\href{http://www.tex.ac.uk/tex-archive/help/Catalogue/}{the
+        \TeX{} catalogue}}
+  \item The ability to define your own special purpose structures.
+  \item Stable basis.
+  \item Good for large, academic documents.
+  \end{itemize}  
+\end{frame}
+
+\begin{frame}
+  \frametitle{References}
+  There are many good references for \TeX{} and friends.
+
+  \vfill
+  See ``\emph{A guide to type-setting project reports in \LaTeX{} with
+    the \emph{UoYCSproject} class}''. \guide
+
+  \vfill
+  Marc van Dongen produced a video to advertise his book, while gently
+  introducing \LaTeX:
+  \beamergotobutton{\href{http://youtu.be/s04nZHtI8jg}{Video}}.
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{UoYCSProject}\framesubtitle{a class for project reports}
+  There are many pre-defined document classes:
+
+  \begin{description}[KOMA-Script]
+  \item[Base] minimal, article, report, book, letter, slides.
+  \item[KOMA-Script] scrartcl, scrreprt, scrbook, scrlttr2.
+  \item[Memorandum] memorandum.
+  \item[Others] \ldots, beamer, \ldots,UoYCSproject
+  \beamergotobutton{\href{http://www-course.cs.york.ac.uk/csw/LaTeX/UoYCSproject.cls}{UoYCSproject}},
+  \ldots 
+  \end{description}
+\end{frame}
+
+\section{The language}
+\subsection{General}
+
+\begin{frame}[fragile]
+  \frametitle{Text, commands and environments}
+  
+  A \LaTeXe{} source is a mix of:
+  \begin{description}[environments]
+  \item[text] \lstinline|Some text.|,
+  \item[commands] \lstinline|\LaTeXe|, \lstinline|\ensuremath{\frac{2}{3}}|, and
+  \item[environments]\small
+    \begin{lstlisting}[gobble=6]
+      \begin{verse}
+        Much have I travell'd in
+                              the realms of gold,\\
+        And many goodly states and kingdoms seen;\\
+        Round many western islands have I been\\
+        Which bards in fealty to Apollo hold.\\
+        \\...
+      \end{verse}
+    \end{lstlisting}
+  \end{description}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{The anatomy of a LaTeX source}
+    \begin{lstlisting}[morekeywords={document},gobble=4]
+    \documentclass[class options]{class name}
+    preamble (definitions and declarations)
+    \begin{document} % this is a comment.
+    body 
+    \end{document}
+  \end{lstlisting}
+\end{frame}
+
+\subsection{UoYCSproject}
+
+\begin{frame}[fragile]
+  \frametitle{The anatomy of a UoYCSproject preamble}
+  \begin{lstlisting}[
+    basicstyle={\footnotesize\color{darkgreen}},
+    gobble=4,
+    showspaces=true,
+    morekeywords={supervisor,MEng,wordcount,excludes,dedication,abstract,document}]
+    \documentclass{UoYCSproject}
+    % Order of declarations does not matter.
+    \author{Anne Student-Name}
+    \title{A Solution to the Problem of $\mathit{P}=\mathit{NP}$}
+    \date{30 February 2000}
+    \supervisor{Prof. Z. Soporific}
+    \MEng
+    \wordcount{2,345}\excludes{Appendix~\ref{sec:code}}
+    \dedication{To My Cat, Jeoffery}
+    \abstract{The well known problem of $P=NP$ is explained,
+      together with its significance and a brief history of
+      attempts to solve it.  An ingenious solution is presented.}
+    \begin{document}
+    ...
+    \end{document}
+  \end{lstlisting}  
+
+  A full list of declarations is given in \guide[, Figure~7.1, P~46].
+\end{frame}
+
+\begin{frame}
+  \frametitle{Extra definitions and package loading}
+  \begin{itemize}
+  \item   You can load extra packages and make your own definitions.
+  
+  \item These go in a file with the same name as your main file, but
+    extension `\lstinline|ldf|'. \alert{This is different to the way
+      all other classes work.}
+
+    (I have implemented \lstinline|UoYCSproject| in this way to ensure
+    that packages are loaded in the correct order.)
+  
+  \item Useful packages include: \lstinline|listings|,
+    \lstinline|graphics|, \lstinline|graphicx|, \lstinline|pgf/tikz|,
+    \lstinline|amsmath|.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The anatomy of the body}
+    \begin{description}[Front matter]
+  \item[Front matter] Title pages, abstract, contents, \&c.
+  \item[Main matter] The text, divided into (parts,) chapters (,
+    sections, subsections, subsubsections, paragraphs and
+    subparagraphs).
+  \item[Back matter] Bibliography, appendices \&c.
+  \end{description}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Front matter}
+    \begin{lstlisting}[gobble=4,basicstyle={\small\color{darkgreen}}]
+    \maketitle % Compulsory: title pages, table of contents
+    \listoffigures % Optional: the list of figures
+    \listoftables % Optional: the list of tables
+    ... % Optional, package dependent lists,
+    ... % e.g. \lstlistoflistings
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Main matter}
+    \begin{lstlisting}[gobble=4]
+    \part{title}          % Optional
+    \chapter{title}       % Compulsory
+    \section{title}       % Optional
+    \subsection{title}    % Optional
+    \subsubsection{title} % Optional
+    \paragraph{title}     % Optional
+    \subparagraph{title}  % Optional
+    Text.  Text.
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Back matter}
+    \begin{lstlisting}[gobble=4]
+    \bibliography{file1,file2} % Construct bibliography
+    \appendix % remaining chapters are appendices
+    \chapter{title}       % One per appendix
+    \section{title}       % Optional
+    \subsection{title}    % Optional
+    \subsubsection{title} % Optional
+    \paragraph{title}     % Optional
+    \subparagraph{title}  % Optional
+    Text.  Text.
+  \end{lstlisting}
+\end{frame}
+
+\subsection{General}
+
+\begin{frame}[fragile]
+  \frametitle{Text elements}
+
+  \begin{description}[Characters]
+  \item[Characters] Can control series, family, shape, colour and size
+    of each text character.  See \guide[, \S6.3.3].
+  \item[Sentences] \lstinline[showspaces=true]|Sentence one.  Sentence two.|
+  \item[Paragraphs]
+    \begin{lstlisting}[%
+      showspaces=true,gobble=6,basicstyle={\footnotesize\color{darkgreen}}]
+      Paragraph one.  %  blank line separates paragraphs
+
+      Paragraph two.
+    \end{lstlisting}
+  \end{description}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Special features}
+  \begin{description}[Context dependent emphasis]
+  \item[Context dependent emphasis] \lstinline|\emph{...\emph{...}...}|
+  \item[Cross references] Sectional units, floats, equations, \&c.
+  \item[Quotations] Short and long
+  \item[Citations] 
+  \item[Lists] Bulleted, numbered and labelled
+  \item[Tables]
+  \item[Pictures]
+  \item[Floats] Tables, Figures and others.
+  \end{description}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Citations and the bibliography}
+  \begin{itemize}
+  \item Through the \lstinline{natbib} package, set up for IEEE style.
+  \item \lstinline|\citep{Joyce:FW}| ---cite parenthesised---
+    generates \textcolor{darkblue}{[34]}, assuming
+    \lstinline{Joyce:FW} is the label of the 34th reference.
+
+    \alert{Do not use this form as a noun.}
+  \item \lstinline|\citet{Joyce:FW}| ---cite as text--- generates
+    \textcolor{darkblue}{Joyce~[34]}, assuming also that the author's
+    surname is `Joyce'.
+
+    You may use this form as a noun.
+  \item Rule: \alert{your document should read naturally when all the
+      citation markers (eg the `[34]', but not the `Joyce') are
+      removed.}
+  \end{itemize}
+  Citations are kept in a database in a flat file and processed by a
+  program called Bib\TeX{} before inclusion in output
+  file. \beamergotobutton{\href{http://www-course.cs.york.ac.uk/csw/LaTeX/references.bib}{Example
+      database}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mathematics}
+  Very powerful facilities.  May be enhanced by
+  \lstinline{amsmath} packages (best advice is to \emph{always} load
+  \lstinline{amsmath}).
+
+  \begin{description}\setlength{\itemsep}{0pt}
+  \item[Inline] Here is a formula:
+    \begin{math}\sum_{i=1}^{n}i=\frac{n(n+1)}{2}\end{math}; isn't it
+    beautiful?
+  \item[Displayed] Here is a formula:
+    \begin{equation}
+      \sum_{i=1}^{n}i=\frac{n(n+1)}{2}
+    \end{equation}
+    Isn't it beautiful?
+  \end{description}
+\end{frame}
+
+\subsection{Definitions}
+
+\begin{frame}[fragile]
+  \frametitle{Definitions}
+  
+  A major reason for using \LaTeX{}.  Create special-purpose commands
+  and environments for the structures in \emph{your} document.
+
+  To define a command called \lstinline|\UoY| that prints `The
+  University of York':\\
+  \lstinline|\newcommand*{\UoY}{The University of York}|
+
+  To define a command that has two parameters:\\
+  \lstinline|\newcommand*{\C}[2]{_{#1}C^{#2}}|\\
+  \lstinline|\begin{math}\C{x+2}{3y}\end{math}| type-sets as
+  \textcolor{darkblue}{$_{x+2}C^{3y}$}.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Case study: Cryptographic protocols}
+  \framesubtitle{Syntax and form of messages}
+  A \emph{message} has three components: \emph{sender},
+  \emph{receiver} and \emph{content}.  So we write our document in
+  terms of a command \lstinline|\msg| that has 3 parameters:
+  \begin{lstlisting}[gobble=4]
+    \newcommand*{\msg}[3]{BODY}
+  \end{lstlisting}
+
+  Two possible definitions for \lstinline|BODY|:
+  \begin{enumerate}
+  \item \lstinline|#1\rightarrow#2:#3|
+  \item \lstinline|#2\Leftarrow\left[#3\right]\Leftarrow#1|
+  \end{enumerate}
+  
+  The call \lstinline|\msg{S}{R}{C^{A^{B}}}| produces
+  \begin{enumerate}
+  \item \textcolor{darkblue}{$S\rightarrow R:C^{A^{B}}$} or
+  \item\textcolor{darkblue}{$R\Leftarrow\left[C^{A^{B}}\right]\Leftarrow
+      S$} respectively. 
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Case study: Cryptographic protocols}
+  \framesubtitle{Syntax of message sequences}
+
+    A protocol is a sequence of messages.  So we write our document in
+  terms of an environment that collects a sequence of messages.
+
+  We will write, for example:
+  \begin{lstlisting}[gobble=4]
+    \begin{protocol}
+           \msg{A}{B}{X,Y,Z}
+      \sep \msg{B}{C}{W,X}
+      \sep \msg{C}{B}{W,X'}
+    \end{protocol}
+  \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Case study: Cryptographic protocols}
+  \framesubtitle{Desired form of message sequences}
+
+  Now we design the printed form.
+  \begin{enumerate}
+  \item The output should have numbered messages to which labels can
+    be attached.  Each message should be printed on a line of its own.
+  \item The definitions of \lstinline|\msg| and \lstinline|\sep|
+    should be local to the environment.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Case study: Cryptographic protocols}
+  \framesubtitle{Form of message sequences}
+    \begin{lstlisting}[gobble=4]
+    \newcounter{msgnumber}
+    \newenvironment*{protocol}
+    { % set up
+      \setcounter{msgnumber}{0}%
+      \newcommand*{\msg}[3]{%
+        \refstepcounter{msgnumber}%
+        \themsgnumber&##1&##2&##3}
+      \newcommand*{\sep}{\\}
+      \begin{math}\displaystyle%
+        \begin{array}%
+          {r@{.\quad}l@{\rightarrow}l@{\;:\;}l}}
+    { % finalise
+      \end{array}\end{math}}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Case study: Cryptographic protocols}
+  \framesubtitle{The end product}
+  \begin{tabular}{l@{\hspace{4em}}l}
+    Source&Output\\
+    \begin{lstlisting}[gobble=6]
+      \begin{protocol}
+             \msg{A}{B}{X,Y,Z}
+        \sep \msg{B}{C}{W,X}
+        \sep \msg{C}{B}{W,X'}
+      \end{protocol}
+    \end{lstlisting}
+    &
+    \color{darkblue}
+    \newcounter{msgnumber}
+    \newenvironment*{protocol}
+    {\setcounter{msgnumber}{0}%
+      \newcommand*{\msg}[3]{%
+        \refstepcounter{msgnumber}\themsgnumber&##1&##2&##3}
+      \newcommand*{\sep}{\\}
+      \begin{math}\displaystyle%
+        \begin{array}{r@{.\quad}l@{\rightarrow}l@{\;:\;}l}}
+        {\end{array}
+      \end{math}}
+    \begin{protocol}
+      \msg{A}{B}{X,Y,Z}
+      \sep
+      \msg{B}{C}{W,X}
+      \sep
+      \msg{C}{B}{W,X'}
+    \end{protocol}
+  \end{tabular}
+\end{frame}
+
+\section{Running \LaTeXe{}}
+
+\begin{frame}[fragile]
+  \frametitle{How to run LaTeX}
+  \framesubtitle{The processing cycle}
+
+  \begin{enumerate}
+  \item Create \lstinline{<source>.tex}, \lstinline{<source>.ldf},
+    bibliographic files, \&c.
+  \item Run PDF(E)\LaTeXe{} (Using \TeX{}Live on Departmental Linux:
+    `\lstinline{pdflatex <source>}').  Collects auxiliary information
+    in \lstinline{<source>.aux}, \lstinline{<source>.toc}, \&c. and
+    creates \lstinline{<source>.pdf}.
+  \item Run Bib\TeX{} (`\lstinline{bibtex <source>}').  This uses the
+    auxiliary information to determine database files and writes
+    \lstinline{<source>.bbl} file.
+  \item Run PDF(E)\LaTeXe{} (`\lstinline{pdflatex <source>}') a second
+    time.  Collects auxiliary information in \lstinline{<source>.aux},
+    \lstinline{<source>.toc}, \&c., including bibliographic cross
+    references.
+  \item Run PDF(E)\LaTeXe{} (`\lstinline{pdflatex <source>}') a third
+    time.  There should now be enough auxiliary information to
+    generate the final version of \lstinline{<source>.pdf}.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{How to run LaTeX}
+    \framesubtitle{Helpful tools}
+    \begin{itemize}
+    \item Process can be eased by tools such as
+      \begin{itemize}
+      \item AUC\TeX{} package for \lstinline{emacs} (any platform).
+      \item Mac\TeX{} on Apple
+      \item Mik\TeX{} and WinEDT on Microsoft systems.
+      \item Eclipse plugin (any platform).
+      \end{itemize}
+    \item Incremental processing and errors do not mean repeating the
+      whole process: for example, Bib\TeX{} only needs to be re-run if
+      the bibliographic files change or a new citation is added.
+    \item Most tools also give help with managing Bib\TeX{} databases;
+      there are also many free-standing tools available.
+    \end{itemize}
+  \end{frame}
+\end{document}
+

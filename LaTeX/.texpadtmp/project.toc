@@ -1,0 +1,17 @@
+\select@language {british}
+\contentsline {chapter}{\numberline {1}Introduction}{9}{chapter.1}
+\contentsline {chapter}{\numberline {2}Literature Review}{10}{chapter.2}
+\contentsline {section}{\numberline {2.1}What is Menopause?}{10}{section.2.1}
+\contentsline {section}{\numberline {2.2}Modelling techniques}{10}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Deterministic Models}{10}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Stochastic Models}{10}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Theories to explain evolution of menopause}{10}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Mother Hypothesis}{10}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Grandmother Hypothesis}{10}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Male Preference}{10}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.4}Reproductive Conflict}{10}{subsection.2.3.4}
+\contentsline {section}{\numberline {2.4}Male preference and modelling}{10}{section.2.4}
+\contentsline {chapter}{\numberline {3}Problem Description/Analysis}{11}{chapter.3}
+\contentsline {chapter}{\numberline {4}Design and Implemenation}{12}{chapter.4}
+\contentsline {chapter}{\numberline {5}Results and Evaluation}{13}{chapter.5}
+\contentsline {chapter}{\numberline {6}Conclusion}{14}{chapter.6}
