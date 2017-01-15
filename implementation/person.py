@@ -116,12 +116,14 @@ class Person:
             self.mating_preferences = male_myp
 
     def set_mating_preference(self, pref):
-        if self.sex == "f":
+        if self.sex == "f" or pref.lower() == "female":
             self.mating_preferences = female_preference
-        elif pref == "map":
+        elif pref.lower() == "map":
             self.mating_preferences = male_map
-        else:
+        elif pref.lower() == "myp":
             self.mating_preferences = male_myp
+        else:
+            self.mating_preferences = female_preference
 
     def calculate_age_class(self):
         return ((self.age + 5) / 5)
