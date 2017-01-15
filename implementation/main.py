@@ -243,3 +243,102 @@ for generation in range(1,51):
     writer.writerow([str(generation).zfill(3), str(total_population_size).zfill(6), str(born).zfill(6), str(died).zfill(6), str(born-died).zfill(6), str(len(couples)).zfill(4), str(av_age_difference).zfill(6)])
 
 map_output.close()
+
+### Begin MYP simulation ###
+print("### Begin MYP Simulation ###")
+
+myp_output = open("myp_simulation_output.csv", "wb")
+writer = csv.writer(myp_output, delimiter=",", quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
+
+single_females = female_population
+single_males = male_population
+couples = []
+
+for male in single males:
+
+
+for generation in range(1,51):
+    average_age_difference = 0.0
+    pairings = 0.0
+    born = 0.0
+    died = 0.0
+
+    single_females.sort(key=lambda x: x.age, reverse=False)
+    single_males.sort(key=lambda x: x.age, reverse=False)
+
+    # Pairing Phase
+    for female in single_females:
+        for male in single_males:
+            if female.get_preference(male) == 1 and male.get_preference(female) == 1:
+                couples.append([female, male])
+
+                single_females.remove(female)
+                single_males.remove(male)
+
+                average_age_difference += abs(female.age - male.age)
+                pairings += 1.0
+
+                break
+
+    # Reproduction Phase
+    for couple in couples:
+        chance = (couple[0].reproduce() + couple[1].reproduce()) / 2.0
+        if chance > random.uniform(0.0, 1.0):
+            born += 1
+
+            if 0.5 > random.uniform(0.0, 1.0):
+                single_females.append(Person("f", 0, couple[0].genetics))
+            else:
+                single_males.append(Person("m", 0, couple[1].genetics))
+    # Aging single people
+
+    for female in single_females:
+        female.age_person()
+        if not person.alive:
+            died += 1.0
+            female_population.remove(female)
+
+    for male in single_males:
+        male.age_person()
+        if not person.alive:
+            died += 1.0
+            male_population.remove(male)
+
+    # Aging couples and returning widows to pool
+    for couple in couples:
+
+        couple[0].age_person()
+        if not couple[0].alive:
+            died += 1.0
+
+        couple[1].age_person()
+        if not couple[1].alive:
+            died += 1.0
+
+        if not couple[0].alive and couple[1].alive:
+            male_population.append(couple[1])
+            couples.remove(couple)
+        elif couple[0].alive and not couple[1].alive:
+            female_population.append(couple[0])
+            couples.remove(couple)
+        elif not couple[0].alive and not couple[1].alive:
+            couples.remove(couple)
+
+
+    if pairings > 0:
+        av_age_difference = average_age_difference/pairings
+    else:
+        av_age_difference = 0.0
+    # for couple in couples:
+    #     print(couple)
+    total_population_size = len(single_females) + len(single_males) + (len(couples))
+    print("Generation: " + str(generation).zfill(3)
+    + ", Population Size: " + str(total_population_size).zfill(6)
+    + ", Born: " + str(born).zfill(6)
+    + ", Died: " + str(died).zfill(6)
+    + ", Change: " + str(born-died).zfill(6)
+    + ", Number of couples: " + str(len(couples)).zfill(4)
+    + ", Average age difference: " + str(av_age_difference).zfill(6))
+    writer.writerow([str(generation).zfill(3), str(total_population_size).zfill(6), str(born).zfill(6), str(died).zfill(6), str(born-died).zfill(6), str(len(couples)).zfill(4), str(av_age_difference).zfill(6)])
+
+map_output.close()
