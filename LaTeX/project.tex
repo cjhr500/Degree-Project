@@ -19,6 +19,7 @@
 
 
 \usepackage{framed}
+\usepackage{hyperref}
 
 \begin{document}
 \maketitle
@@ -50,7 +51,7 @@ Deterministic vs stochastic -- computers provide new methods
 \begin{framed}
 \noindent \textbf{Example 1.}
 
-Admittedly, this is a very simplistic description of what really happens, but the point is that TeX operates with glue and boxes. Letters are not the only things that can be boxes. One can put virtually everything into a box, including other boxes. Each box will then be handled by LaTeX as if it were a single letter.
+Admittedly, this is a very simplistic description of what really happens, but the point is that TeX operates with glue and boxes. Letters are not the only things that can be boxes. \cite{whymenmatter2007} One can put virtually everything into a box, including other boxes. Each box will then be handled by LaTeX as if it were a single letter.
 \end{framed}
 
 \section{Male preference and modelling}
@@ -71,4 +72,6 @@ This should be about 2500 words long.
 \label{cha:Conclusion}
 This should be about 1000 words long.
 
+\bibliographystyle{plain}
+\bibliography{project} 
 \end{document}
