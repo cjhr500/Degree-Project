@@ -148,6 +148,9 @@ initial_female_population.close()
 
 print("### Male Burn In Period Ended ###")
 
+print("Female Population Size: " + str(len(female_population)))
+print("Male Population Size: " + str(len(male_population)))
+
 ### Begin MAP simulation ###
 print("### Begin MAP Simulation ###")
 
@@ -165,6 +168,11 @@ for male in map_single_males:
     male.set_mating_preference("map")
 
 for generation in range(1,51):
+
+    print("Female Population Size: " + str(len(female_population)))
+    print("Male Population Size: " + str(len(male_population)))
+
+
     average_age_difference = 0.0
     pairings = 0.0
     born = 0.0
@@ -244,16 +252,18 @@ for generation in range(1,51):
     #     print(couple)
     total_population_size = len(map_single_females) + len(map_single_males) + (2 * len(map_couples))
     print("Generation: " + str(generation).zfill(3)
-    + ", Population Size: " + str(total_population_size).zfill(6)
+    + ", Pop. Size: " + str(total_population_size).zfill(6)
     + ", Born: " + str(born).zfill(6)
     + ", Died: " + str(died).zfill(6)
     + ", Change: " + str(born-died).zfill(6)
-    + ", Number of couples: " + str(len(map_couples)).zfill(4)
-    + ", Average age difference: " + str(av_age_difference).zfill(6))
+    + ", No. of couples: " + str(len(map_couples)).zfill(4)
+    + ", Mean age difference: " + str(av_age_difference).zfill(6))
     writer.writerow([str(generation).zfill(3), str(total_population_size).zfill(6), str(born).zfill(6), str(died).zfill(6), str(born-died).zfill(6), str(len(map_couples)).zfill(4), str(av_age_difference).zfill(6)])
 
 map_output.close()
 
+print("Female Population Size: " + str(len(female_population)))
+print("Male Population Size: " + str(len(male_population)))
 ### Begin MYP simulation ###
 print("### Begin MYP Simulation ###")
 
@@ -351,12 +361,15 @@ for generation in range(1,51):
     #     print(couple)
     total_population_size = len(myp_single_females) + len(myp_single_males) + (2 * len(myp_couples))
     print("Generation: " + str(generation).zfill(3)
-    + ", Population Size: " + str(total_population_size).zfill(6)
+    + ", Pop. Size: " + str(total_population_size).zfill(6)
     + ", Born: " + str(born).zfill(6)
     + ", Died: " + str(died).zfill(6)
     + ", Change: " + str(born-died).zfill(6)
-    + ", Number of couples: " + str(len(map_couples)).zfill(4)
-    + ", Average age difference: " + str(av_age_difference).zfill(6))
+    + ", No. of couples: " + str(len(map_couples)).zfill(4)
+    + ", Mean age difference: " + str(av_age_difference).zfill(6))
     writer.writerow([str(generation).zfill(3), str(total_population_size).zfill(6), str(born).zfill(6), str(died).zfill(6), str(born-died).zfill(6), str(len(myp_couples)).zfill(4), str(av_age_difference).zfill(6)])
 
 myp_output.close()
+
+print("Female Population Size: " + str(len(female_population)))
+print("Male Population Size: " + str(len(male_population)))
