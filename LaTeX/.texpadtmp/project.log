@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.12.5)  17 JAN 2017 11:36
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.12.5)  17 JAN 2017 12:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -422,31 +422,31 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 (/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.aux)
 \openout1 = `project.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 24.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 23.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
 \big@size=\dimen113
-LaTeX Info: Redefining \microtypecontext on input line 24.
+LaTeX Info: Redefining \microtypecontext on input line 23.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: No adjustment of tracking.
@@ -457,7 +457,7 @@ Package microtype Info: No adjustment of kerning.
 File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 )
 \AtBeginShipoutBox=\box28
-Package hyperref Info: Link coloring OFF on input line 24.
+Package hyperref Info: Link coloring OFF on input line 23.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -467,9 +467,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count105
 )
-LaTeX Info: Redefining \ref on input line 24.
-LaTeX Info: Redefining \pageref on input line 24.
-LaTeX Info: Redefining \nameref on input line 24.
+LaTeX Info: Redefining \ref on input line 23.
+LaTeX Info: Redefining \pageref on input line 23.
+LaTeX Info: Redefining \nameref on input line 23.
 
 (/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.out)
 (/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.out)
@@ -477,54 +477,54 @@ LaTeX Info: Redefining \nameref on input line 24.
 \openout3 = `project.out'.
 
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/pplj/b/n' tried instead on input line 25.
+(Font)              Font shape `T1/pplj/b/n' tried instead on input line 24.
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/pplj/b/n' tried instead on input line 25.
+(Font)              Font shape `T1/pplj/b/n' tried instead on input line 24.
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <12> not available
-(Font)              Font shape `T1/pplj/b/n' tried instead on input line 25.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 25.
+(Font)              Font shape `T1/pplj/b/n' tried instead on input line 24.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 24.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 9.85492pt on input line 25.
+(Font)              scaled to size 9.85492pt on input line 24.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `phv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 25.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 24.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 9.85492pt on input line 25.
+(Font)              scaled to size 9.85492pt on input line 24.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 25.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 24.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 18.66588pt on input line 25.
-LaTeX Font Info:    Try loading font information for OT1+ppl on input line 25.
+(Font)              scaled to size 18.66588pt on input line 24.
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 24.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 25.
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 24.
 
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 25.
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 24.
 
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 25.
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 24.
 
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 25.
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 24.
 
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1zplm.fd
@@ -535,7 +535,7 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 10.79993pt on input line 25.
+(Font)              scaled to size 10.79993pt on input line 24.
 
 (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
@@ -552,7 +552,7 @@ File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
 
 ]
-Package tocbasic Info: character protrusion at toc deactivated on input line 25
+Package tocbasic Info: character protrusion at toc deactivated on input line 24
 .
 
 (/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.toc)
@@ -562,7 +562,7 @@ Package tocbasic Info: character protrusion at toc deactivated on input line 25
  [5
 
 ]
-Package tocbasic Info: character protrusion at lof deactivated on input line 26
+Package tocbasic Info: character protrusion at lof deactivated on input line 25
 .
 
 (/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.lof)
@@ -572,7 +572,7 @@ Package tocbasic Info: character protrusion at lof deactivated on input line 26
  [6
 
 ]
-Package tocbasic Info: character protrusion at lot deactivated on input line 27
+Package tocbasic Info: character protrusion at lot deactivated on input line 26
 .
 
 (/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.lot)
@@ -591,14 +591,14 @@ Chapter 1.
 ]
 Chapter 2.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 39.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 38.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 12.9599pt on input line 39.
+(Font)              scaled to size 12.9599pt on input line 38.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 43.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 42.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 43.
-LaTeX Font Info:    Try loading font information for TS1+pplj on input line 57.
+(Font)              scaled to size 10.79993pt on input line 42.
+LaTeX Font Info:    Try loading font information for TS1+pplj on input line 56.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ts1pplj.fd
 File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
@@ -608,44 +608,44 @@ Missing character: There is no ’ in font pplr9d!
 
 ]
 LaTeX Font Info:    Font shape `T1/pplj/m/sl' in size <10.95> not available
-(Font)              Font shape `T1/pplj/m/it' tried instead on input line 101.
+(Font)              Font shape `T1/pplj/m/it' tried instead on input line 105.
  [11]
-[12]
+[12] [13]
 Chapter 3.
-[13
-
-]
-Chapter 4.
 [14
 
 ]
-Chapter 5.
+Chapter 4.
 [15
 
 ]
-Chapter 6.
-(/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.bbl [16
-
-])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 135.
- [17
+Chapter 5.
+[16
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 135.
+Chapter 6.
+(/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.bbl [17
+
+])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 158.
+ [18
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 158.
 
 (/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 135.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 135.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 135.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 158.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 158.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 158.
  ) 
 Here is how much of TeX's memory you used:
- 12241 strings out of 493706
- 186824 string characters out of 6145769
- 334725 words of memory out of 5000000
- 15469 multiletter control sequences out of 15000+600000
+ 12244 strings out of 493706
+ 186941 string characters out of 6145769
+ 335788 words of memory out of 5000000
+ 15472 multiletter control sequences out of 15000+600000
  35520 words of font info for 56 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 49i,7n,52p,379b,416s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,7n,52p,532b,416s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.p
-df (17 pages).
+df (18 pages).

@@ -9,9 +9,9 @@
 \contentsline {subsection}{\numberline {2.3.1}Mother Hypothesis}{11}{subsection.2.3.1}
 \contentsline {subsection}{\numberline {2.3.2}Grandmother Hypothesis}{11}{subsection.2.3.2}
 \contentsline {subsection}{\numberline {2.3.3}Male Preference}{11}{subsection.2.3.3}
-\contentsline {subsection}{\numberline {2.3.4}Reproductive Conflict}{12}{subsection.2.3.4}
-\contentsline {section}{\numberline {2.4}Male preference and modelling}{12}{section.2.4}
-\contentsline {chapter}{\numberline {3}Problem Description/Analysis}{13}{chapter.3}
-\contentsline {chapter}{\numberline {4}Design and Implemenation}{14}{chapter.4}
-\contentsline {chapter}{\numberline {5}Results and Evaluation}{15}{chapter.5}
-\contentsline {chapter}{\numberline {6}Conclusion}{16}{chapter.6}
+\contentsline {subsection}{\numberline {2.3.4}Reproductive Conflict}{13}{subsection.2.3.4}
+\contentsline {section}{\numberline {2.4}Male preference and modelling}{13}{section.2.4}
+\contentsline {chapter}{\numberline {3}Problem Description/Analysis}{14}{chapter.3}
+\contentsline {chapter}{\numberline {4}Design and Implemenation}{15}{chapter.4}
+\contentsline {chapter}{\numberline {5}Results and Evaluation}{16}{chapter.5}
+\contentsline {chapter}{\numberline {6}Conclusion}{17}{chapter.6}
