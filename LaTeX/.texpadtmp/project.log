@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.12.5)  17 JAN 2017 12:06
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.12.5)  17 JAN 2017 13:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -608,44 +608,44 @@ Missing character: There is no ’ in font pplr9d!
 
 ]
 LaTeX Font Info:    Font shape `T1/pplj/m/sl' in size <10.95> not available
-(Font)              Font shape `T1/pplj/m/it' tried instead on input line 105.
+(Font)              Font shape `T1/pplj/m/it' tried instead on input line 114.
  [11]
-[12] [13]
+[12] [13] [14]
 Chapter 3.
-[14
-
-]
-Chapter 4.
 [15
 
 ]
-Chapter 5.
+Chapter 4.
 [16
 
 ]
-Chapter 6.
-(/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.bbl [17
-
-])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 158.
- [18
+Chapter 5.
+[17
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 158.
+Chapter 6.
+(/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.bbl [18
+
+])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 218.
+ [19
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 218.
 
 (/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 158.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 158.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 158.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 218.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 218.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 218.
  ) 
 Here is how much of TeX's memory you used:
- 12244 strings out of 493706
- 186941 string characters out of 6145769
- 335788 words of memory out of 5000000
- 15472 multiletter control sequences out of 15000+600000
+ 12247 strings out of 493706
+ 187022 string characters out of 6145769
+ 334899 words of memory out of 5000000
+ 15475 multiletter control sequences out of 15000+600000
  35520 words of font info for 56 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  49i,7n,52p,532b,416s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.p
-df (18 pages).
+df (19 pages).
