@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.12.5)  17 JAN 2017 13:56
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.12.5)  19 JAN 2017 13:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -608,7 +608,7 @@ Missing character: There is no ’ in font pplr9d!
 
 ]
 LaTeX Font Info:    Font shape `T1/pplj/m/sl' in size <10.95> not available
-(Font)              Font shape `T1/pplj/m/it' tried instead on input line 114.
+(Font)              Font shape `T1/pplj/m/it' tried instead on input line 116.
  [11]
 [12] [13] [14]
 Chapter 3.
@@ -627,16 +627,16 @@ Chapter 6.
 (/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.bbl [18
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 218.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 222.
  [19
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 218.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 222.
 
 (/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 218.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 218.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 218.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 222.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 222.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 222.
  ) 
 Here is how much of TeX's memory you used:
  12247 strings out of 493706

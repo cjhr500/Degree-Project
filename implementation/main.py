@@ -56,7 +56,7 @@ for i in range(1,51):
             born += 1
 
 
-    print("Iteration: " + str(i).zfill(3) + ", Population size: " + str(len(female_population)).zfill(4) + ", Born: " + str(born).zfill(3) + ", Died: " + str(died).zfill(3) + ", Change: " + str(len(female_population) - old_female_population_size).zfill(4))
+    #print("Iteration: " + str(i).zfill(3) + ", Population size: " + str(len(female_population)).zfill(4) + ", Born: " + str(born).zfill(3) + ", Died: " + str(died).zfill(3) + ", Change: " + str(len(female_population) - old_female_population_size).zfill(4))
 
     total_females_born += born
     total_females_died += died
@@ -124,7 +124,7 @@ for i in range(1,51):
             born += 1
             male_population.append(Person("m", 0, person.genetics))
 
-    print("Iteration: " + str(i).zfill(3) + ", Population size: " + str(len(male_population)).zfill(4) + ", Born: " + str(born).zfill(3) + ", Died: " + str(died).zfill(3) + ", Change: " + str(len(male_population) - old_male_population_size).zfill(4))
+    # print("Iteration: " + str(i).zfill(3) + ", Population size: " + str(len(male_population)).zfill(4) + ", Born: " + str(born).zfill(3) + ", Died: " + str(died).zfill(3) + ", Change: " + str(len(male_population) - old_male_population_size).zfill(4))
 
     total_males_born += born
     total_males_died += died
@@ -157,9 +157,15 @@ print("### Begin MAP Simulation ###")
 map_output = open("map_simulation_output.csv", "wb")
 writer = csv.writer(map_output, delimiter=",", quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
 
-map_single_females = female_population
-map_single_males = male_population
+map_single_females = []
+map_single_males = []
 map_couples = []
+
+for female in female_population:
+    map_single_females.append(female)
+
+for male in male_population:
+    map_single_males.append(male)
 
 for female in map_single_females:
     male.set_mating_preference("female")
@@ -168,11 +174,6 @@ for male in map_single_males:
     male.set_mating_preference("map")
 
 for generation in range(1,51):
-
-    print("Female Population Size: " + str(len(female_population)))
-    print("Male Population Size: " + str(len(male_population)))
-
-
     average_age_difference = 0.0
     pairings = 0.0
     born = 0.0
@@ -270,9 +271,15 @@ print("### Begin MYP Simulation ###")
 myp_output = open("myp_simulation_output.csv", "wb")
 writer = csv.writer(myp_output, delimiter=",", quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
 
-myp_single_females = female_population
-myp_single_males = male_population
+myp_single_females = []
+myp_single_males = []
 myp_couples = []
+
+for female in female_population:
+    myp_single_females.append(female)
+
+for male in male_population:
+    myp_single_males.append(male)
 
 for female in myp_single_females:
     male.set_mating_preference("female")
@@ -370,6 +377,3 @@ for generation in range(1,51):
     writer.writerow([str(generation).zfill(3), str(total_population_size).zfill(6), str(born).zfill(6), str(died).zfill(6), str(born-died).zfill(6), str(len(myp_couples)).zfill(4), str(av_age_difference).zfill(6)])
 
 myp_output.close()
-
-print("Female Population Size: " + str(len(female_population)))
-print("Male Population Size: " + str(len(male_population)))
