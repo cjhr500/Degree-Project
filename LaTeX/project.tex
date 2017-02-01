@@ -19,6 +19,7 @@
 
 \usepackage{framed}
 \usepackage{hyperref}
+\usepackage{enumitem}
 
 \begin{document}
 \maketitle
@@ -29,179 +30,93 @@
 
 \chapter{Introduction}
 \label{cha:Introduction}
-This should be about 1000 words long.
+\section{Motivation}
+Menopause unsolved problem in biology -- many different hypotheses
+
+Better population models
+
+Replicating model can be used to check results found elsewhere
+
+Model can be adapted for use for other hypotheses to do with menopause and/or population modelling.
+
+\section{Aims}
+To check validity of existing model by replicating it
+
+To rewrite the model into an object oriented language (python)
+
+Address some of it shortcomings (allowing preference to coevolve)
+
+\section{Thesis Outline}
+Chapter Two Literature Review: reviewing past work relevant to the project
+
+Chapter Three Problem Description: looking at what the problem consists of
+
+Chapter Four Design and Implementation: designing a solution to the problem
+
+Chapter Five Results and Evaluation: presenting and analysing the results produced by the solution
+
+Chapter Six Conclusion: making judgement of the solution and the results, suggesting new work.
+
+\section{Statement of Ethics}
+Model -- no ethical concerns
 
 \chapter{Literature Review}
 \label{cha:Literature Review}
-This should be about 3000 words long.
 
-\section{What is Menopause?}
+\section{Menopause}
+What is menopause. Somatic vs reproductive senescence. 
 
-\section{Modelling techniques}
-Deterministic vs stochastic -- computers provide new methods
-\subsection{Deterministic Models}
-\subsection{Stochastic Models}
+What animals does it occur in. Wild vs captive.
 
-\section{Theories to explain evolution of menopause}
+Possible reasons for menopause Patriarch Hypothesis, Grandmother, reproductive conflict
 
-\begin{framed}
-\noindent \textbf{The evolution of prolonged life after reproduction. \cite{evolutionPRLS2015}}
+\subsection{Patriarch hypothesis}
+Proposed by \cite{patriarchHypothesis2000} , Males having preference for younger females caused menopause
 
-Overview paper reviewing previous research into the presence of and theories for the existence of long post reproductive lifespans (PRLS).
+Deterministic model done in \cite{whyMenMatter2007} but this has fixed age of end of reproduction -- something not true now.
 
-Found in Humans, Killer Whales/Orcas and Short finned pilot whales.
+Stochastic model done in \cite{mateChoice2013} -- main focus of report. Fixes many of the flaws of \cite{whyMenMatter2007} (including removing the fixed age of the end of reproduction) but still has problems.
 
-\noindent Non-adaptive hypotheses:
-\begin{itemize}
-    \item extended lifespans caused by improvements in medicine
-    \item males preferring younger females
-\end{itemize}
 
-\noindent Adaptive hypotheses:
-\begin{itemize}
-    \item mother hypothesis - to look after previous offspring rather than having new ones.
-    \item grandmother hypothesis - to look after grandchildren to enable daughter(in law) to have more children.
-    \item reproductive conflict hypothesis - grandmother’s children competing with children
-\end{itemize}
-\end{framed}
+\subsection{Grandmother hypothesis}
 
-\subsection{Mother Hypothesis}
-\begin{framed}
-\noindent \textbf{Patriarch hypothesis. \cite{patriarchHypothesis2000}}
+\subsection{Reproductive conflict}
 
-Notes
+\subsection{Other hypotheses}
+Follicular depletion, healthcare/lifespan improvements - not evolutionary but epiphenomenon, Risk from late age reproduction.
 
-\noindent \textbf{My Thoughts}
+\section{Evolution}
+Overview \cite{origin1859}
 
+\subsection{Key concepts/terms}
+\begin{description}[style=nextline]
+\item[Selection] Description of selection
 
-\end{framed}
+\item [Mutation] Description of mutation
 
-\begin{framed}
-\noindent \textbf{Patriarch hypothesis. \cite{patriarchHypothesis2000}}
+\item [Crossover] Description of crossover
 
-Notes
+\item [Coevolution] Description of co-evolution
+\end{description}
 
-\noindent \textbf{My Thoughts}
+\subsection{Biological relevance to project}
+Project looking at evolution of long post-reproductive lifespans
 
+\subsection{Computational relevance to project}
+Is modelling evolution
 
-\end{framed}
+\section{Modelling in biology}
 
-\subsection{Grandmother Hypothesis}
-\begin{framed}
-\noindent \textbf{Grandmothering drives the evolution of longevity in a probabilistic model \cite{grandmotheringProbabilistic2014}}
+\subsection{Deterministic modelling}
+Populations often modelled with exponential growth/differential equations
 
-Looks into how postreproductive females improve the inclusive fitness of the group by caring for their children's offspring (grandmother hypothesis).
+\subsection{Stochastic modelling}
+Multiagent systems, genetic algorithms, neural networks, machine learning to reduce dimensionality,
 
-The model uses agent based model instead of traditional deterministic population model. This has the following benefits:
-\begin{itemize}
-    \item No zigzagging or sudden jumps - this is due to not having a fixed time interval
-    \item No need for fixed ages
-    \item Two local equilibria - great ape like and human like - co-exist with grandmothering
-\end{itemize}
+\section{Conclusions from Literature}
 
 
-
-\noindent \textbf{My Thoughts}
-
-\end{framed}
-
-\begin{framed}
-\noindent \textbf{Patriarch hypothesis. \cite{patriarchHypothesis2000}}
-
-Notes
-
-\noindent \textbf{My Thoughts}
-
-
-\end{framed}
-
-\begin{framed}
-\noindent \textbf{Patriarch hypothesis. \cite{patriarchHypothesis2000}}
-
-Notes
-
-\noindent \textbf{My Thoughts}
-
-
-\end{framed}
-
-\subsection{Male Preference}
-\begin{framed}
-\noindent \textbf{Why Men Matter: Mating Patterns Drive Evolution of Human Lifespan \cite{whyMenMatter2007}}
-
-There is a lack of a wall of death - females dying immediately after menopause - when using a two-sex model opposed to a one-sex model.
-
-Older males prefer younger females in the model as females their own age may be post-reproductive.
-
-This preference reinforces post-reproductive lifespans as females are not reproducing due to the lack of male interest - thus the biological need for them to remain reproductive is diminished.
-
-
-
-\noindent \textbf{My Thoughts}
-
-There seems to be no accounting for the fact that male preference for younger females could have developed after the evolution of long post-reproductive females.
-
-Indeed it seems that the evolution of a longer period of female reproduction would occur as those who remained fertile for longer would likely be still reproduced with, producing offspring with genes that can reproduce for longer. This extended period of reproduction would also probably result in more offspring than those who stopped reproducing at a younger age.
-
-The statistical model is poorly explained - it is unclear how male preference has been implemented.
-
-Various features are also fixed -- such as the last age of reproduction -- even though part of the point of the model is discover why it occurs naturally and fixing the age would prevent this.
-\end{framed}
-
-\begin{framed}
-\noindent \textbf{Patriarch hypothesis. \cite{patriarchHypothesis2000}}
-
-Notes
-
-\noindent \textbf{My Thoughts}
-
-
-\end{framed}
-
-
-\begin{framed}
-\noindent \textbf{Mate Choice and the Origin of Menopause. \cite{mateChoice2013}}
-
-Provides explanation of other hypotheses and why it feels male preference is more important.
-
-Uses a stochastic, agent based model rather than the statistical one used in \cite{whyMenMatter2007}. It also does not fix the ages of anything and accounts for random mutations of the genes.
-
-
-
-\noindent \textbf{My Thoughts}
-
-There seems to be no good reason why they have implemented a multi-agent system in C, rather than using a object-oriented language such as Python, Java, Ruby, R etc. Their code spends many lines implementing features present in modern programming languages (i.e. strings) and is difficult to read. It also fails to compile.
-
-They do not provide proper input files to their model either, instead presenting their input data as tables in word documents. Sample output files are also not provided for those unable to run the software.
-
-Although the last age of reproduction is not fixed, the model makes thechoice of using fertility and chance of death over a 5 year period, which is strange considering it is possible for females to have several pregnancies over this time. Multi-agent systems are also capable of having non-fixed time intervals so this seems like a definite shortcoming of the model as having non-fixed time intervals helps avoid zig-zagging or sudden jumps in population size as not everyone is dying or reproducing at the same time. 
-
-\end{framed}
-
-
-\subsection{Reproductive Conflict}
-\begin{framed}
-\noindent \textbf{Reproductive Conflict and the Evolution of Menopause in Killer Whales \cite{repConflictOrca2017}}
-
-Notes
-
-\noindent \textbf{My Thoughts}
-
-
-\end{framed}
-
-\begin{framed}
-\noindent \textbf{Patriarch hypothesis. \cite{patriarchHypothesis2000}}
-
-Notes
-
-\noindent \textbf{My Thoughts}
-
-
-\end{framed}
-
-
-\chapter{Problem Description/Analysis}
+\chapter{Problem Description}
 \label{cha:Problem Description}
 This should be about 1500 words long.
 
