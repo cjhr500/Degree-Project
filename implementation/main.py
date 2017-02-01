@@ -178,16 +178,18 @@ for generation in range(1,51):
     pairings = 0.0
     born = 0.0
     died = 0.0
+    females_born = 0.0
+    males_born = 0.0
 
     map_single_females.sort(key=lambda x: x.age, reverse=False)
     map_single_males.sort(key=lambda x: x.age, reverse=False)
 
     # Pairing Phase
-    for female in map_single_females:
-        for male in map_single_males:
+    for male in map_single_males:
+        for female in map_single_females:
             if female.get_preference(male) == 1 and male.get_preference(female) == 1:
                 map_couples.append([female, male])
-
+                print("Couple formed between " + str(female.age) + " year old woman and " + str(male.age) + " year old man with age difference " + str(abs(female.age - male.age)))
                 map_single_females.remove(female)
                 map_single_males.remove(male)
 
@@ -206,10 +208,14 @@ for generation in range(1,51):
                 female_offspring = Person("f", 0, couple[0].genetics)
                 female_offspring.set_mating_preference("female")
                 map_single_females.append(female_offspring)
+                print("Female Born")
+                females_born += 1
             else:
                 male_offspring = Person("m", 0, couple[1].genetics)
                 male_offspring.set_mating_preference("map")
                 map_single_males.append(male_offspring)
+                print("Male Born")
+                males_born += 1
     # Aging single people
 
     for female in map_single_females:
@@ -252,10 +258,12 @@ for generation in range(1,51):
     # for couple in couples:
     #     print(couple)
     total_population_size = len(map_single_females) + len(map_single_males) + (2 * len(map_couples))
-    print("Generation: " + str(generation).zfill(3)
+    print("\nGeneration: " + str(generation).zfill(3)
     + ", Pop. Size: " + str(total_population_size).zfill(6)
     + ", Born: " + str(born).zfill(6)
-    + ", Died: " + str(died).zfill(6)
+    + ", F Born: " + str(females_born).zfill(5)
+    + ", M Born: " + str(males_born).zfill(5)
+    + ",\nDied: " + str(died).zfill(6)
     + ", Change: " + str(born-died).zfill(6)
     + ", No. of couples: " + str(len(map_couples)).zfill(4)
     + ", Mean age difference: " + str(av_age_difference).zfill(6))
@@ -265,6 +273,7 @@ map_output.close()
 
 print("Female Population Size: " + str(len(female_population)))
 print("Male Population Size: " + str(len(male_population)))
+
 ### Begin MYP simulation ###
 print("### Begin MYP Simulation ###")
 
@@ -298,8 +307,8 @@ for generation in range(1,51):
     myp_single_males.sort(key=lambda x: x.age, reverse=False)
 
     # Pairing Phase
-    for female in myp_single_females:
-        for male in myp_single_males:
+    for male in myp_single_males:
+        for female in myp_single_females:
             if female.get_preference(male) == 1 and male.get_preference(female) == 1:
                 myp_couples.append([female, male])
 
