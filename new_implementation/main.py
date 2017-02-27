@@ -42,13 +42,13 @@ class MortalityDistribution:
     def get_survival_by_age_class(self, ageClass):
         return get_survival((ageClass * 5) - 1)
 
-print("Mortality distribution set up")
-
 female_fertility = MortalityDistribution("female_data.csv")
-print(female_fertility)
+#print(female_fertility)
 
 male_fertility = MortalityDistribution("male_data.csv")
-print(male_fertility)
+#print(male_fertility)
+
+print("Initial mortality distributions set up")
 
 # Set up ReproductiveDistribution
 
@@ -75,10 +75,48 @@ class ReproductiveDistribution:
     def get_reproduction_by_age_class(self, ageClass):
         return get_reproduction((ageClass * 5) - 1)
 
-print("Reproductive distribution set up")
+
 
 female_reproduction = MortalityDistribution("female_data.csv")
-print(female_reproduction)
+#print(female_reproduction)
 
 male_reproduction = MortalityDistribution("male_data.csv")
-print(male_reproduction)
+#print(male_reproduction)
+print("Initial reproductive distributions set up")
+
+# Set up PreferenceDistribution
+class PreferenceDistribution:
+    def __init__(self, name, input_file):
+        self.name
+        self.distribution = []
+        with open(input_file, "rb") as f:
+            reader = csv.reader(f)
+            for row in reader:
+                new_row = []
+                for cell in row:
+                    new_row.append(int(cell))
+                self.distribution.append(new_row)
+
+    def __repr__(self):
+        str_representation = ""
+
+        for row in self.distribution:
+            row_str = ""
+            for cell in row:
+                row_str += str(cell) + ", "
+            row_str += "\n"
+
+            str_representation += row_str
+
+        return str_representation
+
+female_preference = PreferenceDistribution("female", "female_pref.csv")
+print(female_preference)
+
+male_map_preference = PreferenceDistribution("male_map", "male_map.csv")
+print(male_map_preference)
+
+male_myp_preference = PreferenceDistribution("male_myp", "male_myp.csv")
+print(male_myp_preference)
+
+print("Initial preference distributions set up")
