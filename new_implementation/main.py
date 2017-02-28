@@ -3,10 +3,17 @@ import random
 
 
 class Person:
-    def __init__(self, age, sex):
+    def __init__(self, age, sex, mort_dist, fert_dist, pref_dist, genes=None):
         self.age = age
         self.sex = sex
         self.alive = true
+        self.mortality = mort_dist
+        self.fertility = fert_dist
+        self.pref_dist = pref_dist
+        if genes is None:
+            self.genes = Genetics()
+        else:
+            self.genes = genes
 
     def __repr__(self):
         return "AGE: " + str(self.age).zfill(2) + ", SEX: " + str(self.sex) + ", ALIVE: " + str(self.alive)
@@ -16,6 +23,20 @@ class Person:
 
     def set_age(self, age):
         self.age = age
+
+    def increase_age(self):
+        if random.uniform(0.0,1.0) < self.mortality.get_survival(self.age):
+            self.age += 5
+        else:
+            self.alive = false
+
+    def calculate_age_class(self):
+        return ((self.age + 5) / 5)
+
+    def set_mortality_distribution(self, distribution):
+        self.mortality = distribution
+
+
 
 # Set up MortalityDistribution
 
@@ -87,7 +108,7 @@ print("Initial reproductive distributions set up")
 # Set up PreferenceDistribution
 class PreferenceDistribution:
     def __init__(self, name, input_file):
-        self.name
+        self.name = name
         self.distribution = []
         with open(input_file, "rb") as f:
             reader = csv.reader(f)
@@ -110,13 +131,27 @@ class PreferenceDistribution:
 
         return str_representation
 
+    def get_preference(self, age_class_one, age_class_two):
+        return self.distribution[age_class_one][age_class_two]
+
 female_preference = PreferenceDistribution("female", "female_pref.csv")
-print(female_preference)
+#print(female_preference)
 
 male_map_preference = PreferenceDistribution("male_map", "male_map.csv")
-print(male_map_preference)
+#print(male_map_preference)
 
 male_myp_preference = PreferenceDistribution("male_myp", "male_myp.csv")
-print(male_myp_preference)
+#print(male_myp_preference)
 
 print("Initial preference distributions set up")
+
+class Genetics:
+    def __init__(self, genes=None):
+        if genes is None:
+            self.genes = random_genes(8)
+        else:
+            self.genes = genes
+
+    def random_genes(self, size):
+        return "".join(str(random.randint(0, 1))
+                for x in xrange(size))
