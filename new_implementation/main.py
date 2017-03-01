@@ -3,12 +3,12 @@ import random
 
 
 class Person:
-    def __init__(self, age, sex, mort_dist, fert_dist, pref_dist, genes=None):
+    def __init__(self, age, sex, mort_dist, repr_dist, pref_dist, genes=None):
         self.age = age
         self.sex = sex
-        self.alive = true
+        self.alive = True
         self.mortality = mort_dist
-        self.fertility = fert_dist
+        self.reproduction = repr_dist
         self.pref_dist = pref_dist
         if genes is None:
             self.genes = Genetics()
@@ -16,7 +16,10 @@ class Person:
             self.genes = genes
 
     def __repr__(self):
-        return "AGE: " + str(self.age).zfill(2) + ", SEX: " + str(self.sex) + ", ALIVE: " + str(self.alive)
+        return ("AGE: " + str(self.age).zfill(2)
+        + ", SEX: " + str(self.sex)
+        + ", ALIVE: " + str(self.alive)
+        + ", GENES: " + str(self.genes))
 
     def get_age(self):
         return self.age
@@ -28,7 +31,7 @@ class Person:
         if random.uniform(0.0,1.0) < self.mortality.get_survival(self.age):
             self.age += 5
         else:
-            self.alive = false
+            self.alive = False
 
     def calculate_age_class(self):
         return ((self.age + 5) / 5)
@@ -63,11 +66,11 @@ class MortalityDistribution:
     def get_survival_by_age_class(self, ageClass):
         return get_survival((ageClass * 5) - 1)
 
-female_fertility = MortalityDistribution("female_data.csv")
-#print(female_fertility)
+female_mortality = MortalityDistribution("female_data.csv")
+#print(female_mortality)
 
-male_fertility = MortalityDistribution("male_data.csv")
-#print(male_fertility)
+male_mortality = MortalityDistribution("male_data.csv")
+#print(male_mortality)
 
 print("Initial mortality distributions set up")
 
@@ -98,10 +101,10 @@ class ReproductiveDistribution:
 
 
 
-female_reproduction = MortalityDistribution("female_data.csv")
+female_reproduction = ReproductiveDistribution("female_data.csv")
 #print(female_reproduction)
 
-male_reproduction = MortalityDistribution("male_data.csv")
+male_reproduction = ReproductiveDistribution("male_data.csv")
 #print(male_reproduction)
 print("Initial reproductive distributions set up")
 
@@ -148,10 +151,24 @@ print("Initial preference distributions set up")
 class Genetics:
     def __init__(self, genes=None):
         if genes is None:
-            self.genes = random_genes(8)
+            self.genes = self.random_genes(8)
         else:
             self.genes = genes
+
+    def __repr__(self):
+        return str(self.genes)
 
     def random_genes(self, size):
         return "".join(str(random.randint(0, 1))
                 for x in xrange(size))
+
+# Set up base female population
+female_population = []
+
+for i in range(0,500):
+    female_population.append(Person(0, "f", female_mortality, female_reproduction, female_preference))
+
+# for female in female_population:
+#     print(female)
+#
+# print(female_population[25].reproduction)
