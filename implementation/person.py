@@ -106,7 +106,7 @@ class Person:
             return female_life_data[self.age]["fertility"]
         else:
             return female_life_data[self.age]["fertility"]
-
+#
     def calculate_mating_preferences(self):
         if self.sex == "f":
             self.mating_preferences = female_preference

@@ -144,7 +144,7 @@ writer = csv.writer(initial_male_population, delimiter=",", quotechar='"', quoti
 for male in male_population:
     writer.writerow(male.get_list())
 
-initial_female_population.close()
+initial_male_population.close()
 
 print("### Male Burn In Period Ended ###")
 
@@ -168,7 +168,7 @@ for male in male_population:
     map_single_males.append(male)
 
 for female in map_single_females:
-    male.set_mating_preference("female")
+    female.set_mating_preference("female")
 
 for male in map_single_males:
     male.set_mating_preference("map")
@@ -220,13 +220,13 @@ for generation in range(1,51):
 
     for female in map_single_females:
         female.age_person()
-        if not person.alive:
+        if not female.alive:
             died += 1.0
             map_single_females.remove(female)
 
     for male in map_single_males:
         male.age_person()
-        if not person.alive:
+        if not male.alive:
             died += 1.0
             map_single_males.remove(male)
 
