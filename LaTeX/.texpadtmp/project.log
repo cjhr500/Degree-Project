@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.12.5)  16 APR 2017 22:02
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.12.5)  16 APR 2017 22:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -570,6 +570,9 @@ Package tocbasic Info: character protrusion at toc deactivated on input line 25
  [5
 
 ]
+LaTeX Font Info:    Font shape `T1/pplj/m/sl' in size <10.95> not available
+(Font)              Font shape `T1/pplj/m/it' tried instead on input line 26.
+ [6]
 Package tocbasic Info: character protrusion at lof deactivated on input line 26
 .
 
@@ -577,7 +580,7 @@ Package tocbasic Info: character protrusion at lof deactivated on input line 26
 \tf@lof=\write5
 \openout5 = `project.lof'.
 
- [6
+ [7
 
 ]
 Package tocbasic Info: character protrusion at lot deactivated on input line 27
@@ -587,10 +590,7 @@ Package tocbasic Info: character protrusion at lot deactivated on input line 27
 \tf@lot=\write6
 \openout6 = `project.lot'.
 
- [7
-
-] [8
-
+ [8
 
 ]
 Chapter 1.
@@ -598,30 +598,30 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 33.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 12.9599pt on input line 33.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 40.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 10.79993pt on input line 40.
 [9
 
+
+
 ]
-Overfull \hbox (2.81529pt too wide) in paragraph at lines 52--53
+Overfull \hbox (2.81529pt too wide) in paragraph at lines 53--54
 []\T1/pplj/m/n/10.95 designing a solu-tion to the prob-
  []
 
-LaTeX Font Info:    Font shape `T1/pplj/m/sl' in size <10.95> not available
-(Font)              Font shape `T1/pplj/m/it' tried instead on input line 63.
 [10]
 Chapter 2.
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 69.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 69.
 [11
 
 ] [12]
-LaTeX Font Info:    Try loading font information for TS1+pplj on input line 93.
+LaTeX Font Info:    Try loading font information for TS1+pplj on input line 94.
 
  (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ts1pplj.fd
 File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
 )
-Overfull \hbox (7.05003pt too wide) in paragraph at lines 93--94
+Overfull \hbox (7.05003pt too wide) in paragraph at lines 94--95
 \T1/pplj/m/n/10.95 which are de-pleted over time, and that re-pro-duc-tion nat-
 ur-ally comes
  []
@@ -643,25 +643,25 @@ Chapter 6.
 (/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.bbl [19
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 162.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 163.
  [20
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 162.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 163.
 
 (/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 162.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 162.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 162.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 163.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 163.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 163.
  ) 
 Here is how much of TeX's memory you used:
- 12541 strings out of 493706
- 191983 string characters out of 6145769
- 343810 words of memory out of 5000000
- 15765 multiletter control sequences out of 15000+600000
+ 12542 strings out of 493706
+ 191996 string characters out of 6145769
+ 344052 words of memory out of 5000000
+ 15766 multiletter control sequences out of 15000+600000
  35520 words of font info for 56 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 49i,7n,52p,540b,457s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,7n,52p,561b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.p
 df (20 pages).
