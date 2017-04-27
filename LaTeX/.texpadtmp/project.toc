@@ -21,8 +21,8 @@
 \contentsline {subsection}{\numberline {2.3.4}Other hypotheses}{14}{subsection.2.3.4}
 \contentsline {section}{\numberline {2.4}Evolution}{14}{section.2.4}
 \contentsline {subsection}{\numberline {2.4.1}Key concepts/terms}{14}{subsection.2.4.1}
-\contentsline {section}{\numberline {2.5}Modelling in biology}{14}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}Deterministic modelling}{14}{subsection.2.5.1}
+\contentsline {section}{\numberline {2.5}Modelling in biology}{15}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Deterministic modelling}{15}{subsection.2.5.1}
 \contentsline {subsection}{\numberline {2.5.2}Stochastic modelling}{15}{subsection.2.5.2}
 \contentsline {section}{\numberline {2.6}Conclusions from Literature}{15}{section.2.6}
 \contentsline {chapter}{\numberline {3}Problem Description}{16}{chapter.3}
