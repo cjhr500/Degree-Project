@@ -80,16 +80,10 @@ Project is covering computational models of populations to try and understand ho
 
 \newpage
 \section{Menopause}
-Menopause is the process where 
-
-What is menopause. Somatic vs reproductive senescence. Short vs long PRLS.
-
-Which animals has it been show to occur in (Humans, Short Finned Pilot Whales, Orcas (Killer Whales)) Wild vs captive. Human vs Primates.
-
-Possible reasons for menopause Patriarch Hypothesis, Grandmother, reproductive conflict. Overview in \cite{evolutionPRLS2015}
+Menopause is the process where females cease having menstrual periods and become infertile. Although we understand to some extent the physiological cause (a decrease in estrogen and progesterone), the evolutionary benefits of a reduction in reproduction seem unclear, with many different theories for its existence \cite{evolutionPRLS2015}. Something that is notable is that menopause is only present in a few species in the wild (humans, short finned pilot whales, orcas), with humans being the only primates to experience it. 
 
 \subsection{Patriarch Hypothesis}
-The Patriarch Hypothesis \cite{patriarchHypothesis2000} hypothesises that menopause came about due to older, high status males having access to younger female mates allowing them to reproduce for much longer. This increased the proliferation of geness linked to longevity, increasing both the lifespan of males and females. This is reliant on several factors: 
+The patriarch Hypothesis \cite{patriarchHypothesis2000} hypothesises that menopause came about due to older, high status males having access to younger female mates allowing them to reproduce for much longer. This increased the proliferation of geness linked to longevity, increasing both the lifespan of males and females. This is reliant on several factors: 
 
 \begin{itemize}
 \item That females have a limited number of oocytes (immature ova) which are depleted over time, and that reproduction naturally comes to an end when they run out. \cite{humanPopBio1994} In early females, before female longevity increased, most females died before their supply of oocytes had been completely depleted, and so did not experience menopause.
@@ -101,15 +95,17 @@ A mathematical model of the hypothesis was created \cite{whyMenMatter2007} which
 
 To try and correct some of these shortcomings, a computational model \cite{mateChoice2013} which does not have a fixed age where females become infertile. Each member of the population is modelled as an individual agent, with genes that affect either mortality or fertility, with genes acting either in a sex dependendent or a sex indifferent manner. Pseudo-random numbers are used to determine births, deaths and partnerships against predetermined tables which are modified by genetics. One of the main shortcomings of the model is that it does not allow the preferences of the agents to coevolve with the change in fertility and mortality. 
 
-\subsection{Grandmother Hypothesis and the Mothering Hypothesis}
-The grandmother hypothesis \cite{grandmother2000} theorises that the evolution of menopause came about due to the increased inclusive fitness of a population caused by grandmother being able to help her children raise their offspring through providing childcare and resources such as food. This is due to the grandmother being post-reproductive and not having any children that are of an age where they need care. This grandmothering improves the survival of grandchildren and allows her children to reproduce more frequently. Populations which had post-reproductive women would grow more rapidly as a result, meaning they would overtake populations where they did not occur. 
+Overall the main issue with the patriarch hypothesis is that males' preference for younger females may itself be an epiphenomenon which emerged as a result of menopause, rather than the other way round. Knowledge that females would become infertile after a certain age would cause males to have a preference for younger females who had more fertile years left.
 
-One of the criticisms of the grandmother hypothesis is that the degree of increase to inclusive fitness has been overstated, and that whilst the benefit might be a factor, it is unlikely to be the only factor to have caused it. Another criticism is that if the benefits of grandmothering are so great, why do males remain reproductive throughout their lives? If the increase to inclusive fitness is so great from grandmothering then it seems unlikely that this benefit would be limited ti just one sex.
+\subsection{Grandmother Hypothesis and the Mothering Hypothesis}
+The grandmother hypothesis \cite{grandmother2000, grandmotheringProbabilistic2014, longevityGrandmother2012} theorises that the evolution of menopause came about due to the increased inclusive fitness of a population caused by grandmother being able to help her children raise their offspring through providing childcare and resources such as food. This is due to the grandmother being post-reproductive and not having any children that are of an age where they need care. This grandmothering improves the survival of grandchildren and allows her children to reproduce more frequently. Populations which had post-reproductive women would grow more rapidly as a result, meaning they would overtake populations where they did not occur. 
+
+One of the criticisms of the grandmother hypothesis is that the degree of increase to inclusive fitness has been overstated, and that whilst the benefit might be a factor, it is unlikely to be the only factor to have caused it. Another criticism is that if the benefits of grandmothering are so great, why do males remain reproductive throughout their lives? If the increase to inclusive fitness is so great from grandmothering then it seems unlikely that this benefit would be limited to just one sex.
 
 The mothering hypothesis is a similar theory in which a species improves the survival of offspring by ceasing reproduction at a certain point so that resources could be focused on raising existing children, rather than continuing to focus on reproduction and newborn children. The reduced mortality rate of children would again result in an increase of inclusive fitness.
 
 \subsection{Reproductive Conflict Hypothesis}
-Grandmothers stop reproducing so that their offspring are not competing with their grandchildren for resources. \cite{repConflictOrca2017}
+The reproductive conflict hypothesis \cite{cant2008reproductive, repConflictOrca2017} is another hypothesis based on grandmothers: this time instead of them stopping reproduction to provide childcare, they cease reproduction so that their offspring are no competing for resources such as food with their grandchildren. Menopause reduces the amount of time where a mother is fertile at the same time as her offspring, reducing the likelihood that they have young children at the same time.
 
 \subsection{Other hypotheses}
 Follicular depletion, healthcare/lifespan improvements - not evolutionary but epiphenomenon, Risk from late age reproduction.
