@@ -15,16 +15,13 @@
 \contentsline {subsection}{\numberline {2.2.2}Applications}{11}{subsection.2.2.2}
 \contentsline {subsection}{\numberline {2.2.3}Relationship to evolution}{11}{subsection.2.2.3}
 \contentsline {section}{\numberline {2.3}Menopause}{12}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Patriarch Hypothesis}{13}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Grandmother hypothesis}{14}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Reproductive conflict}{14}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.1}Patriarch Hypothesis}{12}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Grandmother Hypothesis and the Mothering Hypothesis}{13}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Reproductive Conflict Hypothesis}{14}{subsection.2.3.3}
 \contentsline {subsection}{\numberline {2.3.4}Other hypotheses}{14}{subsection.2.3.4}
-\contentsline {section}{\numberline {2.4}Evolution}{14}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Key concepts/terms}{14}{subsection.2.4.1}
-\contentsline {section}{\numberline {2.5}Modelling in biology}{15}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}Deterministic modelling}{15}{subsection.2.5.1}
-\contentsline {subsection}{\numberline {2.5.2}Stochastic modelling}{15}{subsection.2.5.2}
-\contentsline {section}{\numberline {2.6}Conclusions from Literature}{15}{section.2.6}
+\contentsline {section}{\numberline {2.4}Evolution}{15}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Key concepts/terms}{15}{subsection.2.4.1}
+\contentsline {section}{\numberline {2.5}Conclusions from Literature}{15}{section.2.5}
 \contentsline {chapter}{\numberline {3}Problem Description}{16}{chapter.3}
 \contentsline {chapter}{\numberline {4}Design and Implemenation}{17}{chapter.4}
 \contentsline {chapter}{\numberline {5}Results and Evaluation}{18}{chapter.5}
