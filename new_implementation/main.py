@@ -42,6 +42,9 @@ class Person:
     def reproduce(self):
         return self.reproduction.get_reproduction(self.age) > random.uniform(0.0,1.0)
 
+    def calc_preference(self, other):
+        return self.pref_dist.get_preference(self.calculate_age_class(), other.calculate_age_class())
+
 
 
 # Set up MortalityDistribution
@@ -208,6 +211,13 @@ for female in female_population:
         age_groups[female.age] = 1
     #print(female)
 
+age_indices = []
+
+for age_group in age_groups:
+    age_indices.append(age_group)
+
+age_indices.sort()
+
 for age_group in age_groups:
     print(str(age_group) + ": " +  str(age_groups[age_group]))
 
@@ -264,88 +274,73 @@ print("Male Population Size: " + str(len(male_population)))
 
 ### Begin MAP simulation ###
 print("### Begin MAP Simulation ###")
-map_output = open("map_simulation_output.cs", "wb")
+map_output = open("map_simulation_output.csv", "wb")
 writer = csv.writer(map_output, delimiter=",", quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
 
-map_single_females = female_population[:]
-map_single_males = male_population[:]
-map_couples = []
+map_females = female_population[:]
+map_males = male_population[:]
 
 for gen in range(1,51):
     pairings = 0.0
     born = 0.0
     died = 0.0
 
-    map_single_females.sort(key=lambda x: x.age)
-    map_single_males.sort(key=lambda x: x.age)
+    map_females.sort(key=lambda x: x.age)
+    map_males.sort(key=lambda x: x.age)
 
     # Aging Phase
-    for female in map_single_females:
+    for female in map_females:
         female.increase_age()
         if not female.alive:
             died += 1.0
-            map_single_females.remove(female)
+            map_females.remove(female)
 
-    for male in map_single_males:
+    for male in map_males:
         male.increase_age()
         if not male.alive:
             died += 1.0
-            map_single_males.remove(male)
+            map_males.remove(male)
 
-    # Pairing Phase
-    for male in map_single_males:
-        for female in map_single_females:
-            if female.pref_dist.get_preference(female.calculate_age_class(), male.calculate_age_class()) == 1 and male.pref_dist.get_preference(male.calculate_age_class(),female.calculate_age_class()) == 1:
-                map_couples.append([female, male])
-                map_single_females.remove(female)
-                map_single_males.remove(male)
-
-                pairings += 1
-
-                break
 
     # Reproduction Phase
-    while (len(map_single_males) + len(map_single_females) + (len(map_couples)*2)) < 1000:
-        for couple in map_couples:
-            if couple[0].reproduce() + couple[1].reproduce():
+    while (len(map_males) + len(map_females)) < 1000:
+        female = random.choice(map_females)
+        male = random.choice(map_males)
+
+        if (female.calc_preference(male) == 1 and male.calc_preference(female) == 1):
+            if female.reproduce() and male.reproduce():
                 born += 1
-
                 if 0.5 > random.uniform(0.0, 1.0):
-                    map_single_females.append(Person(0, "f", female_mortality, female_reproduction, female_preference, genes=couple[0].genes))
+                    map_females.append(Person(0, "f", female_mortality, female_reproduction, female_preference, genes=female.genes))
                 else:
-                    map_single_males.append(Person(0, "m", male_mortality, male_reproduction, male_map_preference, genes=couple[1].genes))
+                    map_males.append(Person(0, "m", male_mortality, male_reproduction, male_map_preference, genes=male.genes))
 
-                map_single_females.append(couple[0])
-                map_single_males.append(couple[0])
+    population = len(map_males) + len(map_females)
 
-                map_couples.remove(couple)
-        if len(map_couples) == 0:
-            break
+    map_age_groups = {}
 
+    for male in male_population:
+        if male.age in map_age_groups:
+            map_age_groups[male.age] += 1
+        else:
+            map_age_groups[male.age] = 1
 
+    for female in female_population:
+        if female.age in map_age_groups:
+            map_age_groups[female.age] += 1
+        else:
+            map_age_groups[female.age] = 1
 
-    # for couple in map_couples:
-    #
-    #     couple[0].increase_age()
-    #     if not couple[0].alive:
-    #         died += 1.0
-    #
-    #     couple[1].increase_age()
-    #     if not couple[1].alive:
-    #         died += 1.0
-    #
-    #     if not couple[0].alive and couple[1].alive:
-    #         map_single_males.append(couple[1])
-    #         map_couples.remove(couple)
-    #     elif couple[0].alive and not couple[1].alive:
-    #         map_single_females.append(couple[0])
-    #         map_couples.remove(couple)
-    #     elif not couple[0].alive and not couple[1].alive:
-    #         map_couples.remove(couple)
+    map_age_indices = []
 
-    map_couples = []
-    population = len(map_single_males) + len(map_single_females) + (len(map_couples)*2)
+    for age_group in map_age_groups:
+        map_age_indices.append(age_group)
 
-    print("Pairings: " + str(pairings).zfill(4))
-    print(str(gen).zfill(2) + " - Population: " + str(population).zfill(4) + ", Born: " + str(born).zfill(4) + ", Died: " + str(died).zfill(4) + ", Change: " + str(born-died).zfill(4))
+    map_age_indices.sort()
+
+    print("\n ### GENERATION " + str(gen) + " ###")
+    for age_group in map_age_indices:
+        print(str(age_group) + ": " +  str(map_age_groups[age_group]))
+
+    #print(str(gen).zfill(2) + " - Population: " + str(population).zfill(4) + ", Born: " + str(born).zfill(4) + ", Died: " + str(died).zfill(4) + ", Change: " + str(born-died).zfill(4))
     writer.writerow([gen, population, born, died, (born-died)])
