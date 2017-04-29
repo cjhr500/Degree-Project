@@ -126,13 +126,7 @@ In biology, there are many problems that it is only possible to study through th
 \subsection{Differential Equations}
 Differential equations are a traditional tool for use in modelling in general, as they allow you to model the rate of change in a system (using its derivatives). The Verhulst-Pearl equation \cite{garnier1838correspondance, pearl1920rate} is an old model for simulating population growth. 
 
-\begin{center}
-\large
-\begin{math}
-\frac{dN}{dt} = rN(1-\frac{N}{K})
-\end{math}
-\normalsize
-\end{center}
+$$\ \frac{dN}{dt} = rN(1-\frac{N}{K}) $$
 
 N is the current population at time \textit{t}, \textit{r} is the rate of population growth and K is the carrying capacity of the system, o the maximum number of individuals the environment it capable of supporting. As N approaches K the rate of population growth slows until an equilibrium is met. Differential equations are capable of modelling complex systems with several variables, but reaching a solution is not always possible. 
 
@@ -146,11 +140,23 @@ Random parents are selected from the best performers, and the next generation ar
 
 \chapter{Problem Description}
 \label{cha:Problem Description}
+
+
+\subsection{The Mathematical Model}
+The patriarch hypothesis \cite{patriarchHypothesis2000} had a mathematical model formulated in \cite{whyMenMatter2007}  
+
+$$\ G^F_n = \sum_{ij} \frac{\delta B_{ij}}{\delta F_n}, \qquad G^M_n = \sum_{ij} \frac{\delta B_{ij}}{\delta M_n}$$
+
+
+
+$$\ 1 = \sum_{ij} B_{ij}(\frac{u^F}{\lambda}, \sigma\frac{u^M}{\lambda}) $$
+
+\subsection{The Computational Model}
+
 Existing model overview - relate to code
 What has been done
 Limitations of their model
 How this can be fixed
-
 \chapter{Design and Implementation}
 \label{cha:Design and Implementation}
 Overview of class stuctures and properties

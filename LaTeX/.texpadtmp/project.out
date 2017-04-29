@@ -19,6 +19,8 @@
 \BOOKMARK [2][-]{subsection.2.3.2}{Multi-Agent\040Systems}{section.2.3}% 19
 \BOOKMARK [2][-]{subsection.2.3.3}{Genetic\040Algorithms}{section.2.3}% 20
 \BOOKMARK [0][-]{chapter.3}{Problem\040Description}{}% 21
-\BOOKMARK [0][-]{chapter.4}{Design\040and\040Implementation}{}% 22
-\BOOKMARK [0][-]{chapter.5}{Results\040and\040Evaluation}{}% 23
-\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 24
+\BOOKMARK [1][-]{subsection.3.0.1}{The\040Mathematical\040Model}{chapter.3}% 22
+\BOOKMARK [2][-]{subsection.3.0.2}{The\040Computational\040Model}{subsection.3.0.1}% 23
+\BOOKMARK [0][-]{chapter.4}{Design\040and\040Implementation}{}% 24
+\BOOKMARK [0][-]{chapter.5}{Results\040and\040Evaluation}{}% 25
+\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 26

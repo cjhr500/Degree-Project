@@ -168,6 +168,19 @@ class Genetics:
         return "".join(str(random.randint(0, 1))
                 for x in xrange(size))
 
+    def mutate(self, rate):
+        new_genes = ""
+        for gene in self.genes:
+            if rate > random.uniform(0.0, 1.0):
+                if gene == "0":
+                    new_genes += "1"
+                else:
+                    new_genes += "0"
+            else:
+                new_genes += gene
+
+        self.genes = new_genes
+
 # Set up base female population
 print("### Setup Female Population ###")
 
@@ -201,7 +214,7 @@ for i in range(1,101):
 
     #print(str(i).zfill(2) + "  Population " + str(len(female_population)).zfill(4) + ", Born: " + str(born).zfill(3) + ", Died: " + str(died).zfill(3) + ", Change: " + str(born-died).zfill(3))
 
-female_population.sort(key=lambda x: x.age, reverse=False)
+female_population.sort(key=lambda x: x.age, reverse=False) #
 
 age_groups = {}
 for female in female_population:
@@ -337,7 +350,7 @@ for gen in range(1,51):
         map_age_indices.append(age_group)
 
     map_age_indices.sort()
-    
+
     print("\n ### GENERATION " + str(gen) + " ###")
     for age_group in map_age_indices:
         print(str(age_group) + ": " +  str(map_age_groups[age_group])
