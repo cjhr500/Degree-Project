@@ -18,8 +18,10 @@
 \acknowledgements{}
 
 \usepackage{framed}
+\usepackage{array}
 \usepackage{hyperref}
 \usepackage{enumitem}
+\usepackage{lscape}
 
 \begin{document}
 \maketitle
@@ -215,7 +217,105 @@ How this can be fixed
 
 \chapter{Design and Implementation}
 \label{cha:Design and Implementation}
-Overview of class stuctures and properties
+
+\section{Class Structure}
+When designing a multi-agent system, it can be useful to model each agent as being an instance of a class, each with their own attributes (variables belonging to a class instance that are an abstract representation of the differing traits an agent has) and class methods (representing the actions an agent can take to interact with its environment).
+
+\subsection{Person Class}
+The \texttt{Person} class provides the container for the attributes and methods necessary to build the model. Many of its attributes are instances of the classes used to hold probability distributions in control of mortality and fertility, as well as the person's mating preferences and genetics. Each time a new child is born, a new instance of \texttt{Person} is created, with the parameters for \texttt{\_\_init\_\_()} (see Table \ref{tbl:personMethods} based on their parents' attributes.
+
+\begin{table}[h]
+\caption{Person Class Attributes}
+\label{tbl:personAttributes}
+\begin{tabular}{l l m{5cm}}
+\textbf{Attribute} & \textbf{Type} & \textbf{Purpose} \\\hline
+\texttt{age} & int & Age of the person \\\hline
+\texttt{sex} & str & Sex of person ("f" for female and "m" for male) \\\hline
+\texttt{alive} & bool & Whether the person is currently alive \\\hline
+\texttt{mortality} & MortalityDistribution & The mortality distribution of the individual. \\\hline
+\texttt{reproduction} & ReproductiveDistribution & The mortality distribution of the individual. \\\hline
+\texttt{pref\_dist} & PreferenceDistribution & The mating preference distribution of the individual. \\\hline 
+\texttt{genes} & Genetics & The genetic information of the individual
+\end{tabular}
+\end{table}
+
+\begin{landscape}
+\pagestyle{plain}
+\begin{table}[h]
+\caption{Person Class Methods}
+\label{tbl:personMethods}
+\begin{tabular}{m{8cm} m{8cm}}
+\textbf{Method} & \textbf{Purpose} \\\hline
+\texttt{\_\_init\_\_(self, age, sex, mort\_dist, repr\_dist, genes=None)} & Used when instantiating the class, setting up initial values for the properties based on those passed as parameters\\\hline
+\texttt{\_\_repr\_\_(self)} & Returns a string representation of the class \\\hline
+\texttt{increase\_age(self)} & Assigns a person to next age class if they survive the current generation (based on a psuedo-ransom number and their mortality distribution), otherwise sets \texttt{alive} to \texttt{False}.\\\hline
+\texttt{calculate\_age\_class(self)} & Returns the derived attribute \texttt{age\_class} \\\hline
+\texttt{reproduce(self)} & Returns \texttt{True} if a person is currently able to reproduce (based on a psuedo-random number and their reproductive distribution). \\\hline
+\texttt{calc\_preference(self, other)} & Calculates and returns the mating preference that this person has for the other person (using their ages classes and the person's preference distribution) \\\hline
+\end{tabular}
+\end{table}
+\end{landscape}
+
+\subsection{MortalityDistribution Class}
+The \texttt{MortalityDistribution} class serves as a lookup table for the probability of death a given age, based on data from the input files \texttt{female\_data.csv} and \texttt{male\_data.csv}. There are two base instances of this class created \texttt{female\_mortality} (using female\_data.csv), the mortality distribution used by females and \texttt{male\_mortality}, for males (using male\_data.csv). The class also contains methods for getting survival probablilities based on age (see Table \ref{tbl:mortalityDistributionMethods}).
+
+\begin{table}[h]
+\caption{MortalityDistribution Class Methods}
+\label{tbl:mortalityDistributionMethods}
+\begin{tabular}{m{0.5\textwidth} m{0.5\textwidth}}
+\textbf{Method} & \textbf{Purpose} \\\hline
+\texttt{\_\_init\_\_(self, input\_file)} & Used when instantiating the class, reads distribution input from file\\\hline
+\texttt{\_\_repr\_\_(self)} & Returns a string representation of the class \\\hline
+\texttt{get\_survival(self, age)} & Returns mortality probability value based on age.\\\hline
+\texttt{get\_survival\_by\_age\_class( self, age\_class)} &  Returns mortality probability value based on age class.
+\end{tabular}
+\end{table}
+
+\subsection{ReproductionDistribution Class}
+The \texttt{MortalityDistribution} class serves as a lookup table for the probability of being able to reproduce at a given age, based on data from the input files \texttt{female\_data.csv} and \texttt{male\_data.csv}. There are two base instances of this class created \texttt{female\_mortality} (using female\_data.csv), the mortality distribution used by females and \texttt{male\_mortality}, for males (using male\_data.csv). The class also contains methods for getting survival probablilities based on age (see Table \ref{tbl:reproductionDistributionMethods}).
+
+
+\begin{table}[h]
+\caption{ReproductionDistribution Class Methods}
+\label{tbl:reproductionDistributionMethods}
+\begin{tabular}{m{0.5\textwidth} m{0.5\textwidth}}
+\textbf{Method} & \textbf{Purpose} \\\hline
+\texttt{\_\_init\_\_(self, input\_file)} & Used when instantiating the class, reads distribution input from file\\\hline
+\texttt{\_\_repr\_\_(self)} & Returns a string representation of the class \\\hline
+\texttt{get\_reproduction(self, age)} & Returns reproduction probability value based on age.\\\hline
+\small\texttt{get\_reproduction\_by\_age\_class( self, age\_class)} \normalsize &  Returns reproduction probability value based on age class.
+\end{tabular}
+\end{table}
+
+\subsection{PreferenceDistribution Class}
+The \texttt{PreferenceDistribution} class 
+
+\begin{table}[h]
+\caption{PreferenceDistribution Class Methods}
+\label{tbl:preferenceDistributionMethods}
+\begin{tabular}{m{0.5\textwidth} m{0.5\textwidth}}
+\textbf{Method} & \textbf{Purpose} \\\hline
+\texttt{\_\_init\_\_(self, name, input\_file)} & Used when instantiating the class, reads distribution input from file\\\hline
+\texttt{\_\_repr\_\_(self)} & Returns a string representation of the class \\\hline
+\texttt{get\_preference(self, age\_class\_one, age\_class\_two)} & Returns the mating preference of a person age\_class\_one, age\_class\_two.
+\end{tabular}
+\end{table}
+
+\subsection{Genetics Class}
+\begin{table}[h]
+\caption{Genetics Class Methods}
+\label{tbl:geneticsMethods}
+\begin{tabular}{m{0.5\textwidth} m{0.5\textwidth}}
+\textbf{Method} & \textbf{Purpose} \\\hline
+\texttt{\_\_init\_\_(self, genes=None)} & Used when instantiating the class. Uses genetic string passed or generates random gene string using the \texttt{random\_genes} method.\\\hline
+\texttt{\_\_repr\_\_(self)} & Returns a string representation of the class \\\hline
+\texttt{random\_genes(self, size)} & Returns a random string of "1"s and "0"s of length equal to \texttt{size}. \\\hline
+\texttt{crossover(self, other)} & Returns a gene string made of of random segments of the two gene strings. \\\hline
+\texttt{mutate(self, rate)} & Psuedo-randomly flips "0"s and "1"s in the gene string with a probability equal to \texttt{rate}.
+\end{tabular}
+\end{table}
+
+
 
 \chapter{Results and Evaluation}
 \label{cha:Results and Evaluation}

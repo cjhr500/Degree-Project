@@ -21,12 +21,6 @@ class Person:
         + ", ALIVE: " + str(self.alive)
         + ", GENES: " + str(self.genes))
 
-    def get_age(self):
-        return self.age
-
-    def set_age(self, age):
-        self.age = age
-
     def increase_age(self):
         if random.uniform(0.0,1.0) < self.mortality.get_survival(self.age):
             self.age += 5
@@ -35,9 +29,6 @@ class Person:
 
     def calculate_age_class(self):
         return ((self.age + 5) / 5)
-
-    def set_mortality_distribution(self, distribution):
-        self.mortality = distribution
 
     def reproduce(self):
         return self.reproduction.get_reproduction(self.age) > random.uniform(0.0,1.0)
@@ -69,8 +60,8 @@ class MortalityDistribution:
         else:
             return 0.0
 
-    def get_survival_by_age_class(self, ageClass):
-        return get_survival((ageClass * 5) - 1)
+    def get_survival_by_age_class(self, age_class):
+        return get_survival((age_class * 5) - 1)
 
 female_mortality = MortalityDistribution("female_data.csv")
 #print(female_mortality)

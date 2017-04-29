@@ -23,5 +23,11 @@
 \BOOKMARK [1][-]{section.3.2}{Why\040Men\040Matter:\040a\040mathematical\040model}{chapter.3}% 23
 \BOOKMARK [1][-]{section.3.3}{Mate\040Choice\040and\040the\040Origin\040of\040Menopause:\040a\040computational\040model}{chapter.3}% 24
 \BOOKMARK [0][-]{chapter.4}{Design\040and\040Implementation}{}% 25
-\BOOKMARK [0][-]{chapter.5}{Results\040and\040Evaluation}{}% 26
-\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 27
+\BOOKMARK [1][-]{section.4.1}{Class\040Structure}{chapter.4}% 26
+\BOOKMARK [2][-]{subsection.4.1.1}{Person\040Class}{section.4.1}% 27
+\BOOKMARK [2][-]{subsection.4.1.2}{MortalityDistribution\040Class}{section.4.1}% 28
+\BOOKMARK [2][-]{subsection.4.1.3}{ReproductionDistribution\040Class}{section.4.1}% 29
+\BOOKMARK [2][-]{subsection.4.1.4}{PreferenceDistribution\040Class}{section.4.1}% 30
+\BOOKMARK [2][-]{subsection.4.1.5}{Genetics\040Class}{section.4.1}% 31
+\BOOKMARK [0][-]{chapter.5}{Results\040and\040Evaluation}{}% 32
+\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 33
