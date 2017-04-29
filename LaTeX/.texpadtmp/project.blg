@@ -2,7 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: project.aux
 The style file: IEEEtranN.bst
-Illegal, another \bibstyle command---line 80 of file project.aux
+Illegal, another \bibstyle command---line 86 of file project.aux
  : \bibstyle
  :          {IEEEtranN}
 I'm skipping whatever remains of this command
@@ -29,45 +29,45 @@ Warning--empty title in repConflictOrca2017
 Warning--empty journal in repConflictOrca2017
 
 Done.
-You've used 16 entries,
+You've used 18 entries,
             4783 wiz_defined-function locations,
-            1047 strings with 11393 characters,
-and the built_in function-call counts, 13492 in all, are:
-= -- 1195
-> -- 461
-< -- 89
-+ -- 224
-- -- 108
-* -- 766
-:= -- 2169
-add.period$ -- 31
-call.type$ -- 16
-change.case$ -- 29
-chr.to.int$ -- 196
-cite$ -- 19
-duplicate$ -- 882
-empty$ -- 913
-format.name$ -- 144
-if$ -- 2944
+            1063 strings with 11653 characters,
+and the built_in function-call counts, 15456 in all, are:
+= -- 1389
+> -- 491
+< -- 113
++ -- 244
+- -- 112
+* -- 860
+:= -- 2471
+add.period$ -- 35
+call.type$ -- 18
+change.case$ -- 33
+chr.to.int$ -- 246
+cite$ -- 21
+duplicate$ -- 1012
+empty$ -- 1043
+format.name$ -- 150
+if$ -- 3390
 int.to.chr$ -- 1
-int.to.str$ -- 17
-missing$ -- 139
-newline$ -- 86
-num.names$ -- 48
-pop$ -- 356
+int.to.str$ -- 19
+missing$ -- 155
+newline$ -- 92
+num.names$ -- 54
+pop$ -- 382
 preamble$ -- 1
-purify$ -- 16
+purify$ -- 18
 quote$ -- 2
-skip$ -- 988
+skip$ -- 1146
 stack$ -- 0
-substring$ -- 465
-swap$ -- 637
-text.length$ -- 21
+substring$ -- 583
+swap$ -- 749
+text.length$ -- 27
 text.prefix$ -- 0
 top$ -- 6
-type$ -- 240
+type$ -- 272
 warning$ -- 3
-while$ -- 60
+while$ -- 72
 width$ -- 0
-write$ -- 220
+write$ -- 246
 (There were 2 error messages)
