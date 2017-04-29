@@ -38,20 +38,22 @@ Although we know the the biological cause of menopause, there are many theories 
 
 \section{Aims}
 \subsection{Check validity of computational model}
-This project focuses on reproducing a computational model \cite{mateChoice2013} that implements the patriarch hypothesis \cite{patriarchHypothesis2000}, a theory that males' preference for younger females caused long post-reproducitve lifespans. Replicating models is useful to check their validity and discover any flaws they may possess. Replication also provides a jumping off point for improving the model or for adapting it to other hypotheses to do with the evoltion of menopause or population modelling in general. 
+This project focuses on reproducing a computational model \cite{mateChoice2013} that implements the patriarch hypothesis \cite{patriarchHypothesis2000}, a theory that males' preference for younger females caused long post-reproducitve lifespans. Replicating models is useful to check their validity and discover any flaws they may possess. Replication also provides a jumping off point for improving the model or for adapting it to other hypotheses to do with the evolution of menopause or population modelling in general. 
 
 \subsection{Rewrite model into an object oriented language}
-The model is also being adapted from C, a performant but verbose and old imperative language, into Python, a modern object oriented language designed to be as readable as possible. Python is also popular among scientific research, so this will make the model more accessable.
+The model is also being adapted from C, a performant but verbose and old imperative language, into Python, a modern object oriented language designed to be as readable as possible. Python is also popular among scientific research, so this will make the model more accessible.
+
+\subsection{Extend the model to allow co-evolution of preference}
+Whilst mortality and fertility are both able to evolve under the current model, the mating preferences of the males are fixed. Since the hypothesis relies on the preference of older males for younger females, it would be useful to see how allowing this preference to evolve over time would affect the results of the model.
 
 \section{Thesis Outline}
 \begin{description}
 
-\item[Chapter Two Literature Review] The literature review provides an overview of modelling, the different theories for the origin of menopause, and the basic concepts of evolution.
-\item[Chapter Three Problem Description] looking at what the problem consists of
+\item[Chapter Two Literature Review] The literature review provides a critical overview of different hypotheses for the origin of menopause, as well as background information on evolution and modelling in biological contexts.
+\item[Chapter Three Problem Description] Is an overview of the model that already exists, how it models the hypothesis and shortcomings with the model.
+\item[Chapter Four Design and Implementation] Is a description of how the solution to the problem was designed and implemented.
 
-\item[Chapter Four Design and Implementation] designing a solution to the problem
-
-\item[Chapter Five Results and Evaluation] presenting and analysing the results produced by the solution
+\item[Chapter Five Results and Evaluation] Presents the results of the 
 
 \item[Chapter Six Conclusion] making judgement of the solution and the results, suggesting new work.
 
@@ -62,28 +64,13 @@ The project is implementing a computational model which is purely theoretical. A
 
 \chapter{Literature Review}
 \label{cha:Literature Review}
-Project is covering computational models of populations to try and understand how menopause might be caused by evolution, therefore it is important to talk about them.
+The literature review provides an overview of existing work surrounding the problem, as well as background information that will be relevant to its solution. 
 
-\section{Agent Based Modelling}
-
-\subsection{Explantion}
-
-\subsection{Applications}
-
-\section{Genetic Algorithms}
-
-\subsection{Explanation}
-
-\subsection{Applications}
-
-\subsection{Relationship to evolution}
-
-\newpage
 \section{Menopause}
-Menopause is the process where females cease having menstrual periods and become infertile. Although we understand to some extent the physiological cause (a decrease in estrogen and progesterone), the evolutionary benefits of a reduction in reproduction seem unclear, with many different theories for its existence \cite{evolutionPRLS2015}. Something that is notable is that menopause is only present in a few species in the wild (humans, short finned pilot whales, orcas), with humans being the only primates to experience it. 
+Menopause is the process where females cease having menstrual periods and become infertile. Whilst reduction in fertility with senescence is not uncommon among species, the long lifespan after menopause (post-reproductive lifespans, or PRLSs) are a relatively rare trait, being only found in the wild in humans, short finned pilot whales and orcas (killer whales). Although we understand to some extent the physiological cause (a decrease in oestrogen and progesterone), the evolutionary benefits of a reduction in reproduction seem unclear as any reduction in fertility would seem to be a reduction in evolutionary fitness. As such this evolutionary puzzle has resulted in many different theories for its existence \cite{evolutionPRLS2015}.  
 
 \subsection{Patriarch Hypothesis}
-The patriarch Hypothesis \cite{patriarchHypothesis2000} hypothesises that menopause came about due to older, high status males having access to younger female mates allowing them to reproduce for much longer. This increased the proliferation of geness linked to longevity, increasing both the lifespan of males and females. This is reliant on several factors: 
+The patriarch hypothesis \cite{patriarchHypothesis2000} hypothesises that menopause came about due to older, high status males having access to younger female mates allowing them to reproduce for much longer. This increased the proliferation of genes linked to longevity, increasing both the lifespan of males and females. This is reliant on several factors: 
 
 \begin{itemize}
 \item That females have a limited number of oocytes (immature ova) which are depleted over time, and that reproduction naturally comes to an end when they run out. \cite{humanPopBio1994} In early females, before female longevity increased, most females died before their supply of oocytes had been completely depleted, and so did not experience menopause.
@@ -93,7 +80,7 @@ The patriarch Hypothesis \cite{patriarchHypothesis2000} hypothesises that menopa
 
 A mathematical model of the hypothesis was created \cite{whyMenMatter2007} which was a set of functions which relied on a group of females aged i, and a group of males aged j, the females' fertility at age i and the mating preference of females of age i for males of age j and vice versa. The main problem with this model is that it had a fixed age at which females stopped reproducing, rather than letting it evolve over time as you would expect in an evolutionary model. Indeed this model can be interpreted to suggest that males' preference for younger females came to be after the evolution of menopause, rather than as a cause of it.
 
-To try and correct some of these shortcomings, a computational model \cite{mateChoice2013} which does not have a fixed age where females become infertile. Each member of the population is modelled as an individual agent, with genes that affect either mortality or fertility, with genes acting either in a sex dependendent or a sex indifferent manner. Pseudo-random numbers are used to determine births, deaths and partnerships against predetermined tables which are modified by genetics. One of the main shortcomings of the model is that it does not allow the preferences of the agents to coevolve with the change in fertility and mortality. 
+To try and correct some of these shortcomings, a computational model \cite{mateChoice2013} which does not have a fixed age where females become infertile. Each member of the population is modelled as an individual agent, with genes that affect either mortality or fertility, with genes acting either in a sex dependent or a sex indifferent manner. Pseudo-random numbers are used to determine births, deaths and partnerships against predetermined tables which are modified by genetics. One of the main shortcomings of the model is that it does not allow the preferences of the agents to coevolve with the change in fertility and mortality. 
 
 Overall the main issue with the patriarch hypothesis is that males' preference for younger females may itself be an epiphenomenon which emerged as a result of menopause, rather than the other way round. Knowledge that females would become infertile after a certain age would cause males to have a preference for younger females who had more fertile years left.
 
@@ -105,44 +92,77 @@ One of the criticisms of the grandmother hypothesis is that the degree of increa
 The mothering hypothesis is a similar theory in which a species improves the survival of offspring by ceasing reproduction at a certain point so that resources could be focused on raising existing children, rather than continuing to focus on reproduction and newborn children. The reduced mortality rate of children would again result in an increase of inclusive fitness.
 
 \subsection{Reproductive Conflict Hypothesis}
-The reproductive conflict hypothesis \cite{cant2008reproductive, repConflictOrca2017} is another hypothesis based on grandmothers: this time instead of them stopping reproduction to provide childcare, they cease reproduction so that their offspring are no competing for resources such as food with their grandchildren. Menopause reduces the amount of time where a mother is fertile at the same time as her offspring, reducing the likelihood that they have young children at the same time.
+The reproductive conflict hypothesis \cite{cant2008reproductive, repConflictOrca2017} is another hypothesis based on grandmothers: this time instead of them stopping reproduction to provide childcare, they cease reproduction so that their offspring are no competing for resources such as food with their grandchildren. Menopause reduces the amount of time where a mother is fertile at the same time as her offspring, reducing the likelihood that they have young children at the same time. This reduced competition for resources means that children will have a greater chance of survival, increasing the inclusive fitness of the group as a whole.
 
-\subsection{Other hypotheses}
-Follicular depletion, healthcare/lifespan improvements - not evolutionary but epiphenomenon, Risk from late age reproduction.
+\subsection{Other Hypotheses}
+A non-adaptive hypothesis is that women have a fixed number of oocytes (immature eggs), and that menopause did not evolve, but is an epiphenomenon of us now living past the age where the they run out. \cite{van2003ovarian, cooper1998age} Proponents of this theory often use the evidence of menopause occurring in some primates in captivity -- their increased lifespan means they now live well past becoming infertile. They suggest that human's improvements to medicine and nutrition have extended our lifespans in the same way, which is why humans now experience menopause. Counter to this however is the fact that menopause is experienced by orcas and short-finned pilot whales. Since they do not have access to healthcare, you can only conclude that although improved lifespan makes a woman more likely to life through menopause, it is not itself what causes it.
 
-\newpage
+Another hypothesis is that menopause came about to guard against the negative effects of pregnancy at an advanced age. Increased maternal age can result in: miscarriage, chromosomal abnormalities, and pregnancy diabetes, among other effects \cite{cleary2005impact}. These complications would result in an increased need for investment of resources in reproduction itself (with a chance that the baby would not make it to full term), as well as resulting in the mother's other offspring being left with fewer resources such as food and childcare, or potentially being left motherless. However the improvements made to medical care have had a greater impact on both infant and maternal mortality, and the effect is a steady increase with age, rather than a sharp threshold effect. This improvement to healthcare came about after menopause was present in humans, and so this cannot be the cause.
+
 \section{Evolution}
-Overview \cite{origin1859}
+Charles Darwin's theory of evolution, first proposed in On the Origin of Species \cite{origin1859} may be one of the most important and influential academic pieces of work in science. The theory supposes that organisms with traits favourable to their environment were more likely to survive and reproduce, increasing the prevalence of the trait over other less useful traits. This is often summarised as "survival of the fittest".
 
-\subsection{Key concepts/terms}
+\subsection{Key Concepts of Evolution}
 \begin{description}[style=nextline]
+
+\item [Fitness] Fitness is the measure of how well suited an organism is to an environment, and how likely it is to pass on its genetic information as a result. Note that "fitness" in this instance is relating to how well an organism "fits in" with its environment, and not athletic fitness.
+
+\item [Inclusive Fitness] Inclusive fitness is an extension of the concept of \textbf{Fitness}, in which you can improve your fitness by improving the survival of individuals with similar genetics to you, such as siblings, nieces and nephews or grandchildren. This increase to fitness is proportional to your relatedness to them. Improvement of inclusive fitness could come about due to provision of resources such as food and childcare.
+
 \item[Selection] Selection is the process in which survival and reproduction of a species is affected by the phenotype (physical expression of genetics). A trait that increases lifespan and allows more time for reproduction will cause there to be a greater chance for more offspring with that trait to be produced. By comparison a trait that decreases lifespan or realised fertility will tend to become less prevalent in the population as they have fewer offspring and these offspring if they have the same phenotype will inherit the lower survival chances. In essence useful traits survive, whereas traits that are less useful will gradually disappear.
 
-\item [Mutation] Genetic mutation is the change of genetic information at random, usually from mistakes when copying DNA. 
+\item [Crossover] Crossover is part of the process that combines the genetics of two parents into the new set of genetics present in their offspring. For each chunk of genetic information, the offspring has a 50\% chance of receiving that information from their mother, and a 50\% chance of receiving the information from their father. This result in an offspring with traits of both their mother and father. When a gene at a particular location is the same in both the mother and father, this gene is transmitted to the child 100\% of the time. 
 
-\item [Crossover] Description of crossover
+\item [Mutation] Genetic mutation is the change of genetic information at random, usually from mistakes when copying genes over from their parents. This random change results in the emergence of new traits since it can result in genetics that are not previously present in the population. These new traits can be deleterious, neutral or positive.
 
-\item [Coevolution] Description of co-evolution
+\item [Coevolution] Coevolution is the evolution of traits in a species in response to the evolution of traits in the  same or another species. Think of it as a genetic arms race; a species that evolves a form of camouflage may cause a species that predates on 
+
 \end{description}
 
-\section{Conclusions from Literature}
 
+\section{Modelling in Biology}
+In biology, there are many problems that it is only possible to study through the use of modelling. This can be due to the difficulty in finding individuals to study (and therefore a lack of data), the amount of time required to conduct a study (especially for evolutionary effects which take place over many generations) or the ethical constraints of conducting experiments on living organisms (especially humans). Thus models provide a useful tool for examining in a theoretical space hypotheses that cannot be studied in the physical space.
+
+\subsection{Differential Equations}
+Differential equations are a traditional tool for use in modelling in general, as they allow you to model the rate of change in a system (using its derivatives). The Verhulst-Pearl equation \cite{garnier1838correspondance, pearl1920rate} is an old model for simulating population growth. 
+
+\begin{center}
+\large
+\begin{math}
+\frac{dN}{dt} = rN(1-\frac{N}{K})
+\end{math}
+\normalsize
+\end{center}
+
+N is the current population at time \textit{t}, \textit{r} is the rate of population growth and K is the carrying capacity of the system, o the maximum number of individuals the environment it capable of supporting. As N approaches K the rate of population growth slows until an equilibrium is met. Differential equations are capable of modelling complex systems with several variables, but reaching a solution is not always possible. 
+
+\subsection{Multi-Agent Systems}
+Multi-agents systems are used to model individuals that interact with each other in a similar way to how organisms interact with each other. Rather than modelling a population through differential equations, you could model it by having a set of agents, who interact to form couples and produced offspring based on their inherent properties such as fertility, mortality and age. The population growth would then become apparent through the emergent properties of the system, rather than through a set, programmed idea.
+
+\subsection{Genetic Algorithms}
+Genetic algorithms are mathematical representations of the process of evolution, with the genetics being used to set parameters for program behaviour, rather than the traits of an organism. An initial pool of individual genetics (typically binary strings are used) are created. These gene strings are then used to set parameters for whatever compuation is being done. The best performing sets of genes are selected using an arbritrary heuristic fitness function (such as shortest path) to create the next generation of genetics. 
+
+Random parents are selected from the best performers, and the next generation are created by crossing over the genes of the parent pair. The next generation of individuals also undergo random mutation of their genes (i.e. by flipping random bits of the binary string) to prevent the algorithm from getting stuck on a single solution and to produce potentially beneficial genes which may have not appeared in the population yet (and so cannot be accquired from their parents). These stages all correspond to the concepts of biological evolution, and so can be useful when modelling genetic change. Genetic algorithms are good at working out optimal solutions to problems with lots of parameters as the algorithm combines parts of the best solutions from each generation to produces new, potentially better solutions. 
 
 \chapter{Problem Description}
 \label{cha:Problem Description}
-This should be about 1500 words long.
+Existing model overview - relate to code
+What has been done
+Limitations of their model
+How this can be fixed
 
-\chapter{Design and Implemenation}
+\chapter{Design and Implementation}
 \label{cha:Design and Implementation}
-This should be about 2500 words long.
+Overview of class stuctures and properties
 
 \chapter{Results and Evaluation}
 \label{cha:Results and Evaluation}
-This should be about 2500 words long.
+Sample output - maybe some graphs
+What could have been done better - achieved with more work/time
 
 \chapter{Conclusion}
 \label{cha:Conclusion}
-This should be about 1000 words long.
+Suggestions for further work.
 
 \bibliographystyle{plain}
 \bibliography{project} 

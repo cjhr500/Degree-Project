@@ -29,45 +29,45 @@ Warning--empty title in repConflictOrca2017
 Warning--empty journal in repConflictOrca2017
 
 Done.
-You've used 11 entries,
+You've used 16 entries,
             4783 wiz_defined-function locations,
-            1013 strings with 10498 characters,
-and the built_in function-call counts, 8402 in all, are:
-= -- 740
-> -- 296
-< -- 41
-+ -- 141
-- -- 72
-* -- 489
-:= -- 1395
-add.period$ -- 21
-call.type$ -- 11
-change.case$ -- 20
-chr.to.int$ -- 95
-cite$ -- 14
-duplicate$ -- 558
-empty$ -- 576
-format.name$ -- 93
-if$ -- 1800
+            1047 strings with 11393 characters,
+and the built_in function-call counts, 13492 in all, are:
+= -- 1195
+> -- 461
+< -- 89
++ -- 224
+- -- 108
+* -- 766
+:= -- 2169
+add.period$ -- 31
+call.type$ -- 16
+change.case$ -- 29
+chr.to.int$ -- 196
+cite$ -- 19
+duplicate$ -- 882
+empty$ -- 913
+format.name$ -- 144
+if$ -- 2944
 int.to.chr$ -- 1
-int.to.str$ -- 12
-missing$ -- 89
-newline$ -- 69
-num.names$ -- 33
-pop$ -- 245
+int.to.str$ -- 17
+missing$ -- 139
+newline$ -- 86
+num.names$ -- 48
+pop$ -- 356
 preamble$ -- 1
-purify$ -- 11
+purify$ -- 16
 quote$ -- 2
-skip$ -- 606
+skip$ -- 988
 stack$ -- 0
-substring$ -- 227
-swap$ -- 368
-text.length$ -- 9
+substring$ -- 465
+swap$ -- 637
+text.length$ -- 21
 text.prefix$ -- 0
 top$ -- 6
-type$ -- 168
+type$ -- 240
 warning$ -- 3
-while$ -- 34
+while$ -- 60
 width$ -- 0
-write$ -- 156
+write$ -- 220
 (There were 2 error messages)

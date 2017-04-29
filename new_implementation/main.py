@@ -337,10 +337,10 @@ for gen in range(1,51):
         map_age_indices.append(age_group)
 
     map_age_indices.sort()
-
+    
     print("\n ### GENERATION " + str(gen) + " ###")
     for age_group in map_age_indices:
-        print(str(age_group) + ": " +  str(map_age_groups[age_group]))
+        print(str(age_group) + ": " +  str(map_age_groups[age_group])
 
     #print(str(gen).zfill(2) + " - Population: " + str(population).zfill(4) + ", Born: " + str(born).zfill(4) + ", Died: " + str(died).zfill(4) + ", Change: " + str(born-died).zfill(4))
     writer.writerow([gen, population, born, died, (born-died)])
