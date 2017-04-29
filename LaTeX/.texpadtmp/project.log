@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.12.5)  29 APR 2017 14:16
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.12.5)  29 APR 2017 18:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -641,49 +641,42 @@ Underfull \vbox (badness 6526) has occurred while \output is active []
 Underfull \vbox (badness 4467) has occurred while \output is active []
 
  [14]
-[15] [16] [17]
+[15] [16] [17] [18]
 Chapter 3.
+[19
 
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 164.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[18
-
-] [19]
+] [20] [21]
 Chapter 4.
-[20
+[22
 
 ]
 Chapter 5.
-[21
+[23
 
 ]
 Chapter 6.
-(/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.bbl [22
+(/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.bbl [24
 
-] [23
+] [25
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 208.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 231.
 
-[24]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 208.
+[26]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 231.
  (/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 208.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 208.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 208.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 231.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 231.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 231.
  ) 
 Here is how much of TeX's memory you used:
- 12582 strings out of 493706
- 192998 string characters out of 6145769
- 344594 words of memory out of 5000000
- 15806 multiletter control sequences out of 15000+600000
+ 12588 strings out of 493706
+ 193154 string characters out of 6145769
+ 344865 words of memory out of 5000000
+ 15812 multiletter control sequences out of 15000+600000
  35520 words of font info for 56 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 49i,7n,52p,925b,481s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,7n,52p,986b,481s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.p
-df (24 pages).
+df (26 pages).

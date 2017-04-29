@@ -53,7 +53,7 @@ Whilst mortality and fertility are both able to evolve under the current model, 
 \item[Chapter Three Problem Description] Is an overview of the model that already exists, how it models the hypothesis and shortcomings with the model.
 \item[Chapter Four Design and Implementation] Is a description of how the solution to the problem was designed and implemented.
 
-\item[Chapter Five Results and Evaluation] Presents the results of the 
+\item[Chapter Five Results and Evaluation] Presents the results of the model created and takes a critical look at how the work progressed.
 
 \item[Chapter Six Conclusion] making judgement of the solution and the results, suggesting new work.
 
@@ -138,7 +138,9 @@ N is the current population at time \textit{t}, \textit{r} is the rate of popula
 Multi-agents systems are used to model individuals that interact with each other in a similar way to how organisms interact with each other. Rather than modelling a population through differential equations, you could model it by having a set of agents, who interact to form couples and produced offspring based on their inherent properties such as fertility, mortality and age. The population growth would then become apparent through the emergent properties of the system, rather than through a set, programmed idea.
 
 \begin{framed}
-More detail/ideas here.
+More detail/ideas here. 
+
+References needed
 \end{framed}
 
 
@@ -147,22 +149,29 @@ Genetic algorithms are mathematical representations of the process of evolution,
 
 Random parents are selected from the best performers, and the next generation are created by crossing over the genes of the parent pair. The next generation of individuals also undergo random mutation of their genes (i.e. by flipping random bits of the binary string) to prevent the algorithm from getting stuck on a single solution and to produce potentially beneficial genes which may have not appeared in the population yet (and so cannot be accquired from their parents). These stages all correspond to the concepts of biological evolution, and so can be useful when modelling genetic change. Genetic algorithms are good at working out optimal solutions to problems with lots of parameters as the algorithm combines parts of the best solutions from each generation to produces new, potentially better solutions. 
 
+\begin{framed}
+More detail/ideas here. References needed
+\end{framed}
+
+
 \chapter{Problem Description}
 \label{cha:Problem Description}
+
+\section{Constraints of the Patriarch Hypothesis}
 The patriarch hypothesis \cite{patriarchHypothesis2000} states that menopause came about due to older males' preference for younger females. Since humans have relatively long lifespans and the trait of long, postreproductive lifespans is present in all humans, it is necessary to use a model to study the validity of this hypothesis. In the paper, 3 main conditions that the hypothesis depends on are set out -- it follows that any model examining the hypothesis should model these constraints. The constraints are as follows:
 
 \begin{enumerate}
 \item That the depletion of oocytes (undeveloped ovum) must be a constraining factor on when menopause occurs. Menopause was not previously observed until longevity increased to the extent that females lived long enough that depletion could occur.
 
-\item That longevity causing genes were on the X chromosome, rather than the Y. If it were present on the Y chromosome then a general increase in longevity would only be present in males. Thus the increase in longevity must be on the X chromosome.
+\item That longevity causing genes are present on the X chromosome, rather than the Y. If it were present on the Y chromosome then a general increase in longevity would only be present in males. Thus the increase in longevity must be on the X chromosome.
 
 \item That older, high status males still reproduce. This is required for the accumulation of the longevity promoting gene, as if a male with the gene who lives for a long time only reproduces over the same time period as one without the longevity promoting gene, then they will have an equal chance of passing their genes on and the longevity gene will not become more prevalent.
 
 \end{enumerate}
 
 
-\subsection{The Mathematical Model}
-A mathematical model was created \cite{whyMenMatter2007} based on the two sex demography work of Schoen and Pollak \cite{schoen1981harmonic, pollak1990two} which link together a group of females and a group of males of different ages. The marginal fertilities for females and males are constructed in a similar manner (as seen in Figure \ref{fig:marginalFertilities}) but male fertility is assumed to be non-zero for any age \textit{n}. 
+\section{Why Men Matter: a mathematical model}
+A mathematical model was created \cite{whyMenMatter2007} based on the two sex demography work of Schoen \cite{schoen1981harmonic} and Pollak \cite{pollak1990two} which link together a group of females and a group of males of different ages. The marginal fertilities for females and males are constructed in a similar manner (as seen in Figure \ref{fig:marginalFertilities}) but marginal male fertility is assumed to be positive when realised male fertility is non-zero . These marginal fertilities do not represent and individual's virility, rather their biological ability to procreate combined with the chance they are able to mate.
 
 \begin{figure}[h]
 $$\ G^F_n = \sum_{ij} \frac{\delta B_{ij}}{\delta F_n}, \qquad G^M_n = \sum_{ij} \frac{\delta B_{ij}}{\delta M_n}$$
@@ -170,16 +179,30 @@ $$\ G^F_n = \sum_{ij} \frac{\delta B_{ij}}{\delta F_n}, \qquad G^M_n = \sum_{ij}
 \label{fig:marginalFertilities}
 \end{figure}
 
+These marginal fertilities make up part of the equation for stable growth (Figure \ref{fig:stableGrowth}), where $\ l_n^F $ and $\ l_n^M $ correspond to the female and male life expectancies respectively, and $\ \sigma $ is the male-to-female sex ratio at birth.
 
 \begin{figure}[h]
-$$\ 1 = \sum_{ij} B_{ij}(\frac{u^F}{\lambda}, \sigma\frac{u^M}{\lambda}) $$
-\caption{Characteristic figure for stable growth}
+$$\ 1 = \sum_{n\geq 1}(G_n^Fl_n^F\lambda ^{-n} + \sigma G_n^Ml_n^M\lambda ^{-n}) $$
+\caption{Stable growth equation.}
 \label{fig:stableGrowth}
 \end{figure}
 
 
+A harmonic mean model similar to that of Schoen's \cite{schoen1981harmonic} was constructed, where $\ b_i $ is the fertility of a female aged \textit{i}, and $\ \alpha_{ij} $ are mating preference weights determined by real world data.
 
-\subsection{The Computational Model}
+\begin{figure}[h]
+$$\ B_{ij} = \frac{b_i\alpha_{ij}F_iM_j}{F_i + M_j} $$
+\caption{Harmonic mean model}
+\label{fig:harmonicMean}
+\end{figure}
+
+When it comes to the three constraints imposed by \cite{patriarchHypothesis2000} this model implements a reduction in female fertility in time but does not specificially link this to the oocyte depletion. The paper does however note that it is important to model the fertility and mortality of both sexes as any mutation that increases mortality past the age of menopause has no effect on population growth when only dealing with females. The model treats this mutation as being sex indifferent (meaning it would have to be located on the X chromosome). For the third constraint the paper largely relies on citing real-world data of hunter-gatherer societies and their social structures as evidence for continued male reproduction later in life. Data from the Dobe !Kung society \cite{howell1979demography} and preconstructed life tables \cite{gurven2007hunter} were used in the harmonic mean model (Figure \ref{fig:harmonicMean}) to this effect.
+
+The main issue with this model is the fixed age of the end of reproduction, as mutations are only used to alter mortality, when they should also be used to affect the fertility of females.
+
+\section{Mate Choice and the Origin of Menopause: a computational model}
+
+
 \begin{framed}
 Existing model overview - relate to code
 

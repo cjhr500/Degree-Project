@@ -168,6 +168,18 @@ class Genetics:
         return "".join(str(random.randint(0, 1))
                 for x in xrange(size))
 
+    def crossover(self, other):
+        # Crosses over this set of genes with another set of genes with a 50% probability at each locus.
+        crossed = ""
+
+        for i in range(0,len(self.genes)):
+            if 0.5 > random.uniform(0.0,1.0):
+                crossed += self.genes[i]
+            else:
+                crossed += other.genes[i]
+
+        return crossed
+
     def mutate(self, rate):
         new_genes = ""
         for gene in self.genes:
@@ -324,9 +336,11 @@ for gen in range(1,51):
             if female.reproduce() and male.reproduce():
                 born += 1
                 if 0.5 > random.uniform(0.0, 1.0):
-                    map_females.append(Person(0, "f", female_mortality, female_reproduction, female_preference, genes=female.genes))
+                    new_person = Person(0, "f", female_mortality, female_reproduction, female_preference, genes=Genes(genes=female.genes.crossover(male.genes)))
+                    map_females.append(new_person)
                 else:
-                    map_males.append(Person(0, "m", male_mortality, male_reproduction, male_map_preference, genes=male.genes))
+                    new_person = Person(0, "m", male_mortality, male_reproduction, male_map_preference, genes=Genes(genes=male.genes.crossover(female.genes)))
+                    map_males.append(new_person)
 
     population = len(map_males) + len(map_females)
 

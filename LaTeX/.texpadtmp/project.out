@@ -19,8 +19,9 @@
 \BOOKMARK [2][-]{subsection.2.3.2}{Multi-Agent\040Systems}{section.2.3}% 19
 \BOOKMARK [2][-]{subsection.2.3.3}{Genetic\040Algorithms}{section.2.3}% 20
 \BOOKMARK [0][-]{chapter.3}{Problem\040Description}{}% 21
-\BOOKMARK [1][-]{subsection.3.0.1}{The\040Mathematical\040Model}{chapter.3}% 22
-\BOOKMARK [2][-]{subsection.3.0.2}{The\040Computational\040Model}{subsection.3.0.1}% 23
-\BOOKMARK [0][-]{chapter.4}{Design\040and\040Implementation}{}% 24
-\BOOKMARK [0][-]{chapter.5}{Results\040and\040Evaluation}{}% 25
-\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 26
+\BOOKMARK [1][-]{section.3.1}{Constraints\040of\040the\040Patriarch\040Hypothesis}{chapter.3}% 22
+\BOOKMARK [1][-]{section.3.2}{Why\040Men\040Matter:\040a\040mathematical\040model}{chapter.3}% 23
+\BOOKMARK [1][-]{section.3.3}{Mate\040Choice\040and\040the\040Origin\040of\040Menopause:\040a\040computational\040model}{chapter.3}% 24
+\BOOKMARK [0][-]{chapter.4}{Design\040and\040Implementation}{}% 25
+\BOOKMARK [0][-]{chapter.5}{Results\040and\040Evaluation}{}% 26
+\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 27

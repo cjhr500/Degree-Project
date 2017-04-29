@@ -19,9 +19,10 @@
 \contentsline {subsection}{\numberline {2.3.1}Differential Equations}{16}{subsection.2.3.1}
 \contentsline {subsection}{\numberline {2.3.2}Multi-Agent Systems}{17}{subsection.2.3.2}
 \contentsline {subsection}{\numberline {2.3.3}Genetic Algorithms}{17}{subsection.2.3.3}
-\contentsline {chapter}{\numberline {3}Problem Description}{18}{chapter.3}
-\contentsline {subsection}{\numberline {3.0.1}The Mathematical Model}{18}{subsection.3.0.1}
-\contentsline {subsection}{\numberline {3.0.2}The Computational Model}{19}{subsection.3.0.2}
-\contentsline {chapter}{\numberline {4}Design and Implementation}{20}{chapter.4}
-\contentsline {chapter}{\numberline {5}Results and Evaluation}{21}{chapter.5}
-\contentsline {chapter}{\numberline {6}Conclusion}{22}{chapter.6}
+\contentsline {chapter}{\numberline {3}Problem Description}{19}{chapter.3}
+\contentsline {section}{\numberline {3.1}Constraints of the Patriarch Hypothesis}{19}{section.3.1}
+\contentsline {section}{\numberline {3.2}Why Men Matter: a mathematical model}{19}{section.3.2}
+\contentsline {section}{\numberline {3.3}Mate Choice and the Origin of Menopause: a computational model}{21}{section.3.3}
+\contentsline {chapter}{\numberline {4}Design and Implementation}{22}{chapter.4}
+\contentsline {chapter}{\numberline {5}Results and Evaluation}{23}{chapter.5}
+\contentsline {chapter}{\numberline {6}Conclusion}{24}{chapter.6}
