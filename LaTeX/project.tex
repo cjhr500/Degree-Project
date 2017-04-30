@@ -258,7 +258,6 @@ The \texttt{Person} class provides the container for the attributes and methods 
 \end{table}
 
 \begin{landscape}
-\pagestyle{plain}
 \begin{table}[h]
 \caption{Person Class Methods}
 \label{tbl:personMethods}
@@ -401,6 +400,15 @@ Unfortunately the work was not completely implemented. The following features we
 Since the model was not fully implemented,with genetics being stored and mutated, but these mutations having no effect on fertility or mortality, the results are somewhat limited. Nevertheless some information may be gleaned from the output produced. Presented below are some of the results of a typical run and some analysis of what these results mean. Since the model relies heavily on pseudo-random numbers these results are dependent on one particular run, although the model could be run many times and the results averaged to minimise this effect.
 
 \section{Results of a typical run}
+\subsection{Female and Male Numbers}
+The base population from the burn in period produces a population with 500 females and 500 males (1000 total). Although the measure of how many females and males there are at any point may not be that useful, it is good to ensure that one sex did not become dominant over the other since this could skew the other results. The population numbers are held at 1000 at all times.
+
+In the MAP model there was a mean of 498.4 female and 501.6 males (with variance $\ \sigma^2 = 276.969 $) with a median of 497 females and 503 males. The minimum number of females reached was 463 and the maximum 545 (range 82), and the minimum number of males was 455, with the maximum 537 (range 82).
+
+In the MAP model there was a mean of 495.36 female and 504.64 males (with variance $\ \sigma^2 = 138.091 $) with a median of 495 females and 505 males. The minimum number of females reached was 459 and the maximum 522 (range 63), and the minimum number of males was 478, with the maximum 541 (range 63).
+
+Both models exhibit a very slight skew overall towards the male population, but are similar to each other overall so this is unlikely to affect the outcome.
+
 \subsection{Mean age of reproduction}
 The mean age of reproduction is the mean age that people reproduced at in each generation, in this case split by sex. This measure is useful for judging how a population as a whole are reproducing.
 
@@ -420,10 +428,13 @@ For the MYP simulation, the mean of the mean age gaps was 6.813, with variance $
 The MYP simulation is meant to model males' preference for younger females rather than those their own age and as such you would expect the age gap to bigger than MAP model. The lower mean age gap seen in the MYP model than the MAP model would suggest the opposite is the case, meaning the model may not adequately model the male's preference. The model could be extended to take into account the direction of the age gap (i.e. whether the male or female is the older of the pair) by creating a separate average and  count for couples where the males are older, the females are older and the pair are the same age.
 
 \subsection{Maximum age of reproduction}
+The maximum age of reproduction was the age of the oldest person to reproduce in a given generation (again divided by sex). This measure tells roughly the age after which women will cease to reproduce. It will also tell us whether males continue to reproduce after this point. However this age is the maximum such can be an outlier and is not representative of the group as a whole. 
 
+For the MAP simulation, the mean age for oldest female reproduction was 51.75, with variance $\ \sigma^2 = 7.765 $ and a median age of 50. The minimum maximum age of reproduction was 45 and the maximum was 60 (range 15). For males the mean age of oldest reproduction 52.15, with variance $\ \sigma^2 = 6.694 $ and a median age of 50. The minimum maximum age of reproduction was 50 and the maximum was 60 (range 10). This is indicative of males prefering females their own age, as their realised fertility is linked to the females' actual fertility meaning they cease to reproduce once the females are no longer capable of doing so, even though they remain to be fertile themselves. The average maximum age for females is also reasonably similar to the age at which menopause typically occurs.
+
+The MYP is more perhaps more interesting however as the maximum age of reproduction for both the females and the males was the same for each generation, at 30 and 35 respectively. Why the maximum age of reproduction stayed the same is generation is unclear. There is also a gap between the two ages, with males carrying on reproduction five years longer than the females. Both females and males in the MYP cease reproduction many years before those in the MAP model, suggesting there may be an issue in the MYP as you would expect the females to reproduce for fairly similar amounts of time, and for the MYP males to reproduce for longer than the MAP males.
 
 \subsection{Model Age Structures}
-Since the model was not fully implemented, 
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{map_age_data}
@@ -436,6 +447,20 @@ Since the model was not fully implemented,
 \caption{Typical MYP simulation age structure}
 \label{fig:mypResultsGraph}
 \end{figure}
+
+\begin{table}[h]
+\caption{MYP Age Structures}
+\label{tbl:mypAge}
+\begin{tabular}{c c c c c c c}
+\textbf{Age} & \textbf{Mean} & \textbf{Variance} & \textbf{Median} & \textbf{Minimum} & \textbf{Maximum} & \textbf{Range} \\\hline
+0 & 306.66 & 198.166 & 307 & 276 & 345 & 69 \\\hline
+5 & 181.54 & 116.675 & 181.5 & 155 & 209 & 54 \\\hline
+10 & 96.05 & 85.583 & 96 & 71 & 122 & 51 \\\hline
+15 & 66.05 & 82.472 & 67 & 45 & 86 & 41 \\\hline
+20 & 57.24 & 91.053 & 57.5 & 32 & 76 & 44 \\\hline
+
+\end{tabular}
+\end{table}
 
 
 
