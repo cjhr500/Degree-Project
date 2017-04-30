@@ -23,6 +23,8 @@
 \usepackage{enumitem}
 \usepackage{lscape}
 \usepackage{listings}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
 
 \begin{document}
 \maketitle
@@ -351,7 +353,7 @@ This initial population is exported to \texttt{initial\_population\_output.csv} 
 
 \newpage
 \section{Running the simulation}
-The simulation was divided into two phases: the MAP simulation, which models when males have a preference for females their own age, and the MYP simulation, when males have a preference for younger females. The process for each simulation is identical except for the preference distribution of each male. Each simulation set to run for 100 generations with a mutation rate of 0.2,
+The simulation was divided into two phases: the MAP simulation, which models when males have a preference for females their own age, and the MYP simulation, when males have a preference for younger females. The process for each simulation is identical except for the preference distribution of each male. Each simulation set to run for 100 generations (each generation representing a year period) with a mutation rate of 0.2.
 
 The MAP model is run first. Each generation the model starts with an aging phase. It loops through each female, and assigns them either to the next age or kills them based on a psuedo-random number and their mortality distribution, using the \texttt{increase\_age()} method (see Table \ref{tbl:personAttributes}). This process is repeated for the males.
 
@@ -367,10 +369,25 @@ There is little point to running a simulation if the results are not outputted. 
 
 The first thing outputted by the program is the properties of the initial population (using the \texttt{row\_builder()} method - see Table \ref{tbl:personMethods}), outputting the age, sex, life status, genes and preference distribution type to initial\_population\_output.csv. This process was repeated with the populations at the end of both the MAP and the MYP simulations, outputting to map\_population\_output.csv and myp\_population\_output.csv respectively.
 
-The other thing outputted by the program is information about each generation in the simulations. In each generation, the following information is exported: the generation, the number of females, the number of males, the average age of female age of reproduction, the average male age of reproduction, the average age gap in mating pairs who reproduced, the oldest female who reproduced and the oldest male who reproduced. Also outputted each row is the number of indiviuals in each age group, which allows you to work out the distribution of deaths by age, as well as the number of individuals born each generation.
+The other thing outputted by the program is information about each generation in the simulations. In each generation, the following information is exported: the generation, the number of females, the number of males, the average age of female age of reproduction, the average male age of reproduction, the average age gap in mating pairs who reproduced, the oldest female who reproduced and the oldest male who reproduced. Also outputted each row is the number of indiviuals in each age group, which allows you to work out the distribution of deaths by age, as well as the number of individuals born each generation. These results are outputted to map\_simulation\_output.csv and myp\_simulation\_output.csv for the MAP and the MYP simulations respectively.
 
 \chapter{Results and Evaluation}
 \label{cha:Results and Evaluation}
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{map_age_data}
+\caption{MAP simulation results}
+\label{fig:mapResultsGraph}
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{myp_age_data}
+\caption{MYP simulation results}
+\label{fig:mypResultsGraph}
+\end{figure}
+
+
+
 \begin{framed}
 Sample output - maybe some graphs
 What could have been done better - achieved with more work/time

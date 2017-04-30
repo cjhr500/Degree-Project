@@ -25,7 +25,7 @@
 \contentsline {section}{\numberline {3.3}Mate Choice and the Origin of Menopause: a computational model}{21}{section.3.3}
 \contentsline {chapter}{\numberline {4}Design and Implementation}{22}{chapter.4}
 \contentsline {section}{\numberline {4.1}Class Structure}{22}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Person Class}{22}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.1}Person Class}{23}{subsection.4.1.1}
 \contentsline {subsection}{\numberline {4.1.2}MortalityDistribution Class}{25}{subsection.4.1.2}
 \contentsline {subsection}{\numberline {4.1.3}ReproductionDistribution Class}{26}{subsection.4.1.3}
 \contentsline {subsection}{\numberline {4.1.4}PreferenceDistribution Class}{27}{subsection.4.1.4}
@@ -34,4 +34,4 @@
 \contentsline {section}{\numberline {4.3}Running the simulation}{30}{section.4.3}
 \contentsline {section}{\numberline {4.4}Generating an output}{31}{section.4.4}
 \contentsline {chapter}{\numberline {5}Results and Evaluation}{32}{chapter.5}
-\contentsline {chapter}{\numberline {6}Conclusion}{33}{chapter.6}
+\contentsline {chapter}{\numberline {6}Conclusion}{34}{chapter.6}
