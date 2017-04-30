@@ -350,7 +350,7 @@ This initial population is exported to \texttt{initial\_population\_output.csv} 
 
 \newpage
 \section{Running the simulation}
-The simulation was divided into two phases: the MAP simulation, which models when males have a preference for females their own age, and the MYP simulation, when males have a preference for younger females. The process for each simulation is identical except for the preference distribution of each male.
+The simulation was divided into two phases: the MAP simulation, which models when males have a preference for females their own age, and the MYP simulation, when males have a preference for younger females. The process for each simulation is identical except for the preference distribution of each male. Each simulation set to run for 100 generations with a mutation rate of 0.2,
 
 The MAP model is run first. Each generation the model starts with an aging phase. It loops through each female, and assigns them either to the next age or kills them based on a psuedo-random number and their mortality distribution, using the \texttt{increase\_age()} method (see Table \ref{tbl:personAttributes}). This process is repeated for the males.
 
