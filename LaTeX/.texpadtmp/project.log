@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.12.5)  30 APR 2017 11:52
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.12.5)  30 APR 2017 12:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -736,130 +736,156 @@ Underfull \hbox (badness 10000) in paragraph at lines 250--250
 []|\T1/pcr/m/n/10.95 __init__(self, age, sex, mort_dist,
  []
 
-[24
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 272--272
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 273--273
 []|\T1/pcr/m/n/10.95 get_survival_by_age_class(
  []
 
 
-Overfull \hbox (23.99998pt too wide) in paragraph at lines 267--274
+Overfull \hbox (23.99998pt too wide) in paragraph at lines 268--275
 [][] 
  []
 
 [25
 
+
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 288--288
+Underfull \hbox (badness 10000) in paragraph at lines 289--289
 []|\T1/pcr/m/n/10.95 get_reproduction(self,
  []
 
 
-Underfull \hbox (badness 4660) in paragraph at lines 288--288
+Underfull \hbox (badness 4660) in paragraph at lines 289--289
 []|\T1/pplj/m/n/10.95 Returns re-pro-duc-tion prob-ab-il-ity
  []
 
 
-Overfull \hbox (4.83769pt too wide) in paragraph at lines 289--289
+Overfull \hbox (4.83769pt too wide) in paragraph at lines 290--290
 []|\T1/pcr/m/n/10 get_reproduction_by_age_class(
  []
 
 
-Underfull \hbox (badness 4660) in paragraph at lines 289--290
+Underfull \hbox (badness 4660) in paragraph at lines 290--291
 []|\T1/pplj/m/n/10.95 Returns re-pro-duc-tion prob-ab-il-ity
  []
 
 
-Overfull \hbox (23.99998pt too wide) in paragraph at lines 284--291
+Overfull \hbox (23.99998pt too wide) in paragraph at lines 285--292
 [][] 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 302--302
+Underfull \hbox (badness 10000) in paragraph at lines 303--303
 []|\T1/pcr/m/n/10.95 __init__(self, name,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 304--304
+Underfull \hbox (badness 10000) in paragraph at lines 305--305
 []|\T1/pcr/m/n/10.95 get_preference(self,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 304--304
+Underfull \hbox (badness 10000) in paragraph at lines 305--305
 \T1/pcr/m/n/10.95 age_class_one,
  []
 
 
-Overfull \hbox (23.99998pt too wide) in paragraph at lines 300--306
+Overfull \hbox (23.99998pt too wide) in paragraph at lines 301--307
 [][] 
  []
 
 [27]
-Overfull \hbox (23.99998pt too wide) in paragraph at lines 315--323
+Overfull \hbox (23.99998pt too wide) in paragraph at lines 316--324
 [][] 
  []
 
 [28]
-Overfull \hbox (21.83244pt too wide) in paragraph at lines 327--328
+Overfull \hbox (21.83244pt too wide) in paragraph at lines 328--329
 \T1/pplj/m/n/10.95 After the class defin-i-tions, the main dis-tri-bu-tions are
  set up (fe-male_mortality,
  []
 
 
-Overfull \hbox (26.09189pt too wide) in paragraph at lines 327--328
-\T1/pplj/m/n/10.95 male_mortality, fe-male_reproduction, male_reproductiion, fe
--male_preference,
+Overfull \hbox (22.90544pt too wide) in paragraph at lines 328--329
+\T1/pplj/m/n/10.95 male_mortality, fe-male_reproduction, male_reproduction, fe-
+male_preference,
  []
 
 
-Overfull \hbox (8.77606pt too wide) in paragraph at lines 338--338
+Overfull \hbox (28.53748pt too wide) in paragraph at lines 332--333
+[]\T1/pplj/m/n/10.95 This ini-tial pop-u-la-tion is ex-por-ted to \T1/pcr/m/n/1
+0.95 initial_population_output.csv
+ []
+
+
+Overfull \hbox (8.77606pt too wide) in paragraph at lines 343--343
 []|\T1/pcr/m/n/10.95 reproduction| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 340--340
+Underfull \hbox (badness 10000) in paragraph at lines 345--345
 []|\T1/pplj/m/n/10.95 Randomly gen-er-ated by
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 340--341
+Underfull \hbox (badness 10000) in paragraph at lines 345--346
 []|\T1/pplj/m/n/10.95 Randomly gen-er-ated by
  []
 
 
-Overfull \hbox (35.99461pt too wide) in paragraph at lines 332--342
+Overfull \hbox (35.99461pt too wide) in paragraph at lines 337--347
 [][] 
  []
 
 [29]
+Overfull \hbox (1.11497pt too wide) in paragraph at lines 352--353
+[]\T1/pplj/m/n/10.95 Each gen-er-a-tion the model starts with an aging phase. I
+t loops through
+ []
+
+
+Overfull \hbox (27.08833pt too wide) in paragraph at lines 361--362
+\T1/pplj/m/n/10.95 status, genes and pref-er-ence dis-tri-bu-tion type to ini-t
+ial_population_output.csv.
+ []
+
+
+Overfull \hbox (8.39523pt too wide) in paragraph at lines 361--362
+\T1/pplj/m/n/10.95 MAP and the MYP sim-u-la-tions, out-put-ting to map_populati
+on_output.csv
+ []
+
+[30] [31]
 Chapter 5.
-[30
+[32
 
 ]
 Chapter 6.
-(/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.bbl [31
+(/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.bbl [33
 
-] [32
+] [34
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 357.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 378.
 
-[33]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 357.
+[35]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 378.
  (/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 357.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 357.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 357.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 378.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 378.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 378.
  ) 
 Here is how much of TeX's memory you used:
  14177 strings out of 493706
  216315 string characters out of 6145769
- 370289 words of memory out of 5000000
+ 370459 words of memory out of 5000000
  17366 multiletter control sequences out of 15000+600000
  37878 words of font info for 59 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 49i,11n,52p,1042b,520s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,11n,52p,986b,520s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.p
-df (33 pages).
+df (35 pages).

@@ -31,5 +31,7 @@
 \contentsline {subsection}{\numberline {4.1.4}PreferenceDistribution Class}{27}{subsection.4.1.4}
 \contentsline {subsection}{\numberline {4.1.5}Genetics Class}{28}{subsection.4.1.5}
 \contentsline {section}{\numberline {4.2}Set up and burn-in period}{29}{section.4.2}
-\contentsline {chapter}{\numberline {5}Results and Evaluation}{30}{chapter.5}
-\contentsline {chapter}{\numberline {6}Conclusion}{31}{chapter.6}
+\contentsline {section}{\numberline {4.3}Running the simulation}{29}{section.4.3}
+\contentsline {section}{\numberline {4.4}Generating an output}{30}{section.4.4}
+\contentsline {chapter}{\numberline {5}Results and Evaluation}{32}{chapter.5}
+\contentsline {chapter}{\numberline {6}Conclusion}{33}{chapter.6}
