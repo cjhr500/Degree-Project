@@ -60,8 +60,8 @@ class MortalityDistribution:
         else:
             return 0.0
 
-    def get_survival_by_age_class(self, age_class):
-        return get_survival((age_class * 5) - 1)
+    def get_survival_by_age_class(self, ageClass):
+        return get_survival((ageClass * 5) - 1)
 
 female_mortality = MortalityDistribution("female_data.csv")
 #print(female_mortality)
@@ -295,11 +295,21 @@ writer = csv.writer(map_output, delimiter=",", quotechar='"', quoting=csv.QUOTE_
 
 map_females = female_population[:]
 map_males = male_population[:]
+mutation_rate = 0.2
+age_indices = []
+
+for i in range(0,19):
+    age_indices.append(i*5)
 
 for gen in range(1,51):
-    pairings = 0.0
     born = 0.0
     died = 0.0
+    female_age_reproduction = 0.0
+    male_age_reproduction = 0.0
+    couple_age_gap = 0.0
+
+    oldest_female = 0
+    oldest_male = 0
 
     map_females.sort(key=lambda x: x.age)
     map_males.sort(key=lambda x: x.age)
@@ -325,40 +335,181 @@ for gen in range(1,51):
 
         if (female.calc_preference(male) == 1 and male.calc_preference(female) == 1):
             if female.reproduce() and male.reproduce():
+                # For output
                 born += 1
+                female_age_reproduction += female.age
+                male_age_reproduction += male.age
+                couple_age_gap += abs(female.age - male.age)
+
+                if female.age > oldest_female:
+                    oldest_female = female.age
+
+                if male.age > oldest_male:
+                    oldest_male = male.age
+
                 if 0.5 > random.uniform(0.0, 1.0):
-                    new_person = Person(0, "f", female_mortality, female_reproduction, female_preference, genes=Genes(genes=female.genes.crossover(male.genes)))
-                    map_females.append(new_person)
+                    new_female = Person(0, "f", female_mortality, female_reproduction, female_preference)
+                    new_genes = Genetics(genes=female.genes.crossover(male.genes))
+                    new_genes.mutate(mutation_rate)
+                    new_female.genes = new_genes
+                    map_females.append(new_female)
                 else:
-                    new_person = Person(0, "m", male_mortality, male_reproduction, male_map_preference, genes=Genes(genes=male.genes.crossover(female.genes)))
-                    map_males.append(new_person)
+                    new_male = Person(0, "m", male_mortality, male_reproduction, male_map_preference)
+                    new_genes = Genetics(genes=male.genes.crossover(female.genes))
+                    new_genes.mutate(mutation_rate)
+                    new_male.genes = new_genes
+                    map_males.append(new_male)
 
     population = len(map_males) + len(map_females)
 
     map_age_groups = {}
 
-    for male in male_population:
+    for age_index in age_indices:
+        map_age_groups[age_index] = 0
+
+    for male in map_males:
         if male.age in map_age_groups:
             map_age_groups[male.age] += 1
         else:
             map_age_groups[male.age] = 1
 
-    for female in female_population:
+    for female in map_females:
         if female.age in map_age_groups:
             map_age_groups[female.age] += 1
         else:
             map_age_groups[female.age] = 1
 
-    map_age_indices = []
+    female_reproductive_ave = female_age_reproduction / born
+    male_reproductive_ave = male_age_reproduction / born
+    ave_age_gap = couple_age_gap / born
 
-    for age_group in map_age_groups:
-        map_age_indices.append(age_group)
+    output_string = "GEN: " + str(gen).zfill(2)
+    output_string += ", Fem Rep Age: " + str(female_reproductive_ave)
+    output_string += ", Mal Rep Age: " + str(male_reproductive_ave)
+    output_string += ", Couple Age Gap: " + str(ave_age_gap)
+    output_string += ", Oldest Female Rep: " + str(oldest_female)
+    output_string += ", Oldest Male Rep: " + str(oldest_male) + ", "
 
-    map_age_indices.sort()
+    output_row = [gen, female_reproductive_ave, male_reproductive_ave, ave_age_gap, oldest_female, oldest_male]
 
-    print("\n ### GENERATION " + str(gen) + " ###")
-    for age_group in map_age_indices:
-        print(str(age_group) + ": " +  str(map_age_groups[age_group])
+    for age_group in age_indices:
+        output_string += str(age_group).zfill(2) + ": " +  str(map_age_groups[age_group]).zfill(3) + ", "
+        output_row.append(map_age_groups[age_group])
+    #print(output_string)
 
-    #print(str(gen).zfill(2) + " - Population: " + str(population).zfill(4) + ", Born: " + str(born).zfill(4) + ", Died: " + str(died).zfill(4) + ", Change: " + str(born-died).zfill(4))
-    writer.writerow([gen, population, born, died, (born-died)])
+    writer.writerow(output_row)
+
+### Begin MAP simulation ###
+print("### Begin MYP Simulation ###")
+myp_output = open("myp_simulation_output.csv", "wb")
+writer = csv.writer(myp_output, delimiter=",", quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
+
+myp_females = female_population[:]
+myp_males = male_population[:]
+mutation_rate = 0.2
+age_indices = []
+
+for i in range(0,19):
+    age_indices.append(i*5)
+
+for male in myp_males:
+    male.pref_dist = male_myp_preference
+
+for gen in range(1,51):
+    born = 0.0
+    died = 0.0
+    female_age_reproduction = 0.0
+    male_age_reproduction = 0.0
+    couple_age_gap = 0.0
+
+    oldest_female = 0
+    oldest_male = 0
+
+    myp_females.sort(key=lambda x: x.age)
+    myp_males.sort(key=lambda x: x.age)
+
+    # Aging Phase
+    for female in myp_females:
+        female.increase_age()
+        if not female.alive:
+            died += 1.0
+            myp_females.remove(female)
+
+    for male in myp_males:
+        male.increase_age()
+        if not male.alive:
+            died += 1.0
+            myp_males.remove(male)
+
+
+    # Reproduction Phase
+    while (len(myp_males) + len(myp_females)) < 1000:
+        female = random.choice(myp_females)
+        male = random.choice(myp_males)
+
+        if (female.calc_preference(male) == 1 and male.calc_preference(female) == 1):
+            if female.reproduce() and male.reproduce():
+                # For output
+                born += 1
+                female_age_reproduction += female.age
+                male_age_reproduction += male.age
+                couple_age_gap += abs(female.age - male.age)
+
+                if female.age > oldest_female:
+                    oldest_female = female.age
+
+                if male.age > oldest_male:
+                    oldest_male = male.age
+
+                if 0.5 > random.uniform(0.0, 1.0):
+                    new_female = Person(0, "f", female_mortality, female_reproduction, female_preference)
+                    new_genes = Genetics(genes=female.genes.crossover(male.genes))
+                    new_genes.mutate(mutation_rate)
+                    new_female.genes = new_genes
+                    myp_females.append(new_female)
+                else:
+                    new_male = Person(0, "m", male_mortality, male_reproduction, male_myp_preference)
+                    new_genes = Genetics(genes=male.genes.crossover(female.genes))
+                    new_genes.mutate(mutation_rate)
+                    new_male.genes = new_genes
+                    myp_males.append(new_male)
+
+    population = len(myp_males) + len(myp_females)
+
+    myp_age_groups = {}
+
+    for age_index in age_indices:
+        myp_age_groups[age_index] = 0
+
+    for male in myp_males:
+        if male.age in myp_age_groups:
+            myp_age_groups[male.age] += 1
+        else:
+            myp_age_groups[male.age] = 1
+
+    for female in myp_females:
+        if female.age in myp_age_groups:
+            myp_age_groups[female.age] += 1
+        else:
+            myp_age_groups[female.age] = 1
+
+    female_reproductive_ave = female_age_reproduction / born
+    male_reproductive_ave = male_age_reproduction / born
+    ave_age_gap = couple_age_gap / born
+
+    output_string = "GEN: " + str(gen).zfill(2)
+    output_string += ", Fem Rep Age: " + str(female_reproductive_ave)
+    output_string += ", Mal Rep Age: " + str(male_reproductive_ave)
+    output_string += ", Couple Age Gap: " + str(ave_age_gap)
+    output_string += ", Oldest Female Rep: " + str(oldest_female)
+    output_string += ", Oldest Male Rep: " + str(oldest_male) + ", "
+
+    output_row = [gen, female_reproductive_ave, male_reproductive_ave, ave_age_gap, oldest_female, oldest_male]
+
+    for age_group in age_indices:
+        output_string += str(age_group).zfill(2) + ": " +  str(myp_age_groups[age_group]).zfill(3) + ", "
+        output_row.append(myp_age_groups[age_group])
+
+    #print(output_string)
+
+    writer.writerow(output_row)
