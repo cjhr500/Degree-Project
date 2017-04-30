@@ -398,8 +398,31 @@ Unfortunately the work was not completely implemented. The following features we
 
 \chapter{Results and Evaluation}
 \label{cha:Results and Evaluation}
-Since the model was not fully implemented, the results are somewhat limited. Nevertheless some information may be gleaned from the output produced. Presented below are some of the results of a typical run, with 
-\section{Age Structures}
+Since the model was not fully implemented,with genetics being stored and mutated, but these mutations having no effect on fertility or mortality, the results are somewhat limited. Nevertheless some information may be gleaned from the output produced. Presented below are some of the results of a typical run and some analysis of what these results mean. Since the model relies heavily on pseudo-random numbers these results are dependent on one particular run, although the model could be run many times and the results averaged to minimise this effect.
+
+\section{Results of a typical run}
+\subsection{Mean age of reproduction}
+The mean age of reproduction is the mean age that people reproduced at in each generation, in this case split by sex. This measure is useful for judging how a population as a whole are reproducing.
+
+For the MAP simulation, the mean female mean age of reproduction was 29.763, with variance $\ \sigma^2 = 0.870 $ and a median mean of 29.672. The minimum mean was 26.413 and the maximum mean was 31.944 (range 5.531). For the MAP simulation, the mean male mean age of reproduction was 30.004, with variance $\ \sigma^2 = 0.588 $ and a median mean of 30.116. The minimum mean was 27.937 and the maximum mean was 31.933 (range 3.996). The difference between the mean of means for the two sexes is 0.240.
+
+For the MYP simulation, the mean female mean age of reproduction was 23.714, with variance $\ \sigma^2 = 0.425 $ and a median mean of 23.716. The minimum mean was 22.153 and the maximum mean was 25.271 (range 3.118). For the MYP simulation, the mean male mean age of reproduction was 26.073, with variance $\ \sigma^2 = 0.690 $ and a median mean of 26.121. The minimum mean was 24.276 and the maximum mean was 28.286 (range 4.010). The difference between the mean of means for the two sexes is 2.358.
+ 
+The mean age of reproduction in the MAP simulation is fairly similar between the sexes with the females only reproducing on average 0.240 years before the males. This is in line with the concept of males prefering females roughly their own age - if this is the case then males and females will reproduce at fairly similar points in their life. The gap in the mean age of reproduction was higher in the MYP simulation (where males have a preference for younger females) suggesting the preference for younger females. What is also notable is that both the female and male mean age of reproduction is much lower in the MYP simulation than the MAP simulation (6.049 years younger for females, 3.931), bigger than the gap between sexes in either simulation.
+
+\subsection{Mean age difference in couples}
+The mean age difference was calculated each generation by summing the absoluted difference in age for each child producing couple, then dividing it by the the number of children born that generation. Note that this value only tells you the average age gap, not the direction of the gap (whether the male or the female is older).
+
+For the MAP simulation, the mean of the mean age gaps was 10.435, with variance $\ \sigma^2 = 0.278 $ and a median mean of 10.401. The minimum mean was 9.028 and the maximum mean was 11.712 (range 2.683). 
+
+For the MYP simulation, the mean of the mean age gaps was 6.813, with variance $\ \sigma^2 = 0.221 $ and a median mean of 6.805. The minimum mean was 5.808 and the maximum mean was 8.216 (range 2.408).
+
+The MYP simulation is meant to model males' preference for younger females rather than those their own age and as such you would expect the age gap to bigger than MAP model. The lower mean age gap seen in the MYP model than the MAP model would suggest the opposite is the case, meaning the model may not adequately model the male's preference. The model could be extended to take into account the direction of the age gap (i.e. whether the male or female is the older of the pair) by creating a separate average and  count for couples where the males are older, the females are older and the pair are the same age.
+
+\subsection{Maximum age of reproduction}
+
+
+\subsection{Model Age Structures}
 Since the model was not fully implemented, 
 
 \begin{figure}[h]

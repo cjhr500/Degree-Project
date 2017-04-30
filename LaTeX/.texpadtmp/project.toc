@@ -36,5 +36,9 @@
 \contentsline {section}{\numberline {4.4}Generating an output}{33}{section.4.4}
 \contentsline {section}{\numberline {4.5}Not Implemented}{34}{section.4.5}
 \contentsline {chapter}{\numberline {5}Results and Evaluation}{35}{chapter.5}
-\contentsline {section}{\numberline {5.1}Age Structures}{35}{section.5.1}
-\contentsline {chapter}{\numberline {6}Conclusion}{37}{chapter.6}
+\contentsline {section}{\numberline {5.1}Results of a typical run}{35}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Mean age of reproduction}{35}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Mean age difference in couples}{36}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Maximum age of reproduction}{36}{subsection.5.1.3}
+\contentsline {subsection}{\numberline {5.1.4}Model Age Structures}{36}{subsection.5.1.4}
+\contentsline {chapter}{\numberline {6}Conclusion}{39}{chapter.6}
