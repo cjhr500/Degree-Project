@@ -153,7 +153,7 @@ print("Initial preference distributions set up")
 class Genetics:
     def __init__(self, genes=None):
         if genes is None:
-            self.genes = self.random_genes(8)
+            self.genes = self.random_genes(32)
         else:
             self.genes = genes
 
@@ -318,6 +318,10 @@ population.sort(key=lambda x: x.age, reverse=False)
 for person in population:
     writer.writerow(person.row_builder())
 
+### Simulation Parameters ###
+mutation_rate = 0.2
+simulation_generations = 100
+
 ### Begin MAP simulation ###
 print("### Begin MAP Simulation ###")
 map_output = open("map_simulation_output.csv", "wb")
@@ -325,13 +329,12 @@ writer = csv.writer(map_output, delimiter=",", quotechar='"', quoting=csv.QUOTE_
 
 map_females = female_population[:]
 map_males = male_population[:]
-mutation_rate = 0.2
 age_indices = []
 
 for i in range(0,19):
     age_indices.append(i*5)
 
-for gen in range(1,51):
+for gen in range(1,simulation_generations+1):
     born = 0.0
     died = 0.0
     female_age_reproduction = 0.0
@@ -454,12 +457,11 @@ writer = csv.writer(myp_output, delimiter=",", quotechar='"', quoting=csv.QUOTE_
 
 myp_females = female_population[:]
 myp_males = male_population[:]
-mutation_rate = 0.2
 
 for male in myp_males:
     male.pref_dist = male_myp_preference
 
-for gen in range(1,51):
+for gen in range(1,simulation_generations+1):
     born = 0.0
     died = 0.0
     female_age_reproduction = 0.0
