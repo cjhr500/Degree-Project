@@ -329,7 +329,6 @@ After the class definitions, the main distributions are set up (female\_mortalit
 
 This process is then repeated with the males to produce a male population. The males are all initialised with the male\_map\_preference mating preference distribution since it does not affect this burn in period. Before the actual simulation is run up the preference distribution can be set to male\_map\_preference when males have a preference for females of their own age, or male\_myp\_preference if they have a preference for younger females. 
 
-This initial population is exported to \texttt{initial\_population\_output.csv} and duplicated so that population can then be used for both the simulations.
 
 \begin{table}[h]
 \caption{Base population values}
@@ -346,21 +345,28 @@ This initial population is exported to \texttt{initial\_population\_output.csv} 
 \end{tabular}
 \end{table}
 
+This initial population is exported to \texttt{initial\_population\_output.csv} and duplicated so that population can then be used for both the simulations.
+
+
+\newpage
 \section{Running the simulation}
 The simulation was divided into two phases: the MAP simulation, which models when males have a preference for females their own age, and the MYP simulation, when males have a preference for younger females. The process for each simulation is identical except for the preference distribution of each male.
 
-Each generation the model starts with an aging phase. It loops through each female, and assigns them either to the next age or kills them based on a psuedo-random number and their mortality distribution, using the \texttt{increase\_age()} method (see Table \ref{tbl:personAttributes}). This process is repeated for the males.
+The MAP model is run first. Each generation the model starts with an aging phase. It loops through each female, and assigns them either to the next age or kills them based on a psuedo-random number and their mortality distribution, using the \texttt{increase\_age()} method (see Table \ref{tbl:personAttributes}). This process is repeated for the males.
 
 Next comes a reproduction phase which loops until the population size is restored to 1000. A female and a male are randomly selected from the female and male populations. Their mating preferences are checked and if they are are compatible a mating pair is formed. Then whether they are able to reproduce is checked with both the male and the female. If they are both able to, then a child is produced.
 
 The child's sex is randomly determined with a 50\% chance for a female and \% chance for a male to be born. The child inherits the reproductive, mortality and mating preference distributions of the parent of the same sex. The genetics of the offspring are determined by first performing a crossover of their parents' genes, followed by a mutation with an arbitrary mutation chance of 0.2 (see Table \ref{tbl:geneticsMethods}).
 
+Various statistics about the generation are calculated (including the age distribution of its members) and outputted (see the Generating an output section). The simulation then repeats with the next generation. After all the generations are complete the current population are outputted, then the simulation is repeated using the same method for the MYP model (making sure to change the mating preference distribution for the males).
+
+\newpage
 \section{Generating an output}
 There is little point to running a simulation if the results are not outputted. The \texttt{csv} module for Python was used both for parsing the input files, but for generating output \texttt{csv} files. The \texttt{csv} format is designed to be a human and machine readable format for storing tables of data and is readable by a variety of programming languages as well as by spreadsheet software, making it an accessable format to output to.
 
-The first thing outputted by the program is the properties of the initial population (using the \texttt{row\_builder} method - see Table \ref{tbl:personMethods}), outputting the age, sex, life status, genes and preference distribution type to initial\_population\_output.csv. This process was repeated with the populations at the end of both the MAP and the MYP simulations, outputting to map\_population\_output.csv and myp\_population\_output.csv respectively.
+The first thing outputted by the program is the properties of the initial population (using the \texttt{row\_builder()} method - see Table \ref{tbl:personMethods}), outputting the age, sex, life status, genes and preference distribution type to initial\_population\_output.csv. This process was repeated with the populations at the end of both the MAP and the MYP simulations, outputting to map\_population\_output.csv and myp\_population\_output.csv respectively.
 
-The other thing outputted by the program is information about each generation in the simulations. In each generation, the following information is exported: the generation, the number of females, the number of males, the average age of female age of reproduction, the average male age of reproduction, the average age gap in mating pairs who reproduced, the oldest female who reproduced and the oldest male who reproduced. Also outputted each row is the number of indiviuals in each age group, which allows you to work out the number of people at each age. 
+The other thing outputted by the program is information about each generation in the simulations. In each generation, the following information is exported: the generation, the number of females, the number of males, the average age of female age of reproduction, the average male age of reproduction, the average age gap in mating pairs who reproduced, the oldest female who reproduced and the oldest male who reproduced. Also outputted each row is the number of indiviuals in each age group, which allows you to work out the distribution of deaths by age, as well as the number of individuals born each generation.
 
 \chapter{Results and Evaluation}
 \label{cha:Results and Evaluation}

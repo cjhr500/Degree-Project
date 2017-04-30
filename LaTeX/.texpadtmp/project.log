@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.12.5)  30 APR 2017 12:53
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.12.5)  30 APR 2017 13:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -841,21 +841,9 @@ Overfull \hbox (35.99461pt too wide) in paragraph at lines 337--347
  []
 
 [29]
-Overfull \hbox (1.11497pt too wide) in paragraph at lines 352--353
+Overfull \hbox (1.11497pt too wide) in paragraph at lines 353--354
 []\T1/pplj/m/n/10.95 Each gen-er-a-tion the model starts with an aging phase. I
 t loops through
- []
-
-
-Overfull \hbox (27.08833pt too wide) in paragraph at lines 361--362
-\T1/pplj/m/n/10.95 status, genes and pref-er-ence dis-tri-bu-tion type to ini-t
-ial_population_output.csv.
- []
-
-
-Overfull \hbox (8.39523pt too wide) in paragraph at lines 361--362
-\T1/pplj/m/n/10.95 MAP and the MYP sim-u-la-tions, out-put-ting to map_populati
-on_output.csv
  []
 
 [30] [31]
@@ -869,14 +857,14 @@ Chapter 6.
 ] [34
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 378.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 380.
 
 [35]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 378.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 380.
  (/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 378.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 378.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 378.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 380.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 380.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 380.
  ) 
 Here is how much of TeX's memory you used:
  14177 strings out of 493706
