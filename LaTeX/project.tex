@@ -220,7 +220,7 @@ How this can be fixed
 \label{cha:Design and Implementation}
 
 \section{Class Structure}
-When designing a multi-agent system, it can be useful to model each agent as being an instance of a class, each with their own attributes (variables belonging to a class instance that are an abstract representation of the differing traits an agent has) and class methods (representing the actions an agent can take to interact with its environment).
+When designing a multi-agent system, it can be useful to model each agent as being an instance of a class, each with their own attributes (variables belonging to a class instance that are an abstract representation of the differing traits an agent has) and class methods (representing the actions an agent can take to interact with its environment). The individual people in the system are modeled using the \texttt{Person} class, with attributes determining their traits, including genetics and various probability and preference distributions. 
 
 \subsection{Person Class}
 The \texttt{Person} class provides the container for the attributes and methods necessary to build the model. Many of its attributes are instances of the classes used to hold probability distributions in control of mortality and fertility, as well as the person's mating preferences and genetics. Each time a new child is born, a new instance of \texttt{Person} is created, with the parameters for \texttt{\_\_init\_\_()} (see Table \ref{tbl:personMethods}) based on their parents' attributes.
@@ -257,6 +257,7 @@ The \texttt{Person} class provides the container for the attributes and methods 
 \end{table}
 \end{landscape}
 
+\newpage
 \subsection{MortalityDistribution Class}
 The \texttt{MortalityDistribution} class serves as a lookup table for the probability of death a given age, based on data from the input files \texttt{female\_data.csv} and \texttt{male\_data.csv}. There are two base instances of this class created \texttt{female\_mortality} (using female\_data.csv), the mortality distribution used by females and \texttt{male\_mortality}, for males (using male\_data.csv). The class also contains methods for getting survival probablilities based on age (see Table \ref{tbl:mortalityDistributionMethods}).
 
@@ -272,8 +273,9 @@ The \texttt{MortalityDistribution} class serves as a lookup table for the probab
 \end{tabular}
 \end{table}
 
+\newpage
 \subsection{ReproductionDistribution Class}
-The \texttt{MortalityDistribution} class serves as a lookup table for the probability of being able to reproduce at a given age, based on data from the input files \texttt{female\_data.csv} and \texttt{male\_data.csv}. There are two base instances of this class created \texttt{female\_mortality} (using female\_data.csv), the mortality distribution used by females and \texttt{male\_mortality}, for males (using male\_data.csv). The class also contains methods for getting survival probablilities based on age (see Table \ref{tbl:reproductionDistributionMethods}).
+The \texttt{MortalityDistribution} class serves as a lookup table for the probability of being able to reproduce at a given age, based on data from the input files \texttt{female\_data.csv} and \texttt{male\_data.csv}. There are two base instances of this class created \texttt{female\_mortality} (using female\_data.csv), the mortality distribution used by females and \texttt{male\_mortality}, for males (using male\_data.csv). The class also contains methods for getting survival probablilities based on age (see Table \ref{tbl:reproductionDistributionMethods} for overview).
 
 
 \begin{table}[h]
@@ -288,8 +290,9 @@ The \texttt{MortalityDistribution} class serves as a lookup table for the probab
 \end{tabular}
 \end{table}
 
+\newpage
 \subsection{PreferenceDistribution Class}
-The \texttt{PreferenceDistribution} class is used to store in the class attribute \texttt{} the mating preferences based on age class of each individual, and to provide access to the data. There are three instances of this class created \texttt{female\_preference} representing females' mating preferences (using data from female\_pref.csv), \texttt{male\_map\_preference} representing males who have a preference for females their own age (using data from male\_map.csv) and \texttt{male\_myp\_preference} representing male preference for younger females (using data from male\_myp.csv). The data is then accessed with the age classes of two individuals (see Table \ref{tbl:preferenceDistributionMethods}).
+The \texttt{PreferenceDistribution} class is used to store in the class attribute \texttt{} the mating preferences based on age class of each individual, and to provide access to the data. There are three instances of this class created \texttt{female\_preference} representing females' mating preferences (using data from female\_pref.csv), \texttt{male\_map\_preference} representing males who have a preference for females their own age (using data from male\_map.csv) and \texttt{male\_myp\_preference} representing male preference for younger females (using data from male\_myp.csv). The data is then accessed with the age classes of two individuals (see Table \ref{tbl:preferenceDistributionMethods} for overview).
 
 \begin{table}[h]
 \caption{PreferenceDistribution Class Methods}
@@ -302,7 +305,10 @@ The \texttt{PreferenceDistribution} class is used to store in the class attribut
 \end{tabular}
 \end{table}
 
+\newpage
 \subsection{Genetics Class}
+The \texttt{Genetics} class handles the genetic information of the person, storing it as a string of "1"s and "0"s inside the \texttt{genes} attribute. The class contains a method for generating a random gene string, as well as ones for performing crossover of the genes of two parents and introducing mutations (see Table \ref{tbl:geneticsMethods} for overview).
+
 \begin{table}[h]
 \caption{Genetics Class Methods}
 \label{tbl:geneticsMethods}
@@ -312,14 +318,37 @@ The \texttt{PreferenceDistribution} class is used to store in the class attribut
 \texttt{\_\_repr\_\_(self)} & Returns a string representation of the class \\\hline
 \texttt{random\_genes(self, size)} & Returns a random string of "1"s and "0"s of length equal to \texttt{size}. \\\hline
 \texttt{crossover(self, other)} & Returns a gene string made of of random segments of the two gene strings. \\\hline
-\texttt{mutate(self, rate)} & Psuedo-randomly flips "0"s and "1"s in the gene string with a probability equal to \texttt{rate}.
+\texttt{mutate(self, rate)} & Psuedo-randomly flips "0"s and "1"s in the \texttt{gene} attribute with a probability equal to \texttt{rate}.
+\end{tabular}
+\end{table}
+
+\newpage
+\section{Set up and burn-in period}
+After the class definitions, the main distributions are set up (female\_mortality, male\_mortality, female\_reproduction, male\_reproductiion, female\_preference, male\_map\_preference and male\_myp\_preference). An initial population of 500 females was created using the premade female distributions, and random ages and genetics. A burn-in period of time (100 generations) is created in which in which they aged and deceased individuals are replaced with new females aged 0, so that a typical age structure based on the mortality distribution is then produced. 
+
+This process is then repeated with the males to produce a male population. The males are all initialised with the male\_map\_preference mating preference distribution since it does not affect this burn in period. Before the actual simulation is run up the preference distribution can be set to male\_map\_preference when males have a preference for females of their own age, or male\_myp\_preference if they have a preference for younger females. 
+
+\begin{table}[h]
+\caption{Base population values}
+\label{tbl:basePopulationValues}
+\begin{tabular}{m{0.2\textwidth} m{0.4\textwidth} m{0.4\textwidth}}
+\textbf{Attribute} & \textbf{Female Value} & \textbf{Male Value} \\\hline
+\texttt{age} & Random age between 0 and 85 inclusive (multiple of 5) & Random age between 0 and 85 inclusive (multiple of 5) \\\hline
+\texttt{sex} & "f" & "m" \\\hline
+\texttt{alive} & True & True \\\hline
+\texttt{mortality} & female\_mortality & male\_mortality \\\hline
+\texttt{reproduction} & female\_reproduction & male\_reproduction \\\hline
+\texttt{pref\_dist} & female\_preference & male\_map\_preference \\\hline 
+\texttt{genes} & Randomly generated by \texttt{Genetics} class & Randomly generated by \texttt{Genetics} class
 \end{tabular}
 \end{table}
 
 \chapter{Results and Evaluation}
 \label{cha:Results and Evaluation}
+\begin{framed}
 Sample output - maybe some graphs
 What could have been done better - achieved with more work/time
+\end{framed}
 
 \chapter{Conclusion}
 \label{cha:Conclusion}
