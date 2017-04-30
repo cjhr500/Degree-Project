@@ -21,8 +21,13 @@ class Person:
         + ", ALIVE: " + str(self.alive)
         + ", GENES: " + str(self.genes))
 
+    def row_builder(self):
+        return [self.age, self.sex, self.alive, self.genes, self.pref_dist.name]
+
     def increase_age(self):
-        if random.uniform(0.0,1.0) < self.mortality.get_survival(self.age):
+        if self.age == 85:
+            self.alive = False
+        elif random.uniform(0.0,1.0) < self.mortality.get_survival(self.age):
             self.age += 5
         else:
             self.alive = False
@@ -219,7 +224,15 @@ for i in range(1,101):
 
 female_population.sort(key=lambda x: x.age, reverse=False) #
 
+age_indices = []
 age_groups = {}
+
+for i in range(0,19):
+    age_indices.append(i*5)
+
+for age in age_indices:
+    age_groups[age] = 0
+
 for female in female_population:
     if female.age in age_groups:
         age_groups[female.age] += 1
@@ -227,14 +240,7 @@ for female in female_population:
         age_groups[female.age] = 1
     #print(female)
 
-age_indices = []
-
-for age_group in age_groups:
-    age_indices.append(age_group)
-
-age_indices.sort()
-
-for age_group in age_groups:
+for age_group in age_indices:
     print(str(age_group) + ": " +  str(age_groups[age_group]))
 
 print("### Female Burn In Period Ended ###")
@@ -252,7 +258,7 @@ for i in range(0,500):
 #
 # print(male_population[25].reproduction)
 
-for i in range(1,51):
+for i in range(1,101):
     born = 0
     died = 0
     for male in male_population:
@@ -272,21 +278,45 @@ for i in range(1,51):
 
 male_population.sort(key=lambda x: x.age, reverse=False)
 
+age_indices = []
 age_groups = {}
+
+for i in range(0,19):
+    age_indices.append(i*5)
+
+for age in age_indices:
+    age_groups[age] = 0
+
 for male in male_population:
     if male.age in age_groups:
         age_groups[male.age] += 1
     else:
         age_groups[male.age] = 1
-    #print(male)
+    #print(female)
 
-for age_group in age_groups:
+for age_group in age_indices:
     print(str(age_group) + ": " +  str(age_groups[age_group]))
 
 print("### Male Burn In Period Ended ###")
 
 print("Female Population Size: " + str(len(female_population)))
 print("Male Population Size: " + str(len(male_population)))
+
+population = []
+
+population_output = open("initial_population_output.csv", "wb")
+writer = csv.writer(population_output, delimiter=",", quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
+
+for female in female_population:
+    population.append(female)
+
+for male in male_population:
+    population.append(male)
+
+population.sort(key=lambda x: x.age, reverse=False)
+
+for person in population:
+    writer.writerow(person.row_builder())
 
 ### Begin MAP simulation ###
 print("### Begin MAP Simulation ###")
@@ -384,13 +414,15 @@ for gen in range(1,51):
     ave_age_gap = couple_age_gap / born
 
     output_string = "GEN: " + str(gen).zfill(2)
+    output_string += ", Females: " + str(len(map_females))
+    output_string += ", Males: " + str(len(map_males))
     output_string += ", Fem Rep Age: " + str(female_reproductive_ave)
     output_string += ", Mal Rep Age: " + str(male_reproductive_ave)
     output_string += ", Couple Age Gap: " + str(ave_age_gap)
     output_string += ", Oldest Female Rep: " + str(oldest_female)
     output_string += ", Oldest Male Rep: " + str(oldest_male) + ", "
 
-    output_row = [gen, female_reproductive_ave, male_reproductive_ave, ave_age_gap, oldest_female, oldest_male]
+    output_row = [gen, len(map_females), len(map_males), female_reproductive_ave, male_reproductive_ave, ave_age_gap, oldest_female, oldest_male]
 
     for age_group in age_indices:
         output_string += str(age_group).zfill(2) + ": " +  str(map_age_groups[age_group]).zfill(3) + ", "
@@ -399,7 +431,23 @@ for gen in range(1,51):
 
     writer.writerow(output_row)
 
-### Begin MAP simulation ###
+map_population = []
+
+map_population_output = open("map_population_output.csv", "wb")
+writer = csv.writer(map_population_output, delimiter=",", quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
+
+for female in map_females:
+    map_population.append(female)
+
+for male in map_males:
+    map_population.append(male)
+
+map_population.sort(key=lambda x: x.age, reverse=False)
+
+for person in map_population:
+    writer.writerow(person.row_builder())
+
+### Begin MYP simulation ###
 print("### Begin MYP Simulation ###")
 myp_output = open("myp_simulation_output.csv", "wb")
 writer = csv.writer(myp_output, delimiter=",", quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
@@ -407,10 +455,6 @@ writer = csv.writer(myp_output, delimiter=",", quotechar='"', quoting=csv.QUOTE_
 myp_females = female_population[:]
 myp_males = male_population[:]
 mutation_rate = 0.2
-age_indices = []
-
-for i in range(0,19):
-    age_indices.append(i*5)
 
 for male in myp_males:
     male.pref_dist = male_myp_preference
@@ -498,13 +542,15 @@ for gen in range(1,51):
     ave_age_gap = couple_age_gap / born
 
     output_string = "GEN: " + str(gen).zfill(2)
+    output_string += ", Females: " + str(len(myp_females))
+    output_string += ", Males: " + str(len(myp_males))
     output_string += ", Fem Rep Age: " + str(female_reproductive_ave)
     output_string += ", Mal Rep Age: " + str(male_reproductive_ave)
     output_string += ", Couple Age Gap: " + str(ave_age_gap)
     output_string += ", Oldest Female Rep: " + str(oldest_female)
     output_string += ", Oldest Male Rep: " + str(oldest_male) + ", "
 
-    output_row = [gen, female_reproductive_ave, male_reproductive_ave, ave_age_gap, oldest_female, oldest_male]
+    output_row = [gen, len(myp_females), len(myp_males), female_reproductive_ave, male_reproductive_ave, ave_age_gap, oldest_female, oldest_male]
 
     for age_group in age_indices:
         output_string += str(age_group).zfill(2) + ": " +  str(myp_age_groups[age_group]).zfill(3) + ", "
@@ -513,3 +559,19 @@ for gen in range(1,51):
     #print(output_string)
 
     writer.writerow(output_row)
+
+myp_population = []
+
+myp_population_output = open("myp_population_output.csv", "wb")
+writer = csv.writer(myp_population_output, delimiter=",", quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
+
+for female in myp_females:
+    myp_population.append(female)
+
+for myle in map_males:
+    myp_population.append(male)
+
+myp_population.sort(key=lambda x: x.age, reverse=False)
+
+for person in myp_population:
+    writer.writerow(person.row_builder())
