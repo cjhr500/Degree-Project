@@ -1,5 +1,6 @@
 import csv
 import random
+import copy
 
 
 class Person:
@@ -318,21 +319,62 @@ population.sort(key=lambda x: x.age, reverse=False)
 for person in population:
     writer.writerow(person.row_builder())
 
+age_indices = []
+age_groups = {}
+
+for i in range(0,19):
+    age_indices.append(i*5)
+
+
+for age in age_indices:
+    age_groups[age] = 0
+
+for person in population:
+    if person.age in age_groups:
+        age_groups[person.age] += 1
+    else:
+        age_groups[person.age] = 1
+
+for age_group in age_indices:
+    print(str(age_group) + ": " +  str(age_groups[age_group]))
+
 ### Simulation Parameters ###
 mutation_rate = 0.2
 simulation_generations = 100
+
 
 ### Begin MAP simulation ###
 print("### Begin MAP Simulation ###")
 map_output = open("map_simulation_output.csv", "wb")
 writer = csv.writer(map_output, delimiter=",", quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
 
-map_females = female_population[:]
-map_males = male_population[:]
-age_indices = []
+map_females = copy.deepcopy(female_population)
+map_males = copy.deepcopy(male_population)
 
-for i in range(0,19):
-    age_indices.append(i*5)
+output_row = [0, len(map_females), len(map_males), 0, 0, 0, 0, 0]
+
+map_age_groups = {}
+
+for age_index in age_indices:
+    map_age_groups[age_index] = 0
+
+for male in map_males:
+    if male.age in map_age_groups:
+        map_age_groups[male.age] += 1
+    else:
+        map_age_groups[male.age] = 1
+
+for female in map_females:
+    if female.age in map_age_groups:
+        map_age_groups[female.age] += 1
+    else:
+        map_age_groups[female.age] = 1
+
+for age_group in age_indices:
+    output_row.append(map_age_groups[age_group])
+
+print(output_row)
+writer.writerow(output_row)
 
 for gen in range(1,simulation_generations+1):
     born = 0.0
@@ -455,11 +497,36 @@ print("### Begin MYP Simulation ###")
 myp_output = open("myp_simulation_output.csv", "wb")
 writer = csv.writer(myp_output, delimiter=",", quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
 
-myp_females = female_population[:]
-myp_males = male_population[:]
+myp_females = copy.deepcopy(female_population)
+myp_males = copy.deepcopy(male_population)
 
 for male in myp_males:
     male.pref_dist = male_myp_preference
+
+output_row = [0, len(myp_females), len(myp_males), 0, 0, 0, 0, 0]
+
+myp_age_groups = {}
+
+for age_index in age_indices:
+    myp_age_groups[age_index] = 0
+
+for male in myp_males:
+    if male.age in myp_age_groups:
+        myp_age_groups[male.age] += 1
+    else:
+        myp_age_groups[male.age] = 1
+
+for female in myp_females:
+    if female.age in myp_age_groups:
+        myp_age_groups[female.age] += 1
+    else:
+        myp_age_groups[female.age] = 1
+
+for age_group in age_indices:
+    output_row.append(myp_age_groups[age_group])
+
+print(output_row)
+writer.writerow(output_row)
 
 for gen in range(1,simulation_generations+1):
     born = 0.0
@@ -570,7 +637,7 @@ writer = csv.writer(myp_population_output, delimiter=",", quotechar='"', quoting
 for female in myp_females:
     myp_population.append(female)
 
-for myle in map_males:
+for myle in myp_males:
     myp_population.append(male)
 
 myp_population.sort(key=lambda x: x.age, reverse=False)

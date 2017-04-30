@@ -222,6 +222,7 @@ How this can be fixed
 \section{Class Structure}
 When designing a multi-agent system, it can be useful to model each agent as being an instance of a class, each with their own attributes (variables belonging to a class instance that are an abstract representation of the differing traits an agent has) and class methods (representing the actions an agent can take to interact with its environment). The individual people in the system are modeled using the \texttt{Person} class, with attributes determining their traits, including genetics and various probability and preference distributions. 
 
+\newpage
 \subsection{Person Class}
 The \texttt{Person} class provides the container for the attributes and methods necessary to build the model. Many of its attributes are instances of the classes used to hold probability distributions in control of mortality and fertility, as well as the person's mating preferences and genetics. Each time a new child is born, a new instance of \texttt{Person} is created, with the parameters for \texttt{\_\_init\_\_()} (see Table \ref{tbl:personMethods}) based on their parents' attributes.
 
