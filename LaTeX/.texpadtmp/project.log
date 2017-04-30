@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.12.5)  30 APR 2017 13:05
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.12.5)  30 APR 2017 13:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -815,38 +815,32 @@ male_preference,
  []
 
 
-Overfull \hbox (28.53748pt too wide) in paragraph at lines 332--333
-[]\T1/pplj/m/n/10.95 This ini-tial pop-u-la-tion is ex-por-ted to \T1/pcr/m/n/1
-0.95 initial_population_output.csv
- []
-
-
-Overfull \hbox (8.77606pt too wide) in paragraph at lines 343--343
+Overfull \hbox (8.77606pt too wide) in paragraph at lines 342--342
 []|\T1/pcr/m/n/10.95 reproduction| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 344--344
 []|\T1/pplj/m/n/10.95 Randomly gen-er-ated by
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 345--346
+Underfull \hbox (badness 10000) in paragraph at lines 344--345
 []|\T1/pplj/m/n/10.95 Randomly gen-er-ated by
  []
 
 
-Overfull \hbox (35.99461pt too wide) in paragraph at lines 337--347
+Overfull \hbox (35.99461pt too wide) in paragraph at lines 336--346
 [][] 
  []
 
-[29]
-Overfull \hbox (1.11497pt too wide) in paragraph at lines 353--354
-[]\T1/pplj/m/n/10.95 Each gen-er-a-tion the model starts with an aging phase. I
-t loops through
+
+Overfull \hbox (28.53748pt too wide) in paragraph at lines 348--349
+[]\T1/pplj/m/n/10.95 This ini-tial pop-u-la-tion is ex-por-ted to \T1/pcr/m/n/1
+0.95 initial_population_output.csv
  []
 
-[30] [31]
+[29] [30] [31]
 Chapter 5.
 [32
 
@@ -857,14 +851,14 @@ Chapter 6.
 ] [34
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 380.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 384.
 
 [35]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 380.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 384.
  (/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 380.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 380.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 380.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 384.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 384.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 384.
  ) 
 Here is how much of TeX's memory you used:
  14177 strings out of 493706
