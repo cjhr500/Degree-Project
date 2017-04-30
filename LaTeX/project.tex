@@ -22,6 +22,7 @@
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{lscape}
+\usepackage{listings}
 
 \begin{document}
 \maketitle
@@ -222,7 +223,7 @@ How this can be fixed
 When designing a multi-agent system, it can be useful to model each agent as being an instance of a class, each with their own attributes (variables belonging to a class instance that are an abstract representation of the differing traits an agent has) and class methods (representing the actions an agent can take to interact with its environment).
 
 \subsection{Person Class}
-The \texttt{Person} class provides the container for the attributes and methods necessary to build the model. Many of its attributes are instances of the classes used to hold probability distributions in control of mortality and fertility, as well as the person's mating preferences and genetics. Each time a new child is born, a new instance of \texttt{Person} is created, with the parameters for \texttt{\_\_init\_\_()} (see Table \ref{tbl:personMethods} based on their parents' attributes.
+The \texttt{Person} class provides the container for the attributes and methods necessary to build the model. Many of its attributes are instances of the classes used to hold probability distributions in control of mortality and fertility, as well as the person's mating preferences and genetics. Each time a new child is born, a new instance of \texttt{Person} is created, with the parameters for \texttt{\_\_init\_\_()} (see Table \ref{tbl:personMethods}) based on their parents' attributes.
 
 \begin{table}[h]
 \caption{Person Class Attributes}
@@ -288,7 +289,7 @@ The \texttt{MortalityDistribution} class serves as a lookup table for the probab
 \end{table}
 
 \subsection{PreferenceDistribution Class}
-The \texttt{PreferenceDistribution} class 
+The \texttt{PreferenceDistribution} class is used to store in the class attribute \texttt{} the mating preferences based on age class of each individual, and to provide access to the data. There are three instances of this class created \texttt{female\_preference} representing females' mating preferences (using data from female\_pref.csv), \texttt{male\_map\_preference} representing males who have a preference for females their own age (using data from male\_map.csv) and \texttt{male\_myp\_preference} representing male preference for younger females (using data from male\_myp.csv). The data is then accessed with the age classes of two individuals (see Table \ref{tbl:preferenceDistributionMethods}).
 
 \begin{table}[h]
 \caption{PreferenceDistribution Class Methods}
@@ -297,7 +298,7 @@ The \texttt{PreferenceDistribution} class
 \textbf{Method} & \textbf{Purpose} \\\hline
 \texttt{\_\_init\_\_(self, name, input\_file)} & Used when instantiating the class, reads distribution input from file\\\hline
 \texttt{\_\_repr\_\_(self)} & Returns a string representation of the class \\\hline
-\texttt{get\_preference(self, age\_class\_one, age\_class\_two)} & Returns the mating preference of a person age\_class\_one, age\_class\_two.
+\texttt{get\_preference(self, age\_class\_one, age\_class\_two)} & Returns the mating preference of a person age\_class\_one for a person of age\_class\_two.
 \end{tabular}
 \end{table}
 
@@ -314,8 +315,6 @@ The \texttt{PreferenceDistribution} class
 \texttt{mutate(self, rate)} & Psuedo-randomly flips "0"s and "1"s in the gene string with a probability equal to \texttt{rate}.
 \end{tabular}
 \end{table}
-
-
 
 \chapter{Results and Evaluation}
 \label{cha:Results and Evaluation}
