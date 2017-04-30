@@ -38,15 +38,19 @@
 \section{Motivation}
 The senescence of organisms is a long standing evolutionary puzzle: why would genes which cause an organism to degrade over time be selected for? In particular, why could genes which cause a reduction in fertility with age provide evolutionary benefit versus reproducing until death? Menopause is of particular interest since it both only occurs within females, but within limited number of species.
 
-Although we know the the biological cause of menopause, there are many theories about why it is beneficial for a species to cease reproduction long before death. 
+Although we know the the biological cause of menopause, there are many theories about why it is beneficial for a species to cease reproduction long before death. This report focuses on the Patriarch Hypothesis, the idea that older male's preference for younger females cause menopause to evolve. 
 
 
 \section{Aims}
+\subsection{Provide an overview of the origin of menopause}
+Menopause has many different theories for its origin, and it would be useful to explore some of them as well as contextual information before focusing on the Patriarch Hypothesis in particular.
+
+
 \subsection{Check validity of computational model}
 This project focuses on reproducing a computational model \cite{mateChoice2013} that implements the patriarch hypothesis \cite{patriarchHypothesis2000}, a theory that males' preference for younger females caused long post-reproducitve lifespans. Replicating models is useful to check their validity and discover any flaws they may possess. Replication also provides a jumping off point for improving the model or for adapting it to other hypotheses to do with the evolution of menopause or population modelling in general. 
 
 \subsection{Rewrite model into an object oriented language}
-The model is also being adapted from C, a performant but verbose and old imperative language, into Python, a modern object oriented language designed to be as readable as possible. Python is also popular among scientific research, so this will make the model more accessible.
+The model is also being adapted from C, a performant but verbose and old imperative language, into Python, a modern object oriented language designed to be as readable as possible. Python is also popular among scientific research, so this will make the model more accessible for future work. Object oriented languages are also well suited for making multi-agent systems as the object-attribute-method structure is a good match for modelling the agent, its traits and the ways it can interact with the environment
 
 \subsection{Extend the model to allow co-evolution of preference}
 Whilst mortality and fertility are both able to evolve under the current model, the mating preferences of the males are fixed. Since the hypothesis relies on the preference of older males for younger females, it would be useful to see how allowing this preference to evolve over time would affect the results of the model.
@@ -170,7 +174,7 @@ The patriarch hypothesis \cite{patriarchHypothesis2000} states that menopause ca
 
 \item That longevity causing genes are present on the X chromosome, rather than the Y. If it were present on the Y chromosome then a general increase in longevity would only be present in males. Thus the increase in longevity must be on the X chromosome.
 
-\item That older, high status males still reproduce. This is required for the accumulation of the longevity promoting gene, as if a male with the gene who lives for a long time only reproduces over the same time period as one without the longevity promoting gene, then they will have an equal chance of passing their genes on and the longevity gene will not become more prevalent.
+\item That older, high status males still reproduce. This is required for the accumulation of a longevity promoting genome, as if a male with genes predisposing him to a long life only reproduces over the same time period as one without the longevity promoting gene (who lives for a shorter time), then they will have an equal chance of passing their genes on and the longevity gene will not become more prevalent.
 
 \end{enumerate}
 
@@ -203,10 +207,20 @@ $$\ B_{ij} = \frac{b_i\alpha_{ij}F_iM_j}{F_i + M_j} $$
 
 When it comes to the three constraints imposed by \cite{patriarchHypothesis2000} this model implements a reduction in female fertility in time but does not specificially link this to the oocyte depletion. The paper does however note that it is important to model the fertility and mortality of both sexes as any mutation that increases mortality past the age of menopause has no effect on population growth when only dealing with females. The model treats this mutation as being sex indifferent (meaning it would have to be located on the X chromosome). For the third constraint the paper largely relies on citing real-world data of hunter-gatherer societies and their social structures as evidence for continued male reproduction later in life. Data from the Dobe !Kung society \cite{howell1979demography} and preconstructed life tables \cite{gurven2007hunter} were used in the harmonic mean model (Figure \ref{fig:harmonicMean}) to this effect.
 
-The main issue with this model is the fixed age of the end of reproduction, as mutations are only used to alter mortality, when they should also be used to affect the fertility of females.
+The main issue with this model is the fixed age of the end of reproduction, as mutations are only used to alter mortality, when they should also be used to affect the fertility of females since the focus of the hypothesis is based on is why menopause in humans came about. Similarly mating preferences of individuals are fixed.
+
+Couples are also not persistent between time steps, which could influence the model since they claim that monogamy is a common social structure within modern hunter gatherers, the hunter gathers they in turn use the data from to drive their model. 
 
 \section{Mate Choice and the Origin of Menopause: a computational model}
+Rather than modelling the hypothesis as a complex set of equations, Morton et \cite{mateChoice2013} used an agent-based model. The model creates a random initial population, with random ages and genetics. A population burn-in is performed to generate the inherent age structures of the population by assigning members to random age classes, then causing them to reproduce asexually without the interference of mutations.
 
+After this burn in period, the main simulation begins. First comes the aging process: each generation, each member of the populaton has a value from their survival table (modified by mortality affecting mutations) compared to a pseudo-random number to determine whether they are assigned to the next age class or die.
+
+Then comes the reproductive phase. Two random parents from the population are selected. If they are a compatable couple (determined by a preference matrix $\ M_{ij} $ where i and j refer to their age classes) then their fertilities are checked in a similar manner to their survival to determine whether a child is born. This is repeated until all the individuals who died in the aging process are replaced (keeping the population at a set size). The offspring recieves genetic information from their parent and mutations are introduced according to a mutation rate. The model then repeats the ageing and the pairing/reproduction phase for a predetermined numder of time periods, logging results as it goes.
+
+The main problem with the mathematical model has been fixed: the age of the end of reproduction is no longer fixed. Since the fertility of an individual is affected by mutations, the fertilities of population as a whole will change over time depending on how fertility-affecting mutations accumulate over time (whether the effects are beneficial or deleterious).
+
+However the fixed mating preferences of individuals remains. With fixed mating preferences the model presupposes the social structures of early hunter-gatherers, justifying this with data from modern hunter-gatherer tribes. The mating preferences of older men for younger females may instead be an epiphenomen of menopause developing in women -- if realised fertility is the main reason for living then males are far more likely to choose a partner who has more years of reproductive capability ahead of her than one few or none at all. If mating preferences were not fixed we would be able to see if they are stable (meaning they change little regardless of changes in the mortality and fertility of the population) or if they coevolve alongside mortality and fertility changes. If the male preference for younger females evolved from a male preference for female their own age alongside the changes to fertility, this could suggest that the preference came about due to menopause rather than causing it.
 
 \begin{framed}
 Existing model overview - relate to code
@@ -371,18 +385,32 @@ The first thing outputted by the program is the properties of the initial popula
 
 The other thing outputted by the program is information about each generation in the simulations. In each generation, the following information is exported: the generation, the number of females, the number of males, the average age of female age of reproduction, the average male age of reproduction, the average age gap in mating pairs who reproduced, the oldest female who reproduced and the oldest male who reproduced. Also outputted each row is the number of indiviuals in each age group, which allows you to work out the distribution of deaths by age, as well as the number of individuals born each generation. These results are outputted to map\_simulation\_output.csv and myp\_simulation\_output.csv for the MAP and the MYP simulations respectively.
 
+\newpage
+\section{Not Implemented}
+Unfortunately the work was not completely implemented. The following features were planned, but not implemented:
+
+\begin{itemize}
+\item The genetics of a person should affect their mortality. This would be implemented on the MortalityDistribution class by using the person's genetics as well as sex as parameters so that specific loci in a person's genetics could act in a sex-specific or sex indiffferent manner to alter their survival. The reason this is important is it provides the advantage to late-age male reproduction over males ceasing reproduction when females do. If there is a mortality-causing mutation that only affects individuals over 55, it will not affect the realised fertility of the females, but males that do not have the mutation will be able to reproduce more, causing this mutation to be selected against.
+\item The genetics of a person should also affect their reproduction. Similarly this would be implemented on the ReproductionDistribution class using the person's genes and sex as parameters. This is important for the accumulations of genes deletrous to reproduction in females.
+\item The coevolution of the mating preferences of the people. If the mating preferences are not allowed to evolve, then it is difficult to say whether males' preference for younger females caused the evolution of menopause, or the evolution of menopause what what caused males' preferences to come about. 
+\end{itemize}
+
+
 \chapter{Results and Evaluation}
 \label{cha:Results and Evaluation}
+Since the model was not fully implemented, the results are somewhat limited. Nevertheless some information may be gleaned from the output produced. Presented below are some of the results of a typical run, with 
+\section{Age Structures}
+Since the model was not fully implemented, 
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{map_age_data}
-\caption{MAP simulation results}
+\caption{Typical MAP simulation age structure}
 \label{fig:mapResultsGraph}
 \end{figure}
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{myp_age_data}
-\caption{MYP simulation results}
+\caption{Typical MYP simulation age structure}
 \label{fig:mypResultsGraph}
 \end{figure}
 

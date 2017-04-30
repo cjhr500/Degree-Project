@@ -340,7 +340,7 @@ for age_group in age_indices:
 
 ### Simulation Parameters ###
 mutation_rate = 0.2
-simulation_generations = 100
+simulation_generations = 1000
 
 
 ### Begin MAP simulation ###
