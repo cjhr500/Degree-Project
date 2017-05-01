@@ -22,17 +22,17 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem[Marlowe(2000)]{patriarchHypothesis2000}
+\BIBentryALTinterwordspacing
+F.~Marlowe, ``The patriarch hypothesis,'' \emph{Human Nature}, 2000. [Online].
+  Available: \url{http://dx.doi.org/10.1007/s12110-000-1001-7}
+\BIBentrySTDinterwordspacing
+
 \bibitem[Morton et~al.(2013)Morton, Stone, and Singh]{mateChoice2013}
 \BIBentryALTinterwordspacing
 R.~A. Morton, J.~R. Stone, and R.~S. Singh, ``Mate choice and the origin of
   menopause,'' \emph{PLOS Computational Biology}, 2013. [Online]. Available:
   \url{http://dx.doi.org/10.1371%2Fjournal.pcbi.1003092}
-\BIBentrySTDinterwordspacing
-
-\bibitem[Marlowe(2000)]{patriarchHypothesis2000}
-\BIBentryALTinterwordspacing
-F.~Marlowe, ``The patriarch hypothesis,'' \emph{Human Nature}, 2000. [Online].
-  Available: \url{http://dx.doi.org/10.1007/s12110-000-1001-7}
 \BIBentrySTDinterwordspacing
 
 \bibitem[Croft et~al.(2015)Croft, Brent, Franks, and Cant]{evolutionPRLS2015}

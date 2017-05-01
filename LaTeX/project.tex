@@ -5,13 +5,13 @@
 \supervisor{Daniel W. Franks}
 \BEng
 
-\wordcount{2001}
+\wordcount{8502}
 
 \includes{}
 
 \excludes{}
 
-\abstract{This is an abstract. Should be about 500 words long.}
+\abstract{The Patriarch Hypothesis \cite{patriarchHypothesis2000} is the hypothesis that menopause and long post-reproductive lifespans evolved as an artifact of an increase in human longevity. This longevity was passed on due to older males (who have mutations beneficial to lifespan on their X chromosome) having a preference for young females (who are still fertile) meaning they are able to have a longer period of mating than those who only form mating pairs with females their own age. Several models supporting this hypothesis have been created \cite{whyMenMatter500, mateChoice2013} and the project focuses on duplicating and extending the work already done. }
 
 \dedication{}
 
@@ -51,7 +51,7 @@ Menopause has many different theories for its origin, and it would be useful to 
 This project focuses on reproducing a computational model \cite{mateChoice2013} that implements the patriarch hypothesis \cite{patriarchHypothesis2000}, a theory that males' preference for younger females caused long post-reproductive lifespans. Replicating models is useful to check their validity and discover any flaws they may possess. Replication also provides a jumping off point for improving the model or for adapting it to other hypotheses to do with the evolution of menopause or population modelling in general. 
 
 \subsection{Rewrite model into an object oriented language}
-The model is also being adapted from C, a performant but verbose and old imperative language, into Python, a modern object oriented language designed to be as readable as possible. Python is also popular among scientific research, so this will make the model more accessible for future work. Object oriented languages are also well suited for making multi-agent systems as the object-attribute-method structure is a good match for modelling the agent, its traits and the ways it can interact with the environment
+The model is also being adapted from C, a performant but verbose and old imperative language, into Python, a modern object oriented language designed to be as readable as possible. Python is also popular among scientific research, so this will make the model more accessible for future work. Object oriented languages are also well suited for making multi-agent systems as the object-attribute-method structure is a good match for modelling the agent, its traits (using attribute) and the ways it can interact with the environment (using methods).
 
 \subsection{Extend the model to allow co-evolution of preference}
 Whilst mortality and fertility are both able to evolve under the current model, the mating preferences of the males are fixed. Since the hypothesis relies on the preference of older males for younger females, it would be useful to see how allowing this preference to evolve over time would affect the results of the model.
@@ -274,7 +274,7 @@ The \texttt{Person} class provides the container for the attributes and methods 
 \texttt{\_\_init\_\_(self, age, sex, mort\_dist, repr\_dist, genes=None)} & Used when instantiating the class, setting up initial values for the properties based on those passed as parameters\\\hline
 \texttt{\_\_repr\_\_(self)} & Returns a string representation of the class \\\hline
 \texttt{row\_builder(self)} & Returns a list of properties for outputting to csv\\\hline
-\texttt{increase\_age(self)} & Assigns a person to next age class if they survive the current generation (based on a pseudo-ransom number and their mortality distribution), otherwise sets \texttt{alive} to \texttt{False}.\\\hline
+\texttt{increase\_age(self)} & Assigns a person to next age class if they survive the current generation (based on a pseudo-ransom number and their mortality distribution, limiting age to 85 or under), otherwise sets \texttt{alive} to \texttt{False}.\\\hline
 \texttt{calculate\_age\_class(self)} & Returns the derived attribute \texttt{age\_class} \\\hline
 \texttt{reproduce(self)} & Returns \texttt{True} if a person is currently able to reproduce (based on a pseudo-random number and their reproductive distribution). \\\hline
 \texttt{calc\_preference(self, other)} & Calculates and returns the mating preference that this person has for the other person (using their ages classes and the person's preference distribution) \\\hline
@@ -439,7 +439,7 @@ For the MAP simulation, the mean age for oldest female reproduction was 51.75, w
 The MYP is more perhaps more interesting however as the maximum age of reproduction for both the females and the males was the same for each generation, at 30 and 35 respectively. Why the maximum age of reproduction stayed the same is generation is unclear. There is also a gap between the two ages, with males carrying on reproduction five years longer than the females. Both females and males in the MYP cease reproduction many years before those in the MAP model, suggesting there may be an issue in the MYP as you would expect the females to reproduce for fairly similar amounts of time, and for the MYP males to reproduce for longer than the MAP males.
 
 \subsection{Age Structures}
-The age structures produced by the simulations were fairly similar between the two simulations (MAP vs MYP). The age structures were also fairly stable from generation to generation. The two age groups 0-5 and 5-10 consistently made up just under 50\% of the population, indicating a high child mortality rate, meaning many will die before reaching the age where they are able to reproduce. Presented below are graphs showing the age structures over time for each simulation, as well as tables for the mean, variance, median, minimum, maximum and range for each age group. The mean number of people in the 0-5 age group represents average number of deaths (and therefore births) over the 100 generations.
+The age structures produced by the simulations were fairly similar between the two simulations (MAP vs MYP). The age structures were also fairly stable from generation to generation. The two age groups 0-5 and 5-10 consistently made up just under 50\% of the population, indicating a high child mortality rate, meaning many will die before reaching the age where they are able to reproduce. Presented below are graphs showing the age structures over time for each simulation, as well as tables for the mean, variance, median, minimum, maximum and range for each age group. The mean number of people in the 0-5 age group represents average number of deaths (and therefore births) over the 100 generations, meaning a total of 30800 people were born in the MAP simulation and 30666 in the MYP simulation. The simulation ran for sufficient generations to guarantee that none of the individuals from the initial population are alive at the end (since each generation represented a time period of 5 years, with a 100 generation simulation lasting 500 years and the maximum age it is possible to reach is 85).
 
 \begin{figure}[h]
 \includegraphics[scale=0.6]{map_age_data}
@@ -508,17 +508,21 @@ The age structures produced by the simulations were fairly similar between the t
 \end{table}
 
 \section{Model limitations and improvements}
-As previously stated the model was not fully implemented. Although genetics were implemented (including crossover of genes from parents and the introduction of the genes based on a mutation rate), these genetics had no impact on the model since they were not used to affect the mortality or fertility of individuals as previous models had done \cite{mateChoice2013}, but also did not use them to affect their mating preferences. Given more time these could be implemented on the relevant classes, then a more useful simulation could be run, with results that may be more interesting.
+As previously stated the model was not fully implemented. Although genetics were implemented (including crossover of genes from parents and the introduction of the genes based on a mutation rate), these genetics had no impact on the model since they were not used to affect the mortality or fertility of individuals as previous models had done \cite{mateChoice2013}, but also did not use them to affect their mating preferences. Given more time these could be implemented on the relevant classes, then a more useful simulation could be run, with results that may be more interesting. There are also other measures that could be outputed each generation to provide a fuller picture of what is happening (such as outputing the ages at which people are dying and reproducing).
 
 \chapter{Conclusion}
 \label{cha:Conclusion}
-Since the work was not completed, the model produces very limited results. The first piece of further work would be to complete the intended work, so that it replicates the work of Morton, Stone and Singh in "Mate Choice and the origin of menopause" \cite{mateChoice2013}, then extend the model so that mutations can affect preference, to see what effect this has on the outcome. 
+Since the work was not completed, the model produces very limited results. The first piece of further work would be to complete the intended work, so that it replicates the work of Morton, Stone and Singh in "Mate Choice and the origin of menopause" \cite{mateChoice2013}, then extend the model so that mutations can affect preference, to see what effect this has on the outcome. If completed the model could be extended in a variety of different ways, either to further examine the Patriarch Hypothesis, or to model other theories about menopause or reproduction in general.
 
 After this it would be interesting to see the effect of implementing persistence of couples between generations, with couples being formed based on mating preference, then staying together until they no longer have a preference for each other. This could provide a model for monogamy, with males staying with partners rather than investing resources in attracting a new mate. This could also be used to examine the difference between societies where monogamy is the norm, versus societies where polygyny is common, with possible implications for the age differences in mating pairs.
 
 There are also limitations to the model enforced by hardware -- the speed the model runs at is affected by the number of individuals of the population. With greater computing power, you would be able to model larger populations without the model slowing down too much -- possibly even allowing the population size to no longer fixed. 
 
-There are also space constraints based on the amount of information stored about an individual, the number of individuals in the population and the number of generations the model is run for. In an ideal world you would be able to log the complete state of the system each generation (including every member of the population and their attributes, as well as information about the actions taken by the population that generation -- births, deaths \& their age structure, existing couples breaking up, new couples forming). 
+There are also space constraints based on the amount of information stored about an individual, the number of individuals in the population and the number of generations the model is run for. In an ideal world you would be able to log the complete state of the system each generation (including every member of the population and their attributes, as well as information about the actions taken by the population that generation -- births, deaths \& their age structure, existing couples breaking up, new couples forming). With the full data of each individual being stored it would be possible to track lineage of individuals (their ancestors and their decendents) and produce family trees. 
+
+This kind of model can be adapted to model the other hypotheses for the evolution of menopause. For example, the mortality of children could be affected by grandmother who are post-menopausal, representing the effects of improved childcare, modelling the granmothering hypothesis. Currently the agents in the model only interact with each other (for coupling and reproduction) with mortality and fertility being only affected by genetics. Environmental constraints could be imposed, such as the location of the person (since they would only have the pool of people in the same location as them to choose from for forming a mating pair) or finite resources, such as food (meaning that population size of a model without a fixed population size is not restrained by an arbritrary number, but instead the competition for resources). Limiting resources could provide a good model for the reproductive conflict hypotheis. The model can also be adapted for modelling hypotheses to do with other traits tha affect reproduction besides menopause (such as the presence of homosexual animals in a group, who do not reproduce but may improve inclusive fitness through resource provision and providing security). 
+
+Multi-agent systems and genetic algorithms provide a powerful tool for creating intuitive models of complex systems, that can be adapted easily to test various hypotheses.
 
 
 \bibliographystyle{plain}
