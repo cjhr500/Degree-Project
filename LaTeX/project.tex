@@ -37,7 +37,7 @@
 \chapter{Introduction}
 \label{cha:Introduction}
 \section{Motivation}
-The senescence of organisms is a long standing evolutionary puzzle: why would genes which cause an organism to degrade over time be selected for? In particular, why could genes which cause a reduction in fertility with age provide evolutionary benefit versus reproducing until death? Menopause is of particular interest since it both only occurs within females, but within limited number of species.
+The senescence of organisms is a long standing evolutionary puzzle: why would genes which cause an organism to degrade over time be selected for? In particular, why could genes which cause a reduction in fertility with age provide evolutionary benefit versus reproducing until death? Menopause is of particular interest since it both only occurs within females, but within limited number of species in the wild, having only been observed in humans, short finned pilot whales and orcas (killer whales).
 
 Although we know the the biological cause of menopause, there are many theories about why it is beneficial for a species to cease reproduction long before death. This report focuses on the Patriarch Hypothesis, the idea that older male's preference for younger females cause menopause to evolve. 
 
@@ -247,6 +247,7 @@ A better model for the patriarch hypothesis would have the following features:
 \section{Class Structure}
 When designing a multi-agent system, it can be useful to model each agent as being an instance of a class, each with their own attributes (variables belonging to a class instance that are an abstract representation of the differing traits an agent has) and class methods (representing the actions an agent can take to interact with its environment). The individual people in the system are modelled using the \texttt{Person} class, with attributes determining their traits, including genetics and various probability and preference distributions. 
 
+\newpage
 \subsection{Person Class}
 The \texttt{Person} class provides the container for the attributes and methods necessary to build the model. Many of its attributes are instances of the classes used to hold probability distributions in control of mortality and fertility, as well as the person's mating preferences and genetics. Each time a new child is born, a new instance of \texttt{Person} is created, with the parameters for \texttt{\_\_init\_\_()} (see Table \ref{tbl:personMethods}) based on their parents' attributes.
 
@@ -265,11 +266,10 @@ The \texttt{Person} class provides the container for the attributes and methods 
 \end{tabular}
 \end{table}
 
-\begin{landscape}
 \begin{table}[h]
 \caption{Person Class Methods}
 \label{tbl:personMethods}
-\begin{tabular}{m{8cm} m{8cm}}
+\begin{tabular}{m{0.5\textwidth} m{0.5\textwidth}}
 \textbf{Method} & \textbf{Purpose} \\\hline
 \texttt{\_\_init\_\_(self, age, sex, mort\_dist, repr\_dist, genes=None)} & Used when instantiating the class, setting up initial values for the properties based on those passed as parameters\\\hline
 \texttt{\_\_repr\_\_(self)} & Returns a string representation of the class \\\hline
@@ -280,8 +280,8 @@ The \texttt{Person} class provides the container for the attributes and methods 
 \texttt{calc\_preference(self, other)} & Calculates and returns the mating preference that this person has for the other person (using their ages classes and the person's preference distribution) \\\hline
 \end{tabular}
 \end{table}
-\end{landscape}
 
+\newpage
 \subsection{MortalityDistribution Class}
 The \texttt{MortalityDistribution} class serves as a lookup table for the probability of death a given age, based on data from the input files \texttt{female\_data.csv} and \texttt{male\_data.csv}. There are two base instances of this class created \texttt{female\_mortality} (using female\_data.csv), the mortality distribution used by females and \texttt{male\_mortality}, for males (using male\_data.csv). The class also contains methods for getting survival probabilities based on age (see Table \ref{tbl:mortalityDistributionMethods}).
 
@@ -297,6 +297,7 @@ The \texttt{MortalityDistribution} class serves as a lookup table for the probab
 \end{tabular}
 \end{table}
 
+\newpage
 \subsection{ReproductionDistribution Class}
 The \texttt{MortalityDistribution} class serves as a lookup table for the probability of being able to reproduce at a given age, based on data from the input files \texttt{female\_data.csv} and \texttt{male\_data.csv}. There are two base instances of this class created \texttt{female\_mortality} (using female\_data.csv), the mortality distribution used by females and \texttt{male\_mortality}, for males (using male\_data.csv). The class also contains methods for getting survival probabilities based on age (see Table \ref{tbl:reproductionDistributionMethods} for overview).
 
@@ -313,6 +314,7 @@ The \texttt{MortalityDistribution} class serves as a lookup table for the probab
 \end{tabular}
 \end{table}
 
+\newpage
 \subsection{PreferenceDistribution Class}
 The \texttt{PreferenceDistribution} class is used to store in the class attribute \texttt{} the mating preferences based on age class of each individual, and to provide access to the data. There are three instances of this class created \texttt{female\_preference} representing females' mating preferences (using data from female\_pref.csv), \texttt{male\_map\_preference} representing males who have a preference for females their own age (using data from male\_map.csv) and \texttt{male\_myp\_preference} representing male preference for younger females (using data from male\_myp.csv). The data is then accessed with the age classes of two individuals (see Table \ref{tbl:preferenceDistributionMethods} for overview).
 
@@ -327,6 +329,7 @@ The \texttt{PreferenceDistribution} class is used to store in the class attribut
 \end{tabular}
 \end{table}
 
+\newpage
 \subsection{Genetics Class}
 The \texttt{Genetics} class handles the genetic information of the person, storing it as a string of "1"s and "0"s inside the \texttt{genes} attribute. The class contains a method for generating a random gene string, as well as ones for performing crossover of the genes of two parents and introducing mutations (see Table \ref{tbl:geneticsMethods} for overview).
 
@@ -505,15 +508,17 @@ The age structures produced by the simulations were fairly similar between the t
 \end{table}
 
 \section{Model limitations and improvements}
-As previously stated the model was not fully implemented. Although genetics were implemented (including crossover of genes from parents and the introduction of the genes based on a mutation rate), these genetics had no impact on the model since they were not used to affect the mortality or fertility of individuals as previous models had done \cite{mateChoice2013}, but also did not use them to affect thei mating preferences. Given more time these could be implemented on the relevant classes, then a more useful simulation could be run, with results that may be more interesting.
+As previously stated the model was not fully implemented. Although genetics were implemented (including crossover of genes from parents and the introduction of the genes based on a mutation rate), these genetics had no impact on the model since they were not used to affect the mortality or fertility of individuals as previous models had done \cite{mateChoice2013}, but also did not use them to affect their mating preferences. Given more time these could be implemented on the relevant classes, then a more useful simulation could be run, with results that may be more interesting.
 
 \chapter{Conclusion}
 \label{cha:Conclusion}
 Since the work was not completed, the model produces very limited results. The first piece of further work would be to complete the intended work, so that it replicates the work of Morton, Stone and Singh in "Mate Choice and the origin of menopause" \cite{mateChoice2013}, then extend the model so that mutations can affect preference, to see what effect this has on the outcome. 
 
-After this it would be interesting to see the effect of implementing persistence of couples between generations, with couples being formed based on mating preference, then staying together until they no longer have a preference for each other. This could provide a model for monogamy, with males staying with partners rather than investing resources in attracting a new mate
+After this it would be interesting to see the effect of implementing persistence of couples between generations, with couples being formed based on mating preference, then staying together until they no longer have a preference for each other. This could provide a model for monogamy, with males staying with partners rather than investing resources in attracting a new mate. This could also be used to examine the difference between societies where monogamy is the norm, versus societies where polygyny is common, with possible implications for the age differences in mating pairs.
 
-There are also limitations to the model enforced by hardware -- the speed the model runs at is affected by the number of individuals of the population. With greater computing power, you would be able to model larger populations without the model slowing down too much -- possibly even allowing the population size to no longer fixed. There are also space constraints based on the amount of information stored about an individual, the number of individuals in the population and the number of generations the model is run for. In an ideal world you would be able to log the complete state of the system each generation (including every member of the population and their attributes, as well as informtation about the actions taken by the population that generation -- births, deaths, couples broken, couples formed).
+There are also limitations to the model enforced by hardware -- the speed the model runs at is affected by the number of individuals of the population. With greater computing power, you would be able to model larger populations without the model slowing down too much -- possibly even allowing the population size to no longer fixed. 
+
+There are also space constraints based on the amount of information stored about an individual, the number of individuals in the population and the number of generations the model is run for. In an ideal world you would be able to log the complete state of the system each generation (including every member of the population and their attributes, as well as information about the actions taken by the population that generation -- births, deaths \& their age structure, existing couples breaking up, new couples forming). 
 
 
 \bibliographystyle{plain}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.12.5)  1 MAY 2017 12:30
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.12.5)  1 MAY 2017 14:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -43,6 +43,12 @@ Package tocbasic Info: omitting babel extension for `lot'
 (tocbasic)             for `lot' on input line 126.
 Package tocbasic Info: defining new hook before heading of `' on input line 155
 2.
+Class scrreprt Info: You've used standard option `oneside'.
+(scrreprt)           This is correct!
+(scrreprt)           Internally I'm using `twoside=false'.
+(scrreprt)           If you'd like to set the option with \KOMAoptions,
+(scrreprt)           you'd have to use `twoside=false' there
+(scrreprt)           instead of `oneside', too.
 Class scrreprt Info: You've used standard option `abstracton'.
 (scrreprt)           This is correct!
 (scrreprt)           Internally I'm using `abstract=true'.
@@ -72,12 +78,12 @@ Package typearea, 2015/05/06 v3.17a KOMA-Script package (type area)
 DIV calculation for typearea with good linewidth.
 Package typearea Info: These are the values describing the layout:
 (typearea)             DIV  = 8
-(typearea)             BCOR = 36.98857pt
+(typearea)             BCOR = 0.0pt
 (typearea)             \paperwidth      = 597.50793pt
-(typearea)              \textwidth      = 350.32463pt
-(typearea)              DIV departure   = 3%
-(typearea)              \evensidemargin = 67.85983pt
-(typearea)              \oddsidemargin  = 34.7835pt
+(typearea)              \textwidth      = 373.44246pt
+(typearea)              DIV departure   = 0%
+(typearea)              \evensidemargin = 39.76274pt
+(typearea)              \oddsidemargin  = 39.76274pt
 (typearea)             \paperheight     = 845.04694pt
 (typearea)              \textheight     = 541.40024pt
 (typearea)              \topmargin      = -4.03914pt
@@ -260,12 +266,12 @@ File: t1pplj.fd 2004/09/06 font definitions for T1/pplj.
 )
 Package typearea Info: These are the values describing the layout:
 (typearea)             DIV  = 8
-(typearea)             BCOR = 36.98857pt
+(typearea)             BCOR = 0.0pt
 (typearea)             \paperwidth      = 597.50793pt
-(typearea)              \textwidth      = 350.32463pt
-(typearea)              DIV departure   = 6%
-(typearea)              \evensidemargin = 67.85983pt
-(typearea)              \oddsidemargin  = 34.7835pt
+(typearea)              \textwidth      = 373.44246pt
+(typearea)              DIV departure   = 0%
+(typearea)              \evensidemargin = 39.76274pt
+(typearea)              \oddsidemargin  = 39.76274pt
 (typearea)             \paperheight     = 845.04694pt
 (typearea)              \textheight     = 541.40024pt
 (typearea)              \topmargin      = -4.03914pt
@@ -617,17 +623,13 @@ File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 ] [2
 
 
-] [3] [4
-
-
 ]
 Package tocbasic Info: character protrusion at toc deactivated on input line 31
 .
+ (/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.toc
+[3
 
-(/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.toc
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [5
 
 ])
 \tf@toc=\write3
@@ -635,25 +637,24 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Font Info:    Font shape `T1/pplj/m/sl' in size <10.95> not available
 (Font)              Font shape `T1/pplj/m/it' tried instead on input line 32.
-
-[6]
+ [4]
 Package tocbasic Info: character protrusion at lof deactivated on input line 32
 .
  (/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.lof)
 \tf@lof=\write4
 \openout4 = `project.lof'.
 
- [7
+
+[5
 
 ]
 Package tocbasic Info: character protrusion at lot deactivated on input line 33
 .
-
-(/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.lot)
+ (/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.lot)
 \tf@lot=\write5
 \openout5 = `project.lot'.
 
- [8
+ [6
 
 ]
 Chapter 1.
@@ -680,50 +681,42 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 46.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 10.79993pt on input line 46.
-[9
 
-
-
-]
-Overfull \hbox (13.2696pt too wide) in paragraph at lines 63--64
-[]\T1/pplj/m/n/10.95 Is an over-view of the model that already
+Overfull \hbox (2.78792pt too wide) in paragraph at lines 51--52
+\T1/pplj/m/n/10.95 ments the pat-ri-arch hy-po-thesis [[]], a the-ory that male
+s' pref-er-ence for younger
  []
 
-[10] [11]
+[7
+
+
+
+] [8] [9]
 Chapter 2.
 LaTeX Font Info:    Try loading font information for TS1+pplj on input line 86.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ts1pplj.fd
 File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
-)
-Overfull \hbox (7.05003pt too wide) in paragraph at lines 86--87
-\T1/pplj/m/n/10.95 which are de-pleted over time, and that re-pro-duc-tion nat-
-ur-ally comes
- []
+) [10
 
-[12
-
-]
-Overfull \hbox (0.46902pt too wide) in paragraph at lines 95--96
-\T1/pplj/m/n/10.95 Know-ledge that fe-males would be-come in-fer-tile after a c
-er-tain age would
- []
-
-
-Underfull \vbox (badness 2790) has occurred while \output is active []
-
- [13]
-Underfull \vbox (badness 6526) has occurred while \output is active []
-
- [14]
-Underfull \vbox (badness 4467) has occurred while \output is active []
-
- [15]
-[16] [17] [18] [19]
+] [11]
+[12] [13] [14] [15] [16]
 Chapter 3.
-[20
+[17
 
-] [21] [22] [23] [24] [25]
+] [18]
+Overfull \hbox (6.6314pt too wide) in paragraph at lines 224--225
+\T1/pplj/m/n/10.95 mat-ing pref-er-ences the model pre-sup-poses the so-cial st
+ruc-tures of early hunter-
+ []
+
+[19]
+Overfull \hbox (8.87628pt too wide) in paragraph at lines 236--237
+\T1/pplj/m/n/10.95 present couples are se-lec-ted from the male and fe-male pop
+-u-la-tion pseudo-
+ []
+
+[20] [21]
 Chapter 4.
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 248.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1pcr.fd
@@ -733,27 +726,71 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `pcr' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+ [22
 
-Overfull \hbox (31.15993pt too wide) in paragraph at lines 256--266
+]
+Overfull \hbox (8.0421pt too wide) in paragraph at lines 257--267
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--274
+[]|\T1/pcr/m/n/10.95 __init__(self, age, sex,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--274
+\T1/pcr/m/n/10.95 mort_dist, repr_dist,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 278--278
+[]|\T1/pplj/m/n/10.95 Returns the de-rived at-trib-ute
+ []
+
+
+Underfull \hbox (badness 1953) in paragraph at lines 280--280
+[]|\T1/pplj/m/n/10.95 Calculates and re-turns the mat-ing
+ []
+
+
+Overfull \hbox (23.99998pt too wide) in paragraph at lines 272--282
 [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[26
-
-] [27]
-Underfull \hbox (badness 10000) in paragraph at lines 274--274
-[]|\T1/pcr/m/n/10.95 __init__(self, age, sex, mort_dist,
+[23]
+Overfull \hbox (10.6173pt too wide) in paragraph at lines 286--287
+\T1/pplj/m/n/10.95 il-ity of death a given age, based on data from the in-put f
+iles \T1/pcr/m/n/10.95 female_data.csv
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Overfull \hbox (1.6383pt too wide) in paragraph at lines 286--287
+\T1/pcr/m/n/10.95 female_mortality \T1/pplj/m/n/10.95 (us-ing fe-male_data.csv)
+, the mor-tal-ity dis-tri-bu-tion used
+ []
 
-[28]
+
+Underfull \hbox (badness 2150) in paragraph at lines 293--293
+[]|\T1/pplj/m/n/10.95 Used when in-stan-ti-at-ing the class,
+ []
+
+
+Underfull \hbox (badness 1418) in paragraph at lines 295--295
+[]|\T1/pplj/m/n/10.95 Returns mor-tal-ity prob-ab-il-ity value
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 296--296
 []|\T1/pcr/m/n/10.95 get_survival_by_age_class(
+ []
+
+
+Underfull \hbox (badness 1418) in paragraph at lines 296--297
+[]|\T1/pplj/m/n/10.95 Returns mor-tal-ity prob-ab-il-ity value
  []
 
 
@@ -762,132 +799,113 @@ Overfull \hbox (23.99998pt too wide) in paragraph at lines 291--298
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 311--311
-[]|\T1/pcr/m/n/10.95 get_reproduction(self,
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[24]
+Underfull \hbox (badness 2150) in paragraph at lines 310--310
+[]|\T1/pplj/m/n/10.95 Used when in-stan-ti-at-ing the class,
  []
 
 
-Underfull \hbox (badness 4660) in paragraph at lines 311--311
+Underfull \hbox (badness 10000) in paragraph at lines 312--312
 []|\T1/pplj/m/n/10.95 Returns re-pro-duc-tion prob-ab-il-ity
  []
 
 
-Overfull \hbox (4.83769pt too wide) in paragraph at lines 312--312
+Underfull \hbox (badness 10000) in paragraph at lines 313--313
 []|\T1/pcr/m/n/10 get_reproduction_by_age_class(
  []
 
 
-Underfull \hbox (badness 4660) in paragraph at lines 312--313
+Underfull \hbox (badness 10000) in paragraph at lines 313--314
 []|\T1/pplj/m/n/10.95 Returns re-pro-duc-tion prob-ab-il-ity
  []
 
 
-Overfull \hbox (23.99998pt too wide) in paragraph at lines 307--314
+Overfull \hbox (23.99998pt too wide) in paragraph at lines 308--315
 [][] 
  []
 
+[25]
+Overfull \hbox (5.29553pt too wide) in paragraph at lines 319--320
+\T1/pplj/m/n/10.95 from fe-male_pref.csv), \T1/pcr/m/n/10.95 male_map_preferenc
+e \T1/pplj/m/n/10.95 rep-res-ent-ing males who have
+ []
 
-LaTeX Warning: `h' float specifier changed to `ht'.
 
-[29
-
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 324--324
+Underfull \hbox (badness 10000) in paragraph at lines 326--326
 []|\T1/pcr/m/n/10.95 __init__(self, name,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 326--326
+Underfull \hbox (badness 2150) in paragraph at lines 326--326
+[]|\T1/pplj/m/n/10.95 Used when in-stan-ti-at-ing the class,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 328--328
 []|\T1/pcr/m/n/10.95 get_preference(self,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 326--326
+Underfull \hbox (badness 10000) in paragraph at lines 328--328
 \T1/pcr/m/n/10.95 age_class_one,
  []
 
 
-Overfull \hbox (23.99998pt too wide) in paragraph at lines 322--328
+Overfull \hbox (23.99998pt too wide) in paragraph at lines 324--330
 [][] 
  []
 
+[26]
+Underfull \hbox (badness 2318) in paragraph at lines 341--341
+[]|\T1/pplj/m/n/10.95 Used when in-stan-ti-at-ing the class.
+ []
 
-Overfull \hbox (23.99998pt too wide) in paragraph at lines 336--344
+
+Overfull \hbox (23.99998pt too wide) in paragraph at lines 339--347
 [][] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (21.83244pt too wide) in paragraph at lines 347--348
-\T1/pplj/m/n/10.95 After the class defin-i-tions, the main dis-tri-bu-tions are
- set up (fe-male_mortality,
- []
-
-
-Overfull \hbox (22.90544pt too wide) in paragraph at lines 347--348
-\T1/pplj/m/n/10.95 male_mortality, fe-male_reproduction, male_reproduction, fe-
-male_preference,
- []
-
-
-Underfull \vbox (badness 1043) has occurred while \output is active []
-
- [30]
-Overfull \hbox (8.77606pt too wide) in paragraph at lines 361--361
+[27]
+Overfull \hbox (4.15256pt too wide) in paragraph at lines 364--364
 []|\T1/pcr/m/n/10.95 reproduction| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 363--363
+Underfull \hbox (badness 10000) in paragraph at lines 366--366
 []|\T1/pplj/m/n/10.95 Randomly gen-er-ated by
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 363--364
+Underfull \hbox (badness 10000) in paragraph at lines 366--367
 []|\T1/pplj/m/n/10.95 Randomly gen-er-ated by
  []
 
 
-Overfull \hbox (35.99461pt too wide) in paragraph at lines 355--365
+Overfull \hbox (35.99428pt too wide) in paragraph at lines 358--368
 [][] 
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (28.53748pt too wide) in paragraph at lines 367--368
+Overfull \hbox (5.41965pt too wide) in paragraph at lines 370--371
 []\T1/pplj/m/n/10.95 This ini-tial pop-u-la-tion is ex-por-ted to \T1/pcr/m/n/1
 0.95 initial_population_output.csv
  []
 
-[31] [32] [33] [34]
+[28]
+Overfull \hbox (64.62247pt too wide) in paragraph at lines 386--387
+\T1/pplj/m/n/10.95 age, sex, life status, genes and pref-er-ence dis-tri-bu-tio
+n type to ini-tial_population_output.csv.
+ []
+
+[29] [30]
 Chapter 5.
-[35
+[31
 
-]
-Underfull \vbox (badness 1436) has occurred while \output is active []
-
- [36]
-[37]
-Overfull \hbox (10.80579pt too wide) in paragraph at lines 439--440
-\T1/pplj/m/n/10.95 The age struc-tures pro-duced by the sim-u-la-tions were fai
-rly sim-ilar between
- []
-
+] [32] [33]
 File: images/map_age_data.pdf Graphic file (type QTm)
-<use  "images/map_age_data.pdf" >
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (0.64699pt too wide) in paragraph at lines 450--472
-[][] 
- []
-
+ <use  "images/map_age_data.pdf" >
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -897,52 +915,47 @@ File: images/myp_age_data.pdf Graphic file (type QTm)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (0.64699pt too wide) in paragraph at lines 483--505
-[][] 
- []
-
-
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[38] [39] [40] [41]
+[34] [35] [36] [37]
 Chapter 6.
-(/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.bbl [42
+(/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.bbl [38
 
-] [43
+] [39
 
 ])
-[44]
+[40]
 Appendix A.
-[45
+[41
 
 ]
 Appendix B.
-[46
+[42
 
 ]
 Appendix C.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 543.
-[47
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 552.
+[43
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 543.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 552.
  (/Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 543.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 543.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 552.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 552.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 543.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 552.
  ) 
 Here is how much of TeX's memory you used:
- 14512 strings out of 493706
- 221010 string characters out of 6145769
- 382698 words of memory out of 5000000
- 17692 multiletter control sequences out of 15000+600000
+ 14511 strings out of 493706
+ 220994 string characters out of 6145769
+ 381702 words of memory out of 5000000
+ 17691 multiletter control sequences out of 15000+600000
  37878 words of font info for 59 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  49i,11n,52p,1130b,520s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/caleb/Documents/uni/Project/LaTeX/.texpadtmp/project.p
-df (47 pages).
+df (43 pages).
