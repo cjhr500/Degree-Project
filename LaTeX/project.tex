@@ -47,7 +47,7 @@ Menopause has many different theories for its origin, and it would be useful to 
 
 
 \subsection{Check validity of computational model}
-This project focuses on reproducing a computational model \cite{mateChoice2013} that implements the patriarch hypothesis \cite{patriarchHypothesis2000}, a theory that males' preference for younger females caused long post-reproducitve lifespans. Replicating models is useful to check their validity and discover any flaws they may possess. Replication also provides a jumping off point for improving the model or for adapting it to other hypotheses to do with the evolution of menopause or population modelling in general. 
+This project focuses on reproducing a computational model \cite{mateChoice2013} that implements the patriarch hypothesis \cite{patriarchHypothesis2000}, a theory that males' preference for younger females caused long post-reproductive lifespans. Replicating models is useful to check their validity and discover any flaws they may possess. Replication also provides a jumping off point for improving the model or for adapting it to other hypotheses to do with the evolution of menopause or population modelling in general. 
 
 \subsection{Rewrite model into an object oriented language}
 The model is also being adapted from C, a performant but verbose and old imperative language, into Python, a modern object oriented language designed to be as readable as possible. Python is also popular among scientific research, so this will make the model more accessible for future work. Object oriented languages are also well suited for making multi-agent systems as the object-attribute-method structure is a good match for modelling the agent, its traits and the ways it can interact with the environment
@@ -154,9 +154,9 @@ References needed
 
 
 \subsection{Genetic Algorithms}
-Genetic algorithms are mathematical representations of the process of evolution, with the genetics being used to set parameters for program behaviour, rather than the traits of an organism. An initial pool of individual genetics (typically binary strings are used) are created. These gene strings are then used to set parameters for whatever compuation is being done. The best performing sets of genes are selected using an arbritrary heuristic fitness function (such as shortest path) to create the next generation of genetics. 
+Genetic algorithms are mathematical representations of the process of evolution, with the genetics being used to set parameters for program behaviour, rather than the traits of an organism. An initial pool of individual genetics (typically binary strings are used) are created. These gene strings are then used to set parameters for whatever computation is being done. The best performing sets of genes are selected using an arbitrary heuristic fitness function (such as shortest path) to create the next generation of genetics. 
 
-Random parents are selected from the best performers, and the next generation are created by crossing over the genes of the parent pair. The next generation of individuals also undergo random mutation of their genes (i.e. by flipping random bits of the binary string) to prevent the algorithm from getting stuck on a single solution and to produce potentially beneficial genes which may have not appeared in the population yet (and so cannot be accquired from their parents). These stages all correspond to the concepts of biological evolution, and so can be useful when modelling genetic change. Genetic algorithms are good at working out optimal solutions to problems with lots of parameters as the algorithm combines parts of the best solutions from each generation to produces new, potentially better solutions. 
+Random parents are selected from the best performers, and the next generation are created by crossing over the genes of the parent pair. The next generation of individuals also undergo random mutation of their genes (i.e. by flipping random bits of the binary string) to prevent the algorithm from getting stuck on a single solution and to produce potentially beneficial genes which may have not appeared in the population yet (and so cannot be acquired from their parents). These stages all correspond to the concepts of biological evolution, and so can be useful when modelling genetic change. Genetic algorithms are good at working out optimal solutions to problems with lots of parameters as the algorithm combines parts of the best solutions from each generation to produces new, potentially better solutions. 
 
 \begin{framed}
 More detail/ideas here. References needed
@@ -167,7 +167,7 @@ More detail/ideas here. References needed
 \label{cha:Problem Description}
 
 \section{Constraints of the Patriarch Hypothesis}
-The patriarch hypothesis \cite{patriarchHypothesis2000} states that menopause came about due to older males' preference for younger females. Since humans have relatively long lifespans and the trait of long, postreproductive lifespans is present in all humans, it is necessary to use a model to study the validity of this hypothesis. In the paper, 3 main conditions that the hypothesis depends on are set out -- it follows that any model examining the hypothesis should model these constraints. The constraints are as follows:
+The patriarch hypothesis \cite{patriarchHypothesis2000} states that menopause came about due to older males' preference for younger females. Since humans have relatively long lifespans and the trait of long, post-reproductive lifespans is present in all humans, it is necessary to use a model to study the validity of this hypothesis. In the paper, 3 main conditions that the hypothesis depends on are set out -- it follows that any model examining the hypothesis should model these constraints. The constraints are as follows:
 
 \begin{enumerate}
 \item That the depletion of oocytes (undeveloped ovum) must be a constraining factor on when menopause occurs. Menopause was not previously observed until longevity increased to the extent that females lived long enough that depletion could occur.
@@ -205,7 +205,7 @@ $$\ B_{ij} = \frac{b_i\alpha_{ij}F_iM_j}{F_i + M_j} $$
 \label{fig:harmonicMean}
 \end{figure}
 
-When it comes to the three constraints imposed by \cite{patriarchHypothesis2000} this model implements a reduction in female fertility in time but does not specificially link this to the oocyte depletion. The paper does however note that it is important to model the fertility and mortality of both sexes as any mutation that increases mortality past the age of menopause has no effect on population growth when only dealing with females. The model treats this mutation as being sex indifferent (meaning it would have to be located on the X chromosome). For the third constraint the paper largely relies on citing real-world data of hunter-gatherer societies and their social structures as evidence for continued male reproduction later in life. Data from the Dobe !Kung society \cite{howell1979demography} and preconstructed life tables \cite{gurven2007hunter} were used in the harmonic mean model (Figure \ref{fig:harmonicMean}) to this effect.
+When it comes to the three constraints imposed by \cite{patriarchHypothesis2000} this model implements a reduction in female fertility in time but does not specifically link this to the oocyte depletion. The paper does however note that it is important to model the fertility and mortality of both sexes as any mutation that increases mortality past the age of menopause has no effect on population growth when only dealing with females. The model treats this mutation as being sex indifferent (meaning it would have to be located on the X chromosome). For the third constraint the paper largely relies on citing real-world data of hunter-gatherer societies and their social structures as evidence for continued male reproduction later in life. Data from the Dobe !Kung society \cite{howell1979demography} and preconstructed life tables \cite{gurven2007hunter} were used in the harmonic mean model (Figure \ref{fig:harmonicMean}) to this effect.
 
 The main issue with this model is the fixed age of the end of reproduction, as mutations are only used to alter mortality, when they should also be used to affect the fertility of females since the focus of the hypothesis is based on is why menopause in humans came about. Similarly mating preferences of individuals are fixed.
 
@@ -214,13 +214,30 @@ Couples are also not persistent between time steps, which could influence the mo
 \section{Mate Choice and the Origin of Menopause: a computational model}
 Rather than modelling the hypothesis as a complex set of equations, Morton et \cite{mateChoice2013} used an agent-based model. The model creates a random initial population, with random ages and genetics. A population burn-in is performed to generate the inherent age structures of the population by assigning members to random age classes, then causing them to reproduce asexually without the interference of mutations.
 
-After this burn in period, the main simulation begins. First comes the aging process: each generation, each member of the populaton has a value from their survival table (modified by mortality affecting mutations) compared to a pseudo-random number to determine whether they are assigned to the next age class or die.
+After this burn in period, the main simulation begins. First comes the ageing process: each generation, each member of the population has a value from their survival table (modified by mortality affecting mutations) compared to a pseudo-random number to determine whether they are assigned to the next age class or die.
 
-Then comes the reproductive phase. Two random parents from the population are selected. If they are a compatable couple (determined by a preference matrix $\ M_{ij} $ where i and j refer to their age classes) then their fertilities are checked in a similar manner to their survival to determine whether a child is born. This is repeated until all the individuals who died in the aging process are replaced (keeping the population at a set size). The offspring recieves genetic information from their parent and mutations are introduced according to a mutation rate. The model then repeats the ageing and the pairing/reproduction phase for a predetermined numder of time periods, logging results as it goes.
+Then comes the reproductive phase. Two random parents from the population are selected. If they are a compatible couple (determined by a preference matrix $\ M_{ij} $ where i and j refer to their age classes) then their fertilities are checked in a similar manner to their survival to determine whether a child is born. This is repeated until all the individuals who died in the ageing process are replaced (keeping the population at a set size). The offspring receives genetic information from their parent and mutations are introduced according to a mutation rate. The model then repeats the ageing and the pairing/reproduction phase for a predetermined number of time periods, logging results as it goes.
 
 The main problem with the mathematical model has been fixed: the age of the end of reproduction is no longer fixed. Since the fertility of an individual is affected by mutations, the fertilities of population as a whole will change over time depending on how fertility-affecting mutations accumulate over time (whether the effects are beneficial or deleterious).
 
-However the fixed mating preferences of individuals remains. With fixed mating preferences the model presupposes the social structures of early hunter-gatherers, justifying this with data from modern hunter-gatherer tribes. The mating preferences of older men for younger females may instead be an epiphenomen of menopause developing in women -- if realised fertility is the main reason for living then males are far more likely to choose a partner who has more years of reproductive capability ahead of her than one few or none at all. If mating preferences were not fixed we would be able to see if they are stable (meaning they change little regardless of changes in the mortality and fertility of the population) or if they coevolve alongside mortality and fertility changes. If the male preference for younger females evolved from a male preference for female their own age alongside the changes to fertility, this could suggest that the preference came about due to menopause rather than causing it.
+However the fixed mating preferences of individuals remains. With fixed mating preferences the model presupposes the social structures of early hunter-gatherers, justifying this with data from modern hunter-gatherer tribes. The mating preferences of older men for younger females may instead be an epiphenomenon of menopause developing in women -- if realised fertility is the main reason for living then males are far more likely to choose a partner who has more years of reproductive capability ahead of her than one few or none at all. If mating preferences were not fixed we would be able to see if they are stable (meaning they change little regardless of changes in the mortality and fertility of the population) or if they coevolve alongside mortality and fertility changes. If the male preference for younger females evolved from a male preference for female their own age alongside the changes to fertility, this could suggest that the preference came about due to menopause rather than causing it.
+
+\section{A better model}
+A better model for the patriarch hypothesis would have the following features:
+
+\begin{itemize}
+\item It would generate a typical base population asexually using mortality tables and a burn in period so that correct age structures were created. Starting with these age structures is important to ensure that when the simulation starts there is a variety of ages from which couples can form (or preference based on age would not matter).
+
+\item Each generation, in the ageing phase each member the population is aged or killed on the basis of a pseudo-random number, a mortality table and the presence of mortality affecting mutations in their genes (acting in both a sex-indifferent and sex-dependent manner). The deceased members of the population would then be replaced with new offspring in the pairing and mating phase.
+
+\item Next would come a pairing phase in which couples would form on the basis of a mating preference matrix. Unlike previous models, this preference matrix would be affected by mutations in the genetics of the individual in the same way that mortality and fertility are affected. This would allow the preference to coevolve alongside changes to mortality and fertility.
+
+\item These pairings would also be persistent throughout generations. At present couples are selected from the male and female population pseudo-randomly each generation and checked for mating preference before attempting reproduction if a pairing is formed. Non-persistent unions are inconsistent with the monogamy that the original paper posits as the norm in hunter-gatherer societies. It is unlikely that a male would commit the resources to try and find a new mate if his present partner is still fertile. As such pairings that are persistent between generations (checking to see if mating preference between the pair still exists each generation) is a good model for monogamy, with males only seeking a second mate after the preference for their own partner disappears. The breakup of couples would occur just before the pairing phase, so that new pairings can be formed from the newly single individuals.
+
+\item After the pairings are formed, couples would be pseudo randomly selected from the set of couples and using a pseudo-random number and their fertility distributions (modified by fertility affecting mutations in their genes).
+
+\end{itemize}
+
 
 \begin{framed}
 Existing model overview - relate to code
@@ -236,7 +253,7 @@ How this can be fixed
 \label{cha:Design and Implementation}
 
 \section{Class Structure}
-When designing a multi-agent system, it can be useful to model each agent as being an instance of a class, each with their own attributes (variables belonging to a class instance that are an abstract representation of the differing traits an agent has) and class methods (representing the actions an agent can take to interact with its environment). The individual people in the system are modeled using the \texttt{Person} class, with attributes determining their traits, including genetics and various probability and preference distributions. 
+When designing a multi-agent system, it can be useful to model each agent as being an instance of a class, each with their own attributes (variables belonging to a class instance that are an abstract representation of the differing traits an agent has) and class methods (representing the actions an agent can take to interact with its environment). The individual people in the system are modelled using the \texttt{Person} class, with attributes determining their traits, including genetics and various probability and preference distributions. 
 
 \newpage
 \subsection{Person Class}
@@ -265,10 +282,10 @@ The \texttt{Person} class provides the container for the attributes and methods 
 \textbf{Method} & \textbf{Purpose} \\\hline
 \texttt{\_\_init\_\_(self, age, sex, mort\_dist, repr\_dist, genes=None)} & Used when instantiating the class, setting up initial values for the properties based on those passed as parameters\\\hline
 \texttt{\_\_repr\_\_(self)} & Returns a string representation of the class \\\hline
-\texttt{row\_builder(self)} & Returns a list of properties for outputing to csv\\\hline
-\texttt{increase\_age(self)} & Assigns a person to next age class if they survive the current generation (based on a psuedo-ransom number and their mortality distribution), otherwise sets \texttt{alive} to \texttt{False}.\\\hline
+\texttt{row\_builder(self)} & Returns a list of properties for outputting to csv\\\hline
+\texttt{increase\_age(self)} & Assigns a person to next age class if they survive the current generation (based on a pseudo-ransom number and their mortality distribution), otherwise sets \texttt{alive} to \texttt{False}.\\\hline
 \texttt{calculate\_age\_class(self)} & Returns the derived attribute \texttt{age\_class} \\\hline
-\texttt{reproduce(self)} & Returns \texttt{True} if a person is currently able to reproduce (based on a psuedo-random number and their reproductive distribution). \\\hline
+\texttt{reproduce(self)} & Returns \texttt{True} if a person is currently able to reproduce (based on a pseudo-random number and their reproductive distribution). \\\hline
 \texttt{calc\_preference(self, other)} & Calculates and returns the mating preference that this person has for the other person (using their ages classes and the person's preference distribution) \\\hline
 \end{tabular}
 \end{table}
@@ -276,7 +293,7 @@ The \texttt{Person} class provides the container for the attributes and methods 
 
 \newpage
 \subsection{MortalityDistribution Class}
-The \texttt{MortalityDistribution} class serves as a lookup table for the probability of death a given age, based on data from the input files \texttt{female\_data.csv} and \texttt{male\_data.csv}. There are two base instances of this class created \texttt{female\_mortality} (using female\_data.csv), the mortality distribution used by females and \texttt{male\_mortality}, for males (using male\_data.csv). The class also contains methods for getting survival probablilities based on age (see Table \ref{tbl:mortalityDistributionMethods}).
+The \texttt{MortalityDistribution} class serves as a lookup table for the probability of death a given age, based on data from the input files \texttt{female\_data.csv} and \texttt{male\_data.csv}. There are two base instances of this class created \texttt{female\_mortality} (using female\_data.csv), the mortality distribution used by females and \texttt{male\_mortality}, for males (using male\_data.csv). The class also contains methods for getting survival probabilities based on age (see Table \ref{tbl:mortalityDistributionMethods}).
 
 \begin{table}[h]
 \caption{MortalityDistribution Class Methods}
@@ -292,7 +309,7 @@ The \texttt{MortalityDistribution} class serves as a lookup table for the probab
 
 \newpage
 \subsection{ReproductionDistribution Class}
-The \texttt{MortalityDistribution} class serves as a lookup table for the probability of being able to reproduce at a given age, based on data from the input files \texttt{female\_data.csv} and \texttt{male\_data.csv}. There are two base instances of this class created \texttt{female\_mortality} (using female\_data.csv), the mortality distribution used by females and \texttt{male\_mortality}, for males (using male\_data.csv). The class also contains methods for getting survival probablilities based on age (see Table \ref{tbl:reproductionDistributionMethods} for overview).
+The \texttt{MortalityDistribution} class serves as a lookup table for the probability of being able to reproduce at a given age, based on data from the input files \texttt{female\_data.csv} and \texttt{male\_data.csv}. There are two base instances of this class created \texttt{female\_mortality} (using female\_data.csv), the mortality distribution used by females and \texttt{male\_mortality}, for males (using male\_data.csv). The class also contains methods for getting survival probabilities based on age (see Table \ref{tbl:reproductionDistributionMethods} for overview).
 
 
 \begin{table}[h]
@@ -335,7 +352,7 @@ The \texttt{Genetics} class handles the genetic information of the person, stori
 \texttt{\_\_repr\_\_(self)} & Returns a string representation of the class \\\hline
 \texttt{random\_genes(self, size)} & Returns a random string of "1"s and "0"s of length equal to \texttt{size}. \\\hline
 \texttt{crossover(self, other)} & Returns a gene string made of of random segments of the two gene strings. \\\hline
-\texttt{mutate(self, rate)} & Psuedo-randomly flips "0"s and "1"s in the \texttt{gene} attribute with a probability equal to \texttt{rate}.
+\texttt{mutate(self, rate)} & Pseudo-randomly flips "0"s and "1"s in the \texttt{gene} attribute with a probability equal to \texttt{rate}.
 \end{tabular}
 \end{table}
 
@@ -368,7 +385,7 @@ This initial population is exported to \texttt{initial\_population\_output.csv} 
 \section{Running the simulation}
 The simulation was divided into two phases: the MAP simulation, which models when males have a preference for females their own age, and the MYP simulation, when males have a preference for younger females. The process for each simulation is identical except for the preference distribution of each male. Each simulation set to run for 100 generations (each generation representing a year period) with a mutation rate of 0.2.
 
-The MAP model is run first. Each generation the model starts with an aging phase. It loops through each female, and assigns them either to the next age or kills them based on a psuedo-random number and their mortality distribution, using the \texttt{increase\_age()} method (see Table \ref{tbl:personAttributes}). This process is repeated for the males.
+The MAP model is run first. Each generation the model starts with an ageing phase. It loops through each female, and assigns them either to the next age or kills them based on a pseudo-random number and their mortality distribution, using the \texttt{increase\_age()} method (see Table \ref{tbl:personAttributes}). This process is repeated for the males.
 
 Next comes a reproduction phase which loops until the population size is restored to 1000. A female and a male are randomly selected from the female and male populations. Their mating preferences are checked and if they are are compatible a mating pair is formed. Then whether they are able to reproduce is checked with both the male and the female. If they are both able to, then a child is produced.
 
@@ -378,28 +395,30 @@ Various statistics about the generation are calculated (including the age distri
 
 \newpage
 \section{Generating an output}
-There is little point to running a simulation if the results are not outputted. The \texttt{csv} module for Python was used both for parsing the input files, but for generating output \texttt{csv} files. The \texttt{csv} format is designed to be a human and machine readable format for storing tables of data and is readable by a variety of programming languages as well as by spreadsheet software, making it an accessable format to output to.
+There is little point to running a simulation if the results are not outputted. The \texttt{csv} module for Python was used both for parsing the input files, but for generating output \texttt{csv} files. The \texttt{csv} format is designed to be a human and machine readable format for storing tables of data and is readable by a variety of programming languages as well as by spreadsheet software, making it an accessible format to output to.
 
 The first thing outputted by the program is the properties of the initial population (using the \texttt{row\_builder()} method - see Table \ref{tbl:personMethods}), outputting the age, sex, life status, genes and preference distribution type to initial\_population\_output.csv. This process was repeated with the populations at the end of both the MAP and the MYP simulations, outputting to map\_population\_output.csv and myp\_population\_output.csv respectively.
 
-The other thing outputted by the program is information about each generation in the simulations. In each generation, the following information is exported: the generation, the number of females, the number of males, the average age of female age of reproduction, the average male age of reproduction, the average age gap in mating pairs who reproduced, the oldest female who reproduced and the oldest male who reproduced. Also outputted each row is the number of indiviuals in each age group, which allows you to work out the distribution of deaths by age, as well as the number of individuals born each generation. These results are outputted to map\_simulation\_output.csv and myp\_simulation\_output.csv for the MAP and the MYP simulations respectively.
+The other thing outputted by the program is information about each generation in the simulations. In each generation, the following information is exported: the generation, the number of females, the number of males, the average age of female age of reproduction, the average male age of reproduction, the average age gap in mating pairs who reproduced, the oldest female who reproduced and the oldest male who reproduced. Also outputted each row is the number of individuals in each age group, which allows you to work out the distribution of deaths by age, as well as the number of individuals born each generation. These results are outputted to map\_simulation\_output.csv and myp\_simulation\_output.csv for the MAP and the MYP simulations respectively.
 
 \newpage
 \section{Not Implemented}
 Unfortunately the work was not completely implemented. The following features were planned, but not implemented:
 
 \begin{itemize}
-\item The genetics of a person should affect their mortality. This would be implemented on the MortalityDistribution class by using the person's genetics as well as sex as parameters so that specific loci in a person's genetics could act in a sex-specific or sex indiffferent manner to alter their survival. The reason this is important is it provides the advantage to late-age male reproduction over males ceasing reproduction when females do. If there is a mortality-causing mutation that only affects individuals over 55, it will not affect the realised fertility of the females, but males that do not have the mutation will be able to reproduce more, causing this mutation to be selected against.
-\item The genetics of a person should also affect their reproduction. Similarly this would be implemented on the ReproductionDistribution class using the person's genes and sex as parameters. This is important for the accumulations of genes deletrous to reproduction in females.
+\item The genetics of a person should affect their mortality. This would be implemented on the MortalityDistribution class by using the person's genetics as well as sex as parameters so that specific loci in a person's genetics could act in a sex-specific or sex indifferent manner to alter their survival. The reason this is important is it provides the advantage to late-age male reproduction over males ceasing reproduction when females do. If there is a mortality-causing mutation that only affects individuals over 55, it will not affect the realised fertility of the females, but males that do not have the mutation will be able to reproduce more, causing this mutation to be selected against.
+\item The genetics of a person should also affect their reproduction. Similarly this would be implemented on the ReproductionDistribution class using the person's genes and sex as parameters. This is important for the accumulations of genes deleterious to reproduction in females.
 \item The coevolution of the mating preferences of the people. If the mating preferences are not allowed to evolve, then it is difficult to say whether males' preference for younger females caused the evolution of menopause, or the evolution of menopause what what caused males' preferences to come about. 
 \end{itemize}
 
 
 \chapter{Results and Evaluation}
 \label{cha:Results and Evaluation}
-Since the model was not fully implemented,with genetics being stored and mutated, but these mutations having no effect on fertility or mortality, the results are somewhat limited. Nevertheless some information may be gleaned from the output produced. Presented below are some of the results of a typical run and some analysis of what these results mean. Since the model relies heavily on pseudo-random numbers these results are dependent on one particular run, although the model could be run many times and the results averaged to minimise this effect.
+Since the model was not fully implemented, with genetics being stored and mutated, but these mutations having no effect on fertility or mortality, the results are somewhat limited. Nevertheless some information may be gleaned from the output produced. Presented below are some of the results of a typical run and some analysis of what these results mean. Since the model relies heavily on pseudo-random numbers these results are dependent on one particular run, although the model could be run many times and the results averaged to minimise this effect.
 
 \section{Results of a typical run}
+The model was run for 100 generations, with both the MAP (males with a preference for females their own age) and MYP (males with a preference for younger females) using the same base population generated in the burn in period. 
+
 \subsection{Female and Male Numbers}
 The base population from the burn in period produces a population with 500 females and 500 males (1000 total). Although the measure of how many females and males there are at any point may not be that useful, it is good to ensure that one sex did not become dominant over the other since this could skew the other results. The population numbers are held at 1000 at all times.
 
@@ -416,10 +435,10 @@ For the MAP simulation, the mean female mean age of reproduction was 29.763, wit
 
 For the MYP simulation, the mean female mean age of reproduction was 23.714, with variance $\ \sigma^2 = 0.425 $ and a median mean of 23.716. The minimum mean was 22.153 and the maximum mean was 25.271 (range 3.118). For the MYP simulation, the mean male mean age of reproduction was 26.073, with variance $\ \sigma^2 = 0.690 $ and a median mean of 26.121. The minimum mean was 24.276 and the maximum mean was 28.286 (range 4.010). The difference between the mean of means for the two sexes is 2.358.
  
-The mean age of reproduction in the MAP simulation is fairly similar between the sexes with the females only reproducing on average 0.240 years before the males. This is in line with the concept of males prefering females roughly their own age - if this is the case then males and females will reproduce at fairly similar points in their life. The gap in the mean age of reproduction was higher in the MYP simulation (where males have a preference for younger females) suggesting the preference for younger females. What is also notable is that both the female and male mean age of reproduction is much lower in the MYP simulation than the MAP simulation (6.049 years younger for females, 3.931), bigger than the gap between sexes in either simulation.
+The mean age of reproduction in the MAP simulation is fairly similar between the sexes with the females only reproducing on average 0.240 years before the males. This is in line with the concept of males preferring females roughly their own age - if this is the case then males and females will reproduce at fairly similar points in their life. The gap in the mean age of reproduction was higher in the MYP simulation (where males have a preference for younger females) suggesting the preference for younger females. What is also notable is that both the female and male mean age of reproduction is much lower in the MYP simulation than the MAP simulation (6.049 years younger for females, 3.931), bigger than the gap between sexes in either simulation.
 
 \subsection{Mean age difference in couples}
-The mean age difference was calculated each generation by summing the absoluted difference in age for each child producing couple, then dividing it by the the number of children born that generation. Note that this value only tells you the average age gap, not the direction of the gap (whether the male or the female is older).
+The mean age difference was calculated each generation by summing the absolute difference in age for each child producing couple, then dividing it by the the number of children born that generation. Note that this value only tells you the average age gap, not the direction of the gap (whether the male or the female is older).
 
 For the MAP simulation, the mean of the mean age gaps was 10.435, with variance $\ \sigma^2 = 0.278 $ and a median mean of 10.401. The minimum mean was 9.028 and the maximum mean was 11.712 (range 2.683). 
 
@@ -430,7 +449,7 @@ The MYP simulation is meant to model males' preference for younger females rathe
 \subsection{Maximum age of reproduction}
 The maximum age of reproduction was the age of the oldest person to reproduce in a given generation (again divided by sex). This measure tells roughly the age after which women will cease to reproduce. It will also tell us whether males continue to reproduce after this point. However this age is the maximum such can be an outlier and is not representative of the group as a whole. 
 
-For the MAP simulation, the mean age for oldest female reproduction was 51.75, with variance $\ \sigma^2 = 7.765 $ and a median age of 50. The minimum maximum age of reproduction was 45 and the maximum was 60 (range 15). For males the mean age of oldest reproduction 52.15, with variance $\ \sigma^2 = 6.694 $ and a median age of 50. The minimum maximum age of reproduction was 50 and the maximum was 60 (range 10). This is indicative of males prefering females their own age, as their realised fertility is linked to the females' actual fertility meaning they cease to reproduce once the females are no longer capable of doing so, even though they remain to be fertile themselves. The average maximum age for females is also reasonably similar to the age at which menopause typically occurs.
+For the MAP simulation, the mean age for oldest female reproduction was 51.75, with variance $\ \sigma^2 = 7.765 $ and a median age of 50. The minimum maximum age of reproduction was 45 and the maximum was 60 (range 15). For males the mean age of oldest reproduction 52.15, with variance $\ \sigma^2 = 6.694 $ and a median age of 50. The minimum maximum age of reproduction was 50 and the maximum was 60 (range 10). This is indicative of males preferring females their own age, as their realised fertility is linked to the females' actual fertility meaning they cease to reproduce once the females are no longer capable of doing so, even though they remain to be fertile themselves. The average maximum age for females is also reasonably similar to the age at which menopause typically occurs.
 
 The MYP is more perhaps more interesting however as the maximum age of reproduction for both the females and the males was the same for each generation, at 30 and 35 respectively. Why the maximum age of reproduction stayed the same is generation is unclear. There is also a gap between the two ages, with males carrying on reproduction five years longer than the females. Both females and males in the MYP cease reproduction many years before those in the MAP model, suggesting there may be an issue in the MYP as you would expect the females to reproduce for fairly similar amounts of time, and for the MYP males to reproduce for longer than the MAP males.
 
@@ -441,6 +460,33 @@ The MYP is more perhaps more interesting however as the maximum age of reproduct
 \caption{Typical MAP simulation age structure}
 \label{fig:mapResultsGraph}
 \end{figure}
+
+\begin{table}[h]
+\caption{MAP Age Structures}
+\label{tbl:mypAge}
+\begin{tabular}{c c c c c c c}
+\textbf{Age} & \textbf{Mean} & \textbf{Variance} & \textbf{Median} & \textbf{Minimum} & \textbf{Maximum} & \textbf{Range} \\\hline
+0 & 308.00 & 179.576 & 307 & 278 & 342 & 64 \\\hline
+5 & 183.48 & 139.949 & 182 & 159 & 207 & 48 \\\hline
+10 & 95.41 & 81.759 & 94 & 71 & 124 & 53 \\\hline
+15 & 63.39 & 60.867 & 66 & 45 & 88 & 43 \\\hline
+20 & 57.29 & 53.097 & 56 & 40 & 76 & 36 \\\hline
+25 & 53.64 & 53.687 & 53 & 38 & 71 & 33 \\\hline
+30 & 48.79 & 51.077 & 48 & 32 & 69 & 37 \\\hline
+35 & 42.40 & 57.232 & 42 & 26 & 63 & 37 \\\hline
+40 & 36.31 & 44.903 & 36 & 20 & 54 & 34 \\\hline
+45 & 31.27 & 29.977 & 31 & 19 & 47 & 28 \\\hline
+50 & 24.68 & 23.230 & 25 & 15 & 38 & 23 \\\hline
+55 & 18.02 & 20.505 & 18 & 8 & 31 & 23 \\\hline
+60 & 14.52 & 14.293 & 14 & 5 & 25 & 20 \\\hline
+65 & 9.69 & 8.297 & 9 & 3 & 16 & 13 \\\hline
+70 & 5.77 & 3.755 & 6 & 1 & 10 & 9 \\\hline
+75 & 2.91 & 2.729 & 3 & 0 & 6 & 6 \\\hline
+80 & 1.14 & 0.869 & 1 & 0 & 5 & 5 \\\hline
+85 & 0.29 & 0.228 & 0 & 0 & 2 & 2 \\\hline
+90 & 0 & 0 & 0 & 0 & 0 & 0
+\end{tabular}
+\end{table}
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{myp_age_data}
@@ -458,7 +504,20 @@ The MYP is more perhaps more interesting however as the maximum age of reproduct
 10 & 96.05 & 85.583 & 96 & 71 & 122 & 51 \\\hline
 15 & 66.05 & 82.472 & 67 & 45 & 86 & 41 \\\hline
 20 & 57.24 & 91.053 & 57.5 & 32 & 76 & 44 \\\hline
-
+25 & 54.40 & 85.252 & 55 & 33 & 75 & 42 \\\hline
+30 & 49.61 & 83.149 & 50 & 28 & 71 & 43 \\\hline
+35 & 43.92 & 63.225 & 43 & 25 & 67 & 42 \\\hline
+40 & 37.91 & 45.254 & 37 & 21 & 53 & 32 \\\hline
+45 & 31.13 & 34.336 & 31 & 15 & 48 & 33 \\\hline
+50 & 25.04 & 22.625 & 25 & 13 & 37 & 24 \\\hline
+55 & 18.90 & 23.323 & 19 & 9 & 31 & 22 \\\hline
+60 & 13.78 & 15.709 & 13.5 & 6 & 24 & 18 \\\hline
+65 & 8.91 & 10.992 & 9 & 1 & 17 & 16 \\\hline
+70 & 5.44 & 6.491 & 5 & 0 & 12 & 12 \\\hline
+75 & 2.45 & 2.533 & 2 & 0 & 6 & 6 \\\hline
+80 & 0.80 & 0.808 & 1 & 0 & 3 & 3 \\\hline
+85 & 0.17 & 0.223 & 0 & 0  & 3 & 3 \\\hline
+90 & 0 & 0 & 0 & 0 & 0 & 0
 \end{tabular}
 \end{table}
 
@@ -475,4 +534,12 @@ Suggestions for further work.
 
 \bibliographystyle{plain}
 \bibliography{project} 
+
+\appendix
+\section{Typical MAP Run Results}
+\label{adx:typicalMapResults}
+
+
+\section{Typical MYP Run Results}
+\label{adx:typicalMapResults}
 \end{document}
