@@ -1,7 +1,7 @@
 \documentclass[authoryearcitations]{UoYCSproject}
 \author{Caleb J. H. Riley}
 \title{Evolutionary agent-based simulation modelling of human life-history evolution}
-\date{Version 0.01, 2016-November-15}
+\date{2017-May-1}
 \supervisor{Daniel W. Franks}
 \BEng
 
@@ -25,6 +25,7 @@
 \usepackage{listings}
 \usepackage{graphicx}
 \graphicspath{ {images/} }
+\usepackage{bookmark}
 
 \begin{document}
 \maketitle
@@ -226,28 +227,19 @@ However the fixed mating preferences of individuals remains. With fixed mating p
 A better model for the patriarch hypothesis would have the following features:
 
 \begin{itemize}
-\item It would generate a typical base population asexually using mortality tables and a burn in period so that correct age structures were created. Starting with these age structures is important to ensure that when the simulation starts there is a variety of ages from which couples can form (or preference based on age would not matter).
+\item It would generate a typical base population asexually using mortality tables and a burn in period so that correct age structures were created. Starting with these age structures is important to ensure that when the simulation starts there is a variety of ages from which couples can form (or preference based on age would not matter). This generated population would be used for both the simulation where males have a preference for younger females (MYP) and where they don't (MAP)
 
 \item Each generation, in the ageing phase each member the population is aged or killed on the basis of a pseudo-random number, a mortality table and the presence of mortality affecting mutations in their genes (acting in both a sex-indifferent and sex-dependent manner). The deceased members of the population would then be replaced with new offspring in the pairing and mating phase.
 
 \item Next would come a pairing phase in which couples would form on the basis of a mating preference matrix. Unlike previous models, this preference matrix would be affected by mutations in the genetics of the individual in the same way that mortality and fertility are affected. This would allow the preference to coevolve alongside changes to mortality and fertility.
 
-\item These pairings would also be persistent throughout generations. At present couples are selected from the male and female population pseudo-randomly each generation and checked for mating preference before attempting reproduction if a pairing is formed. Non-persistent unions are inconsistent with the monogamy that the original paper posits as the norm in hunter-gatherer societies. It is unlikely that a male would commit the resources to try and find a new mate if his present partner is still fertile. As such pairings that are persistent between generations (checking to see if mating preference between the pair still exists each generation) is a good model for monogamy, with males only seeking a second mate after the preference for their own partner disappears. The breakup of couples would occur just before the pairing phase, so that new pairings can be formed from the newly single individuals.
+\item These pairings would also be persistent throughout generations. At present couples are selected from the male and female population pseudo-randomly each generation and checked for mating preference before attempting reproduction if a pairing is formed. Non-persistent unions are inconsistent with the monogamy that the original paper posits as the norm in hunter-gatherer societies, meaning that a male could potentially reproduce with many females in one time period -- passing on his genes many times regardless of the effects of the mutations they contain. It is unlikely that a male would commit the resources to try and find a new mate if his present partner is still fertile. As such pairings that are persistent between generations (checking to see if mating preference between the pair still exists each generation) is a good model for monogamy, with males only seeking a second mate after the preference for their own partner disappears. The breakup of couples would occur just before the pairing phase, so that new pairings can be formed from the newly single individuals.
 
-\item After the pairings are formed, couples would be pseudo randomly selected from the set of couples and using a pseudo-random number and their fertility distributions (modified by fertility affecting mutations in their genes).
+\item After the pairings are formed, couples would be pseudo randomly selected from the set of couples and using a pseudo-random number and their fertility distributions (modified by fertility affecting mutations in their genes). The genetics of the offspring produced would be created by first performing a crossover of the genes of the two parents, then performing a mutation of the genetics using an appropriate mutation rate to introduce mutations that may not currently present in the population.
+
+\item This process would be repeated over a number of generations, outputting appropirate information for analysis of the model. Currently the time period that a generation models is 5 years, but shortening could improve the model so that effects that shorten the reproductive gap are able to emerge.
 
 \end{itemize}
-
-
-\begin{framed}
-Existing model overview - relate to code
-
-What has been done
-
-Limitations of their model
-
-How this can be fixed
-\end{framed}
 
 \chapter{Design and Implementation}
 \label{cha:Design and Implementation}
@@ -255,7 +247,6 @@ How this can be fixed
 \section{Class Structure}
 When designing a multi-agent system, it can be useful to model each agent as being an instance of a class, each with their own attributes (variables belonging to a class instance that are an abstract representation of the differing traits an agent has) and class methods (representing the actions an agent can take to interact with its environment). The individual people in the system are modelled using the \texttt{Person} class, with attributes determining their traits, including genetics and various probability and preference distributions. 
 
-\newpage
 \subsection{Person Class}
 The \texttt{Person} class provides the container for the attributes and methods necessary to build the model. Many of its attributes are instances of the classes used to hold probability distributions in control of mortality and fertility, as well as the person's mating preferences and genetics. Each time a new child is born, a new instance of \texttt{Person} is created, with the parameters for \texttt{\_\_init\_\_()} (see Table \ref{tbl:personMethods}) based on their parents' attributes.
 
@@ -291,7 +282,6 @@ The \texttt{Person} class provides the container for the attributes and methods 
 \end{table}
 \end{landscape}
 
-\newpage
 \subsection{MortalityDistribution Class}
 The \texttt{MortalityDistribution} class serves as a lookup table for the probability of death a given age, based on data from the input files \texttt{female\_data.csv} and \texttt{male\_data.csv}. There are two base instances of this class created \texttt{female\_mortality} (using female\_data.csv), the mortality distribution used by females and \texttt{male\_mortality}, for males (using male\_data.csv). The class also contains methods for getting survival probabilities based on age (see Table \ref{tbl:mortalityDistributionMethods}).
 
@@ -307,7 +297,6 @@ The \texttt{MortalityDistribution} class serves as a lookup table for the probab
 \end{tabular}
 \end{table}
 
-\newpage
 \subsection{ReproductionDistribution Class}
 The \texttt{MortalityDistribution} class serves as a lookup table for the probability of being able to reproduce at a given age, based on data from the input files \texttt{female\_data.csv} and \texttt{male\_data.csv}. There are two base instances of this class created \texttt{female\_mortality} (using female\_data.csv), the mortality distribution used by females and \texttt{male\_mortality}, for males (using male\_data.csv). The class also contains methods for getting survival probabilities based on age (see Table \ref{tbl:reproductionDistributionMethods} for overview).
 
@@ -324,7 +313,6 @@ The \texttt{MortalityDistribution} class serves as a lookup table for the probab
 \end{tabular}
 \end{table}
 
-\newpage
 \subsection{PreferenceDistribution Class}
 The \texttt{PreferenceDistribution} class is used to store in the class attribute \texttt{} the mating preferences based on age class of each individual, and to provide access to the data. There are three instances of this class created \texttt{female\_preference} representing females' mating preferences (using data from female\_pref.csv), \texttt{male\_map\_preference} representing males who have a preference for females their own age (using data from male\_map.csv) and \texttt{male\_myp\_preference} representing male preference for younger females (using data from male\_myp.csv). The data is then accessed with the age classes of two individuals (see Table \ref{tbl:preferenceDistributionMethods} for overview).
 
@@ -339,7 +327,6 @@ The \texttt{PreferenceDistribution} class is used to store in the class attribut
 \end{tabular}
 \end{table}
 
-\newpage
 \subsection{Genetics Class}
 The \texttt{Genetics} class handles the genetic information of the person, storing it as a string of "1"s and "0"s inside the \texttt{genes} attribute. The class contains a method for generating a random gene string, as well as ones for performing crossover of the genes of two parents and introducing mutations (see Table \ref{tbl:geneticsMethods} for overview).
 
@@ -356,7 +343,6 @@ The \texttt{Genetics} class handles the genetic information of the person, stori
 \end{tabular}
 \end{table}
 
-\newpage
 \section{Set up and burn-in period}
 After the class definitions, the main distributions are set up (female\_mortality, male\_mortality, female\_reproduction, male\_reproduction, female\_preference, male\_map\_preference and male\_myp\_preference) as detailed in their relevant class sections. An initial population of 500 females was created using the premade female distributions, and random ages and genetics. A burn-in period of time (100 generations) is created in which in which they aged and deceased individuals are replaced with new females aged 0, so that a typical age structure based on the mortality distribution is then produced. 
 
@@ -380,8 +366,6 @@ This process is then repeated with the males to produce a male population. The m
 
 This initial population is exported to \texttt{initial\_population\_output.csv} and duplicated so that population can then be used for both the simulations.
 
-
-\newpage
 \section{Running the simulation}
 The simulation was divided into two phases: the MAP simulation, which models when males have a preference for females their own age, and the MYP simulation, when males have a preference for younger females. The process for each simulation is identical except for the preference distribution of each male. Each simulation set to run for 100 generations (each generation representing a year period) with a mutation rate of 0.2.
 
@@ -393,7 +377,6 @@ The child's sex is randomly determined with a 50\% chance for a female and \% ch
 
 Various statistics about the generation are calculated (including the age distribution of its members) and outputted (see the Generating an output section). The simulation then repeats with the next generation. After all the generations are complete the current population are outputted, then the simulation is repeated using the same method for the MYP model (making sure to change the mating preference distribution for the males).
 
-\newpage
 \section{Generating an output}
 There is little point to running a simulation if the results are not outputted. The \texttt{csv} module for Python was used both for parsing the input files, but for generating output \texttt{csv} files. The \texttt{csv} format is designed to be a human and machine readable format for storing tables of data and is readable by a variety of programming languages as well as by spreadsheet software, making it an accessible format to output to.
 
@@ -401,7 +384,6 @@ The first thing outputted by the program is the properties of the initial popula
 
 The other thing outputted by the program is information about each generation in the simulations. In each generation, the following information is exported: the generation, the number of females, the number of males, the average age of female age of reproduction, the average male age of reproduction, the average age gap in mating pairs who reproduced, the oldest female who reproduced and the oldest male who reproduced. Also outputted each row is the number of individuals in each age group, which allows you to work out the distribution of deaths by age, as well as the number of individuals born each generation. These results are outputted to map\_simulation\_output.csv and myp\_simulation\_output.csv for the MAP and the MYP simulations respectively.
 
-\newpage
 \section{Not Implemented}
 Unfortunately the work was not completely implemented. The following features were planned, but not implemented:
 
@@ -453,11 +435,12 @@ For the MAP simulation, the mean age for oldest female reproduction was 51.75, w
 
 The MYP is more perhaps more interesting however as the maximum age of reproduction for both the females and the males was the same for each generation, at 30 and 35 respectively. Why the maximum age of reproduction stayed the same is generation is unclear. There is also a gap between the two ages, with males carrying on reproduction five years longer than the females. Both females and males in the MYP cease reproduction many years before those in the MAP model, suggesting there may be an issue in the MYP as you would expect the females to reproduce for fairly similar amounts of time, and for the MYP males to reproduce for longer than the MAP males.
 
-\subsection{Model Age Structures}
+\subsection{Age Structures}
+The age structures produced by the simulations were fairly similar between the two simulations (MAP vs MYP). The age structures were also fairly stable from generation to generation. The two age groups 0-5 and 5-10 consistently made up just under 50\% of the population, indicating a high child mortality rate, meaning many will die before reaching the age where they are able to reproduce. Presented below are graphs showing the age structures over time for each simulation, as well as tables for the mean, variance, median, minimum, maximum and range for each age group. The mean number of people in the 0-5 age group represents average number of deaths (and therefore births) over the 100 generations.
 
 \begin{figure}[h]
-\includegraphics[width=\textwidth]{map_age_data}
-\caption{Typical MAP simulation age structure}
+\includegraphics[scale=0.6]{map_age_data}
+\caption{MAP age structure against generation (stacked in order of age group)}
 \label{fig:mapResultsGraph}
 \end{figure}
 
@@ -489,8 +472,8 @@ The MYP is more perhaps more interesting however as the maximum age of reproduct
 \end{table}
 
 \begin{figure}[h]
-\includegraphics[width=\textwidth]{myp_age_data}
-\caption{Typical MYP simulation age structure}
+\includegraphics[scale=0.6]{myp_age_data}
+\caption{MYP age structure against generation (stacked in order of age group)}
 \label{fig:mypResultsGraph}
 \end{figure}
 
@@ -521,6 +504,8 @@ The MYP is more perhaps more interesting however as the maximum age of reproduct
 \end{tabular}
 \end{table}
 
+\section{Model limitations and improvements}
+As previously stated the model was not fully implemented. Although genetics were implemented (including crossover of genes from parents and the introduction of the genes based on a mutation rate), these genetics had no impact on the model since they were not used to affect the mortality or fertility of individuals as previous models had done \cite{mateChoice2013}, but also did not use them to affect thei mating preferences. Given more time these could be implemented on the relevant classes, then a more useful simulation could be run. 
 
 
 \begin{framed}
@@ -536,10 +521,10 @@ Suggestions for further work.
 \bibliography{project} 
 
 \appendix
+\chapter{Typical Simulation Output}
+\label{adx:typicalSimulationOutput}
 \section{Typical MAP Run Results}
-\label{adx:typicalMapResults}
 
 
 \section{Typical MYP Run Results}
-\label{adx:typicalMapResults}
 \end{document}

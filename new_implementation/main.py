@@ -339,7 +339,7 @@ for age_group in age_indices:
     print(str(age_group) + ": " +  str(age_groups[age_group]))
 
 ### Simulation Parameters ###
-mutation_rate = 0.2
+mutation_rate = 0.002
 simulation_generations = 1000
 
 

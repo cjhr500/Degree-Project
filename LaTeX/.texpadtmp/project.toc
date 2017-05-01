@@ -25,24 +25,26 @@
 \contentsline {section}{\numberline {3.2}Why Men Matter: a mathematical model}{20}{section.3.2}
 \contentsline {section}{\numberline {3.3}Mate Choice and the Origin of Menopause: a computational model}{22}{section.3.3}
 \contentsline {section}{\numberline {3.4}A better model}{23}{section.3.4}
-\contentsline {chapter}{\numberline {4}Design and Implementation}{25}{chapter.4}
-\contentsline {section}{\numberline {4.1}Class Structure}{25}{section.4.1}
+\contentsline {chapter}{\numberline {4}Design and Implementation}{26}{chapter.4}
+\contentsline {section}{\numberline {4.1}Class Structure}{26}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Person Class}{26}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}MortalityDistribution Class}{28}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.2}MortalityDistribution Class}{29}{subsection.4.1.2}
 \contentsline {subsection}{\numberline {4.1.3}ReproductionDistribution Class}{29}{subsection.4.1.3}
-\contentsline {subsection}{\numberline {4.1.4}PreferenceDistribution Class}{30}{subsection.4.1.4}
-\contentsline {subsection}{\numberline {4.1.5}Genetics Class}{31}{subsection.4.1.5}
-\contentsline {section}{\numberline {4.2}Set up and burn-in period}{32}{section.4.2}
-\contentsline {section}{\numberline {4.3}Running the simulation}{33}{section.4.3}
-\contentsline {section}{\numberline {4.4}Generating an output}{34}{section.4.4}
-\contentsline {section}{\numberline {4.5}Not Implemented}{35}{section.4.5}
-\contentsline {chapter}{\numberline {5}Results and Evaluation}{36}{chapter.5}
-\contentsline {section}{\numberline {5.1}Results of a typical run}{36}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Female and Male Numbers}{36}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Mean age of reproduction}{37}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}Mean age difference in couples}{38}{subsection.5.1.3}
-\contentsline {subsection}{\numberline {5.1.4}Maximum age of reproduction}{38}{subsection.5.1.4}
-\contentsline {subsection}{\numberline {5.1.5}Model Age Structures}{39}{subsection.5.1.5}
+\contentsline {subsection}{\numberline {4.1.4}PreferenceDistribution Class}{29}{subsection.4.1.4}
+\contentsline {subsection}{\numberline {4.1.5}Genetics Class}{30}{subsection.4.1.5}
+\contentsline {section}{\numberline {4.2}Set up and burn-in period}{31}{section.4.2}
+\contentsline {section}{\numberline {4.3}Running the simulation}{32}{section.4.3}
+\contentsline {section}{\numberline {4.4}Generating an output}{33}{section.4.4}
+\contentsline {section}{\numberline {4.5}Not Implemented}{33}{section.4.5}
+\contentsline {chapter}{\numberline {5}Results and Evaluation}{35}{chapter.5}
+\contentsline {section}{\numberline {5.1}Results of a typical run}{35}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Female and Male Numbers}{35}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Mean age of reproduction}{36}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Mean age difference in couples}{37}{subsection.5.1.3}
+\contentsline {subsection}{\numberline {5.1.4}Maximum age of reproduction}{37}{subsection.5.1.4}
+\contentsline {subsection}{\numberline {5.1.5}Age Structures}{38}{subsection.5.1.5}
+\contentsline {section}{\numberline {5.2}Model limitations and improvements}{38}{section.5.2}
 \contentsline {chapter}{\numberline {6}Conclusion}{43}{chapter.6}
-\contentsline {section}{\numberline {.1}Typical MAP Run Results}{46}{section.Alph0.1}
-\contentsline {section}{\numberline {.2}Typical MYP Run Results}{46}{section.Alph0.2}
+\contentsline {chapter}{\numberline {A}Typical Simulation Output}{46}{appendix.A}
+\contentsline {section}{\numberline {A.1}Typical MAP Run Results}{46}{section.A.1}
+\contentsline {section}{\numberline {A.2}Typical MYP Run Results}{46}{section.A.2}
