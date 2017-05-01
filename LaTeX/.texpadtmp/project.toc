@@ -44,7 +44,14 @@
 \contentsline {subsection}{\numberline {5.1.4}Maximum age of reproduction}{37}{subsection.5.1.4}
 \contentsline {subsection}{\numberline {5.1.5}Age Structures}{38}{subsection.5.1.5}
 \contentsline {section}{\numberline {5.2}Model limitations and improvements}{38}{section.5.2}
-\contentsline {chapter}{\numberline {6}Conclusion}{43}{chapter.6}
-\contentsline {chapter}{\numberline {A}Typical Simulation Output}{46}{appendix.A}
-\contentsline {section}{\numberline {A.1}Typical MAP Run Results}{46}{section.A.1}
-\contentsline {section}{\numberline {A.2}Typical MYP Run Results}{46}{section.A.2}
+\contentsline {chapter}{\numberline {6}Conclusion}{42}{chapter.6}
+\contentsline {chapter}{\numberline {A}Python Code Listing}{45}{appendix.A}
+\contentsline {chapter}{\numberline {B}Input Files}{46}{appendix.B}
+\contentsline {section}{\numberline {B.1}female\_data.csv}{46}{section.B.1}
+\contentsline {section}{\numberline {B.2}male\_data.csv}{46}{section.B.2}
+\contentsline {section}{\numberline {B.3}female\_preference.csv}{46}{section.B.3}
+\contentsline {section}{\numberline {B.4}male\_map\_preference.csv}{46}{section.B.4}
+\contentsline {section}{\numberline {B.5}male\_myp\_preference.csv}{46}{section.B.5}
+\contentsline {chapter}{\numberline {C}Typical Simulation Output}{47}{appendix.C}
+\contentsline {section}{\numberline {C.1}Typical MAP Run Results}{47}{section.C.1}
+\contentsline {section}{\numberline {C.2}Typical MYP Run Results}{47}{section.C.2}

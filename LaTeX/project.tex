@@ -505,22 +505,39 @@ The age structures produced by the simulations were fairly similar between the t
 \end{table}
 
 \section{Model limitations and improvements}
-As previously stated the model was not fully implemented. Although genetics were implemented (including crossover of genes from parents and the introduction of the genes based on a mutation rate), these genetics had no impact on the model since they were not used to affect the mortality or fertility of individuals as previous models had done \cite{mateChoice2013}, but also did not use them to affect thei mating preferences. Given more time these could be implemented on the relevant classes, then a more useful simulation could be run. 
-
-
-\begin{framed}
-Sample output - maybe some graphs
-What could have been done better - achieved with more work/time
-\end{framed}
+As previously stated the model was not fully implemented. Although genetics were implemented (including crossover of genes from parents and the introduction of the genes based on a mutation rate), these genetics had no impact on the model since they were not used to affect the mortality or fertility of individuals as previous models had done \cite{mateChoice2013}, but also did not use them to affect thei mating preferences. Given more time these could be implemented on the relevant classes, then a more useful simulation could be run, with results that may be more interesting.
 
 \chapter{Conclusion}
 \label{cha:Conclusion}
-Suggestions for further work.
+Since the work was not completed, the model produces very limited results. The first piece of further work would be to complete the intended work, so that it replicates the work of Morton, Stone and Singh in "Mate Choice and the origin of menopause" \cite{mateChoice2013}, then extend the model so that mutations can affect preference, to see what effect this has on the outcome. 
+
+After this it would be interesting to see the effect of implementing persistence of couples between generations, with couples being formed based on mating preference, then staying together until they no longer have a preference for each other. This could provide a model for monogamy, with males staying with partners rather than investing resources in attracting a new mate
+
+There are also limitations to the model enforced by hardware -- the speed the model runs at is affected by the number of individuals of the population. With greater computing power, you would be able to model larger populations without the model slowing down too much -- possibly even allowing the population size to no longer fixed. There are also space constraints based on the amount of information stored about an individual, the number of individuals in the population and the number of generations the model is run for. In an ideal world you would be able to log the complete state of the system each generation (including every member of the population and their attributes, as well as informtation about the actions taken by the population that generation -- births, deaths, couples broken, couples formed).
+
 
 \bibliographystyle{plain}
 \bibliography{project} 
 
 \appendix
+\chapter{Python Code Listing}
+
+\chapter{Input Files}
+\section{female\_data.csv}
+Used for female mortality and fertility distributions.
+
+\section{male\_data.csv}
+Used for male mortality and fertility distributions.
+
+\section{female\_preference.csv}
+Used for female mating preference
+
+\section{male\_map\_preference.csv}
+Used for MAP model.
+
+\section{male\_myp\_preference.csv}
+Used for MYP model.
+
 \chapter{Typical Simulation Output}
 \label{adx:typicalSimulationOutput}
 \section{Typical MAP Run Results}
