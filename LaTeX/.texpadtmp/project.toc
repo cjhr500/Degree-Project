@@ -1,60 +1,61 @@
 \select@language {british}
-\contentsline {chapter}{\numberline {1}Introduction}{7}{chapter.1}
-\contentsline {section}{\numberline {1.1}Motivation}{7}{section.1.1}
-\contentsline {section}{\numberline {1.2}Aims}{7}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}Provide an overview of the origin of menopause}{7}{subsection.1.2.1}
-\contentsline {subsection}{\numberline {1.2.2}Check validity of computational model}{7}{subsection.1.2.2}
-\contentsline {subsection}{\numberline {1.2.3}Rewrite model into an object oriented language}{8}{subsection.1.2.3}
-\contentsline {subsection}{\numberline {1.2.4}Extend the model to allow co-evolution of preference}{8}{subsection.1.2.4}
-\contentsline {section}{\numberline {1.3}Thesis Outline}{8}{section.1.3}
-\contentsline {section}{\numberline {1.4}Statement of Ethics}{9}{section.1.4}
-\contentsline {chapter}{\numberline {2}Literature Review}{10}{chapter.2}
-\contentsline {section}{\numberline {2.1}Menopause}{10}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Patriarch Hypothesis}{10}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Grandmother Hypothesis and the Mothering Hypothesis}{11}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}Reproductive Conflict Hypothesis}{12}{subsection.2.1.3}
-\contentsline {subsection}{\numberline {2.1.4}Other Hypotheses}{12}{subsection.2.1.4}
-\contentsline {section}{\numberline {2.2}Evolution}{13}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Key Concepts of Evolution}{13}{subsection.2.2.1}
-\contentsline {section}{\numberline {2.3}Modelling in Biology}{15}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Differential Equations}{15}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Multi-Agent Systems}{15}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Genetic Algorithms}{16}{subsection.2.3.3}
-\contentsline {chapter}{\numberline {3}Problem Description}{17}{chapter.3}
-\contentsline {section}{\numberline {3.1}Constraints of the Patriarch Hypothesis}{17}{section.3.1}
-\contentsline {section}{\numberline {3.2}Why Men Matter: a mathematical model}{17}{section.3.2}
-\contentsline {section}{\numberline {3.3}Mate Choice and the Origin of Menopause: a computational model}{19}{section.3.3}
-\contentsline {section}{\numberline {3.4}A better model}{20}{section.3.4}
-\contentsline {chapter}{\numberline {4}Design and Implementation}{22}{chapter.4}
-\contentsline {section}{\numberline {4.1}Class Structure}{22}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Person Class}{23}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}MortalityDistribution Class}{24}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}ReproductionDistribution Class}{25}{subsection.4.1.3}
-\contentsline {subsection}{\numberline {4.1.4}PreferenceDistribution Class}{26}{subsection.4.1.4}
-\contentsline {subsection}{\numberline {4.1.5}Genetics Class}{27}{subsection.4.1.5}
-\contentsline {section}{\numberline {4.2}Set up and burn-in period}{27}{section.4.2}
-\contentsline {section}{\numberline {4.3}Running the simulation}{28}{section.4.3}
-\contentsline {section}{\numberline {4.4}Generating an output}{29}{section.4.4}
-\contentsline {section}{\numberline {4.5}Not Implemented}{30}{section.4.5}
-\contentsline {chapter}{\numberline {5}Results and Evaluation}{31}{chapter.5}
-\contentsline {section}{\numberline {5.1}Results of a typical run}{31}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Female and Male Numbers}{31}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Mean age of reproduction}{32}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}Mean age difference in couples}{32}{subsection.5.1.3}
-\contentsline {subsection}{\numberline {5.1.4}Maximum age of reproduction}{33}{subsection.5.1.4}
-\contentsline {subsection}{\numberline {5.1.5}Age Structures}{34}{subsection.5.1.5}
-\contentsline {section}{\numberline {5.2}Model limitations and improvements}{34}{section.5.2}
-\contentsline {chapter}{\numberline {6}Conclusion}{38}{chapter.6}
-\contentsline {chapter}{\numberline {A}Python Code Listing}{42}{appendix.A}
-\contentsline {chapter}{\numberline {B}Input Files}{59}{appendix.B}
-\contentsline {section}{\numberline {B.1}female\_data.csv}{59}{section.B.1}
-\contentsline {section}{\numberline {B.2}male\_data.csv}{61}{section.B.2}
-\contentsline {section}{\numberline {B.3}female\_preference.csv}{64}{section.B.3}
-\contentsline {section}{\numberline {B.4}male\_map\_preference.csv}{65}{section.B.4}
-\contentsline {section}{\numberline {B.5}male\_myp\_preference.csv}{65}{section.B.5}
-\contentsline {chapter}{\numberline {C}Typical Simulation Output}{67}{appendix.C}
-\contentsline {section}{\numberline {C.1}Initial population output}{67}{section.C.1}
-\contentsline {section}{\numberline {C.2}MAP Population output}{93}{section.C.2}
-\contentsline {section}{\numberline {C.3}MYP Population output}{120}{section.C.3}
-\contentsline {section}{\numberline {C.4}MAP Simulation Results}{147}{section.C.4}
-\contentsline {section}{\numberline {C.5}Typical MYP Run Results}{150}{section.C.5}
+\contentsline {chapter}{\numberline {1}Introduction}{8}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motivation}{8}{section.1.1}
+\contentsline {section}{\numberline {1.2}Aims}{8}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Provide an overview of the origin of menopause}{8}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Check validity of computational model}{8}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Rewrite model into an object oriented language}{9}{subsection.1.2.3}
+\contentsline {subsection}{\numberline {1.2.4}Extend the model to allow co-evolution of preference}{9}{subsection.1.2.4}
+\contentsline {section}{\numberline {1.3}Thesis Outline}{9}{section.1.3}
+\contentsline {section}{\numberline {1.4}Statement of Ethics}{10}{section.1.4}
+\contentsline {chapter}{\numberline {2}Literature Review}{11}{chapter.2}
+\contentsline {section}{\numberline {2.1}Menopause}{11}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Patriarch Hypothesis}{11}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Grandmother Hypothesis and the Mothering Hypothesis}{12}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Reproductive Conflict Hypothesis}{13}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}Other Hypotheses}{13}{subsection.2.1.4}
+\contentsline {section}{\numberline {2.2}Evolution}{14}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Key Concepts of Evolution}{14}{subsection.2.2.1}
+\contentsline {section}{\numberline {2.3}Modelling in Biology}{16}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Differential Equations}{16}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Multi-Agent Systems}{16}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Genetic Algorithms}{17}{subsection.2.3.3}
+\contentsline {chapter}{\numberline {3}Problem Description}{18}{chapter.3}
+\contentsline {section}{\numberline {3.1}Constraints of the Patriarch Hypothesis}{18}{section.3.1}
+\contentsline {section}{\numberline {3.2}Why Men Matter: a mathematical model}{18}{section.3.2}
+\contentsline {section}{\numberline {3.3}Mate Choice and the Origin of Menopause: a computational model}{20}{section.3.3}
+\contentsline {section}{\numberline {3.4}A better model}{21}{section.3.4}
+\contentsline {chapter}{\numberline {4}Design and Implementation}{23}{chapter.4}
+\contentsline {section}{\numberline {4.1}Basic Information}{23}{section.4.1}
+\contentsline {section}{\numberline {4.2}Class Structure}{23}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Person Class}{24}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}MortalityDistribution Class}{25}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}ReproductionDistribution Class}{26}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}PreferenceDistribution Class}{27}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Genetics Class}{28}{subsection.4.2.5}
+\contentsline {section}{\numberline {4.3}Set up and burn-in period}{28}{section.4.3}
+\contentsline {section}{\numberline {4.4}Running the simulation}{29}{section.4.4}
+\contentsline {section}{\numberline {4.5}Generating an output}{30}{section.4.5}
+\contentsline {section}{\numberline {4.6}Not Implemented}{31}{section.4.6}
+\contentsline {chapter}{\numberline {5}Results and Evaluation}{32}{chapter.5}
+\contentsline {section}{\numberline {5.1}Results of a typical run}{32}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Female and Male Numbers}{32}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Mean age of reproduction}{33}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Mean age difference in couples}{33}{subsection.5.1.3}
+\contentsline {subsection}{\numberline {5.1.4}Maximum age of reproduction}{34}{subsection.5.1.4}
+\contentsline {subsection}{\numberline {5.1.5}Age Structures}{35}{subsection.5.1.5}
+\contentsline {section}{\numberline {5.2}Model limitations and improvements}{35}{section.5.2}
+\contentsline {chapter}{\numberline {6}Conclusion}{39}{chapter.6}
+\contentsline {chapter}{\numberline {A}Python Code Listing}{43}{appendix.A}
+\contentsline {chapter}{\numberline {B}Input Files}{60}{appendix.B}
+\contentsline {section}{\numberline {B.1}female\_data.csv}{60}{section.B.1}
+\contentsline {section}{\numberline {B.2}male\_data.csv}{62}{section.B.2}
+\contentsline {section}{\numberline {B.3}female\_preference.csv}{65}{section.B.3}
+\contentsline {section}{\numberline {B.4}male\_map\_preference.csv}{66}{section.B.4}
+\contentsline {section}{\numberline {B.5}male\_myp\_preference.csv}{66}{section.B.5}
+\contentsline {chapter}{\numberline {C}Typical Simulation Output}{68}{appendix.C}
+\contentsline {section}{\numberline {C.1}Initial population output}{68}{section.C.1}
+\contentsline {section}{\numberline {C.2}MAP Population output}{94}{section.C.2}
+\contentsline {section}{\numberline {C.3}MYP Population output}{121}{section.C.3}
+\contentsline {section}{\numberline {C.4}MAP Simulation Results}{148}{section.C.4}
+\contentsline {section}{\numberline {C.5}Typical MYP Run Results}{151}{section.C.5}

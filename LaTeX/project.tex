@@ -23,7 +23,7 @@ Since the model was not completed, there are few notable results from its output
 
 \dedication{}
 
-\acknowledgements{}
+\acknowledgements{Thanks to Dr Dan Franks, for his patience as a supervisor.}
 
 \usepackage{framed}
 \usepackage{array}
@@ -85,20 +85,20 @@ The project is implementing a computational model which is purely theoretical. A
 The literature review provides an overview of existing work surrounding the problem, as well as background information that will be relevant to its solution. 
 
 \section{Menopause}
-Menopause is the process where females cease having menstrual periods and become infertile. Whilst reduction in fertility with senescence is not uncommon among species, the long lifespan after menopause (post-reproductive lifespans, or PRLSs) are a relatively rare trait, being only found in the wild in humans, short finned pilot whales and orcas (killer whales). Although we understand to some extent the physiological cause (a decrease in oestrogen and progesterone), the evolutionary benefits of a reduction in reproduction seem unclear as any reduction in fertility would seem to be a reduction in evolutionary fitness. As such this evolutionary puzzle has resulted in many different theories for its existence \cite{evolutionPRLS2015}.  
+Menopause is the process where females cease having menstrual periods and become infertile. Whilst reduction in fertility with senescence is not uncommon among species, the long lifespan after menopause (post-reproductive lifespans, or PRLSs) are a relatively rare trait, being only found in the wild in humans, short finned pilot whales and orcas (killer whales). Although we understand to some extent the physiological cause (a decrease in oestrogen and progesterone), the evolutionary benefits of a reduction in reproduction seem unclear as any reduction in fertility would seem to be a reduction in evolutionary fitness. As such this evolutionary puzzle has resulted in many different theories for its existence \cite{evolutionPRLS2015}, some of what are described below.  
 
 \subsection{Patriarch Hypothesis}
 The patriarch hypothesis \cite{patriarchHypothesis2000} hypothesises that menopause came about due to older, high status males having access to younger female mates allowing them to reproduce for much longer. This increased the proliferation of genes linked to longevity, increasing both the lifespan of males and females. This is reliant on several factors: 
 
 \begin{itemize}
 \item That females have a limited number of oocytes (immature ova) which are depleted over time, and that reproduction naturally comes to an end when they run out. \cite{humanPopBio1994} In early females, before female longevity increased, most females died before their supply of oocytes had been completely depleted, and so did not experience menopause.
-\item That longevity causing mutations are on the X rather than the Y chromosome. If the gene were on the Y chromosome then the increase longevity would only be present in the males. The paper suggests that female longevity (and therefore have long post reproductive lifespans) is a result of females being "dragged along" by male longevity being passed on through the X chromosome. 
-\item That older men continue to reproduce and pass on their longevity causing genes. High states males (normally those with a better reputation for hunting and gathering) would start a new family with a second, younger wife once their first wife had undergone menopause. Thus males carrying longevity causing genes would have greater opportunity to pass them on.
+\item That longevity causing mutations are on the X rather than the Y chromosome. If the gene were on the Y chromosome then the increase longevity would only be present in the males. The paper suggests that an increase female longevity (and consequentially long post reproductive lifespans) is a result of females being "dragged along" by male longevity being passed on through the X chromosome. 
+\item That older men continue to reproduce and pass on their longevity causing genes. High status males (normally those with a better reputation for hunting and gathering) would start a new family with a second, younger wife once their first wife had undergone menopause. Thus males carrying longevity causing genes would have greater opportunity to pass them on.
 \end{itemize}
 
 A mathematical model of the hypothesis was created \cite{whyMenMatter2007} which was a set of functions which relied on a group of females aged i, and a group of males aged j, the females' fertility at age i and the mating preference of females of age i for males of age j and vice versa. The main problem with this model is that it had a fixed age at which females stopped reproducing, rather than letting it evolve over time as you would expect in an evolutionary model. Indeed this model can be interpreted to suggest that males' preference for younger females came to be after the evolution of menopause, rather than as a cause of it.
 
-To try and correct some of these shortcomings, a computational model \cite{mateChoice2013} which does not have a fixed age where females become infertile. Each member of the population is modelled as an individual agent, with genes that affect either mortality or fertility, with genes acting either in a sex dependent or a sex indifferent manner. Pseudo-random numbers are used to determine births, deaths and partnerships against predetermined tables which are modified by genetics. One of the main shortcomings of the model is that it does not allow the preferences of the agents to coevolve with the change in fertility and mortality. 
+To try and correct some of these shortcomings, a computational model \cite{mateChoice2013} was created which does not have a fixed age where females become infertile. Each member of the population is modelled as an individual agent, with genes that affect either mortality or fertility, with genes acting either in a sex dependent or a sex indifferent manner. Pseudo-random numbers are used to determine births, deaths and partnerships against predetermined tables which are modified by genetics. One of the main shortcomings of the model is that it does not allow the preferences of the agents to coevolve with the change in fertility and mortality. 
 
 Overall the main issue with the patriarch hypothesis is that males' preference for younger females may itself be an epiphenomenon which emerged as a result of menopause, rather than the other way round. Knowledge that females would become infertile after a certain age would cause males to have a preference for younger females who had more fertile years left.
 
@@ -110,10 +110,10 @@ One of the criticisms of the grandmother hypothesis is that the degree of increa
 The mothering hypothesis is a similar theory in which a species improves the survival of offspring by ceasing reproduction at a certain point so that resources could be focused on raising existing children, rather than continuing to focus on reproduction and newborn children. The reduced mortality rate of children would again result in an increase of inclusive fitness.
 
 \subsection{Reproductive Conflict Hypothesis}
-The reproductive conflict hypothesis \cite{cant2008reproductive, repConflictOrca2017} is another hypothesis based on grandmothers: this time instead of them stopping reproduction to provide childcare, they cease reproduction so that their offspring are no competing for resources such as food with their grandchildren. Menopause reduces the amount of time where a mother is fertile at the same time as her offspring, reducing the likelihood that they have young children at the same time. This reduced competition for resources means that children will have a greater chance of survival, increasing the inclusive fitness of the group as a whole.
+The reproductive conflict hypothesis \cite{cant2008reproductive, repConflictOrca2017} is another hypothesis based on grandmothers: this time instead of them stopping reproduction to provide childcare, they cease reproduction so that their offspring are not competing for resources such as food with their grandchildren. Menopause reduces the amount of time where a mother is fertile at the same time as her offspring, reducing the likelihood that they have young children at the same time. This reduced competition for resources means that children will have a greater chance of survival, increasing the inclusive fitness of the group as a whole.
 
 \subsection{Other Hypotheses}
-A non-adaptive hypothesis is that women have a fixed number of oocytes (immature eggs), and that menopause did not evolve, but is an epiphenomenon of us now living past the age where the they run out. \cite{van2003ovarian, cooper1998age} Proponents of this theory often use the evidence of menopause occurring in some primates in captivity -- their increased lifespan means they now live well past becoming infertile. They suggest that human's improvements to medicine and nutrition have extended our lifespans in the same way, which is why humans now experience menopause. Counter to this however is the fact that menopause is experienced by orcas and short-finned pilot whales. Since they do not have access to healthcare, you can only conclude that although improved lifespan makes a woman more likely to life through menopause, it is not itself what causes it.
+A non-adaptive hypothesis is that women have a fixed number of oocytes (immature eggs), and that menopause did not evolve, but is an epiphenomenon of us now living past the age where the they run out. \cite{van2003ovarian, cooper1998age} Proponents of this theory often use the evidence of menopause occurring in some primates in captivity -- their increased lifespan means they now live well past becoming infertile. They suggest that human's improvements to medicine and nutrition have extended our lifespans in the same way, which is why humans now experience menopause. Counter to this however is the fact that menopause is experienced by orcas and short-finned pilot whales. Since they do not have access to healthcare, you can only conclude that although improved lifespan makes a woman more likely to live through menopause, it is not itself what causes it.
 
 Another hypothesis is that menopause came about to guard against the negative effects of pregnancy at an advanced age. Increased maternal age can result in: miscarriage, chromosomal abnormalities, and pregnancy diabetes, among other effects \cite{cleary2005impact}. These complications would result in an increased need for investment of resources in reproduction itself (with a chance that the baby would not make it to full term), as well as resulting in the mother's other offspring being left with fewer resources such as food and childcare, or potentially being left motherless. However the improvements made to medical care have had a greater impact on both infant and maternal mortality, and the effect is a steady increase with age, rather than a sharp threshold effect. This improvement to healthcare came about after menopause was present in humans, and so this cannot be the cause.
 
@@ -129,11 +129,11 @@ Charles Darwin's theory of evolution, first proposed in On the Origin of Species
 
 \item[Selection] Selection is the process in which survival and reproduction of a species is affected by the phenotype (physical expression of genetics). A trait that increases lifespan and allows more time for reproduction will cause there to be a greater chance for more offspring with that trait to be produced. By comparison a trait that decreases lifespan or realised fertility will tend to become less prevalent in the population as they have fewer offspring and these offspring if they have the same phenotype will inherit the lower survival chances. In essence useful traits survive, whereas traits that are less useful will gradually disappear.
 
-\item [Crossover] Crossover is part of the process that combines the genetics of two parents into the new set of genetics present in their offspring. For each chunk of genetic information, the offspring has a 50\% chance of receiving that information from their mother, and a 50\% chance of receiving the information from their father. This result in an offspring with traits of both their mother and father. When a gene at a particular location is the same in both the mother and father, this gene is transmitted to the child 100\% of the time. 
+\item [Crossover] Crossover is part of the process that combines the genetics of two parents into the new set of genetics present in their offspring. For each chunk of genetic information, the offspring has a 50\% chance of receiving that information from their mother, and a 50\% chance of receiving the information from their father. This results in an offspring with traits of both their mother and father. When a gene at a particular location is the same in both the mother and father, this gene is transmitted to the child 100\% of the time. 
 
 \item [Mutation] Genetic mutation is the change of genetic information at random, usually from mistakes when copying genes over from their parents. This random change results in the emergence of new traits since it can result in genetics that are not previously present in the population. These new traits can be deleterious, neutral or positive.
 
-\item [Coevolution] Coevolution is the evolution of traits in a species in response to the evolution of traits in the  same or another species. Think of it as a genetic arms race; a species that evolves a form of camouflage may cause a species that predates on 
+\item [Coevolution] Coevolution is the evolution of traits in a species in response to the evolution of traits in the  same or another species. Think of it as a genetic arms race; a insect that evolves a form of camouflage may cause a bird that predates on it to evolve better vision systems. In response the insect could develop erratic flight patterns to aid escape.
 
 \end{description}
 
@@ -153,7 +153,7 @@ $$\ \frac{dN}{dt} = rN(1-\frac{N}{K}) $$
 N is the current population at time \textit{t}, \textit{r} is the rate of population growth and K is the carrying capacity of the system, o the maximum number of individuals the environment it capable of supporting. As N approaches K the rate of population growth slows until an equilibrium is met. Differential equations are capable of modelling complex systems with several variables, but reaching a solution is not always possible. 
 
 \subsection{Multi-Agent Systems}
-Multi-agents systems are used to model individuals that interact with each other in a similar way to how organisms interact with each other. Rather than modelling a population through differential equations, you could model it by having a set of agents, who interact to form couples and produced offspring based on their inherent properties such as fertility, mortality and age. The population growth would then become apparent through the emergent properties of the system, rather than through a set, programmed idea.
+Multi-agents systems are used to model individuals that interact with each other in a similar way to how organisms interact with each other. Rather than modelling a population through differential equations, you could model it by having a set of agents, who interact to form couples and produce offspring based on their inherent properties such as fertility, mortality and age. The population growth would then become apparent through the emergent properties of the system, rather than through a set, programmed idea.
 
 \subsection{Genetic Algorithms}
 Genetic algorithms are mathematical representations of the process of evolution, with the genetics being used to set parameters for program behaviour, rather than the traits of an organism. An initial pool of individual genetics (typically binary strings are used) are created. These gene strings are then used to set parameters for whatever computation is being done. The best performing sets of genes are selected using an arbitrary heuristic fitness function (such as shortest path) to create the next generation of genetics. 
@@ -178,7 +178,7 @@ The patriarch hypothesis \cite{patriarchHypothesis2000} states that menopause ca
 
 
 \section{Why Men Matter: a mathematical model}
-A mathematical model was created \cite{whyMenMatter2007} based on the two sex demography work of Schoen \cite{schoen1981harmonic} and Pollak \cite{pollak1990two} which link together a group of females and a group of males of different ages. The marginal fertilities for females and males are constructed in a similar manner (as seen in Figure \ref{fig:marginalFertilities}) but marginal male fertility is assumed to be positive when realised male fertility is non-zero . These marginal fertilities do not represent and individual's virility, rather their biological ability to procreate combined with the chance they are able to mate.
+A mathematical model was created \cite{whyMenMatter2007} based on the two sex demography work of Schoen \cite{schoen1981harmonic} and Pollak \cite{pollak1990two} which link together a group of females and a group of males of different ages. The marginal fertilities for females and males are constructed in a similar manner (as seen in Figure \ref{fig:marginalFertilities}) but marginal male fertility is assumed to be positive when realised male fertility is non-zero . These marginal fertilities do not represent an individual's virility, rather their biological ability to procreate combined with the chance they are able to mate.
 
 \begin{figure}[h]
 $$\ G^F_n = \sum_{ij} \frac{\delta B_{ij}}{\delta F_n}, \qquad G^M_n = \sum_{ij} \frac{\delta B_{ij}}{\delta M_n}$$
@@ -207,16 +207,16 @@ When it comes to the three constraints imposed by \cite{patriarchHypothesis2000}
 
 The main issue with this model is the fixed age of the end of reproduction, as mutations are only used to alter mortality, when they should also be used to affect the fertility of females since the focus of the hypothesis is based on is why menopause in humans came about. Similarly mating preferences of individuals are fixed.
 
-Couples are also not persistent between time steps, which could influence the model since they claim that monogamy is a common social structure within modern hunter gatherers, the hunter gathers they in turn use the data from to drive their model. 
+Couples are also not persistent between time steps, which could influence the model since they claim that monogamy is a common social structure within modern hunter gatherers, which is relevant as data from these modern hunter gatherers is used to drive the model. 
 
 \section{Mate Choice and the Origin of Menopause: a computational model}
 Rather than modelling the hypothesis as a complex set of equations, Morton et \cite{mateChoice2013} used an agent-based model. The model creates a random initial population, with random ages and genetics. A population burn-in is performed to generate the inherent age structures of the population by assigning members to random age classes, then causing them to reproduce asexually without the interference of mutations.
 
-After this burn in period, the main simulation begins. First comes the ageing process: each generation, each member of the population has a value from their survival table (modified by mortality affecting mutations) compared to a pseudo-random number to determine whether they are assigned to the next age class or die.
+After this burn in period, the main simulation begins. First comes the ageing process: each generation, each member of the population has a value from their survival table (modified by mortality affecting mutations) compared to a pseudo-random number to determine whether they are assigned to the next age class or die. This mortality data is generated from real world data about the mortality of modern hunter gatherer tribes.
 
 Then comes the reproductive phase. Two random parents from the population are selected. If they are a compatible couple (determined by a preference matrix $\ M_{ij} $ where i and j refer to their age classes) then their fertilities are checked in a similar manner to their survival to determine whether a child is born. This is repeated until all the individuals who died in the ageing process are replaced (keeping the population at a set size). The offspring receives genetic information from their parent and mutations are introduced according to a mutation rate. The model then repeats the ageing and the pairing/reproduction phase for a predetermined number of time periods, logging results as it goes.
 
-The main problem with the mathematical model has been fixed: the age of the end of reproduction is no longer fixed. Since the fertility of an individual is affected by mutations, the fertilities of population as a whole will change over time depending on how fertility-affecting mutations accumulate over time (whether the effects are beneficial or deleterious).
+The main problem with the mathematical model has been addressed: the age of the end of reproduction is no longer fixed. Since the fertility of an individual is affected by mutations, the fertilities of population as a whole will change over time depending on how fertility-affecting mutations accumulate over time (whether the effects are beneficial or deleterious).
 
 However the fixed mating preferences of individuals remains. With fixed mating preferences the model presupposes the social structures of early hunter-gatherers, justifying this with data from modern hunter-gatherer tribes. The mating preferences of older men for younger females may instead be an epiphenomenon of menopause developing in women -- if realised fertility is the main reason for living then males are far more likely to choose a partner who has more years of reproductive capability ahead of her than one few or none at all. If mating preferences were not fixed we would be able to see if they are stable (meaning they change little regardless of changes in the mortality and fertility of the population) or if they coevolve alongside mortality and fertility changes. If the male preference for younger females evolved from a male preference for female their own age alongside the changes to fertility, this could suggest that the preference came about due to menopause rather than causing it.
 
@@ -226,7 +226,7 @@ A better model for the patriarch hypothesis would have the following features:
 \begin{itemize}
 \item It would generate a typical base population asexually using mortality tables and a burn in period so that correct age structures were created. Starting with these age structures is important to ensure that when the simulation starts there is a variety of ages from which couples can form (or preference based on age would not matter). This generated population would be used for both the simulation where males have a preference for younger females (MYP) and where they don't (MAP)
 
-\item Each generation, in the ageing phase each member the population is aged or killed on the basis of a pseudo-random number, a mortality table and the presence of mortality affecting mutations in their genes (acting in both a sex-indifferent and sex-dependent manner). The deceased members of the population would then be replaced with new offspring in the pairing and mating phase.
+\item Each generation, in the ageing phase each member the population has their mortality checked using a pseudo-random number, a mortality table and the presence of mortality affecting mutations in their genes (acting in both a sex-indifferent and sex-dependent manner), resulting in them either dying or being assigned to the next age group. The deceased members of the population would then be replaced with new offspring in the pairing and mating phase.
 
 \item Next would come a pairing phase in which couples would form on the basis of a mating preference matrix. Unlike previous models, this preference matrix would be affected by mutations in the genetics of the individual in the same way that mortality and fertility are affected. This would allow the preference to coevolve alongside changes to mortality and fertility.
 
@@ -240,6 +240,10 @@ A better model for the patriarch hypothesis would have the following features:
 
 \chapter{Design and Implementation}
 \label{cha:Design and Implementation}
+\section{Basic Information}
+The model was implemented in Python 3 (see Appendix \ref{adx:pythonCode} for the full code listing). The standard library \texttt{random} was used to provide pseudo-random number generation. The \texttt{csv} library was used to read input files containing mortality, fertility and preference distributions, as well as an output format. The \texttt{copy} library was used for duplicating the initial burn in population using the \texttt{copy.deepcopy()} function.
+
+The input files for the various distributions were the same ones used in the original computational model \cite{mateChoice2013} (see Appendix \ref{adx:inputFiles} for the full input files).
 
 \section{Class Structure}
 When designing a multi-agent system, it can be useful to model each agent as being an instance of a class, each with their own attributes (variables belonging to a class instance that are an abstract representation of the differing traits an agent has) and class methods (representing the actions an agent can take to interact with its environment). The individual people in the system are modelled using the \texttt{Person} class, with attributes determining their traits, including genetics and various probability and preference distributions. 
@@ -257,7 +261,7 @@ The \texttt{Person} class provides the container for the attributes and methods 
 \texttt{sex} & str & Sex of person ("f" for female and "m" for male) \\\hline
 \texttt{alive} & bool & Whether the person is currently alive \\\hline
 \texttt{mortality} & MortalityDistribution & The mortality distribution of the individual. \\\hline
-\texttt{reproduction} & ReproductiveDistribution & The mortality distribution of the individual. \\\hline
+\texttt{reproduction} & ReproductiveDistribution & The fertility distribution of the individual. \\\hline
 \texttt{pref\_dist} & PreferenceDistribution & The mating preference distribution of the individual. \\\hline 
 \texttt{genes} & Genetics & The genetic information of the individual
 \end{tabular}
@@ -344,9 +348,9 @@ The \texttt{Genetics} class handles the genetic information of the person, stori
 \end{table}
 
 \section{Set up and burn-in period}
-After the class definitions, the main distributions are set up (female\_mortality, male\_mortality, female\_reproduction, male\_reproduction, female\_preference, male\_map\_preference and male\_myp\_preference) as detailed in their relevant class sections. An initial population of 500 females was created using the pre-made female distributions, and random ages and genetics. A burn-in period of time (100 generations) is created in which in which they aged and deceased individuals are replaced with new females aged 0, so that a typical age structure based on the mortality distribution is then produced. 
+After the class definitions, the main distributions are set up (female\_mortality, male\_mortality, female\_reproduction, male\_reproduction, female\_preference, male\_map\_preference and male\_myp\_preference) as detailed in their relevant class sections. An initial population of 500 females was created using the female distributions already set up, and random ages and genetics. A burn-in period of time (100 generations) is created in which they aged and deceased individuals are replaced with new females aged 0, so that a typical age structure based on the mortality distribution is then produced. 
 
-This process is then repeated with the males to produce a male population. The males are all initialised with the male\_map\_preference mating preference distribution since it does not affect this burn in period. Before the actual simulation is run up the preference distribution can be set to male\_map\_preference when males have a preference for females of any age, or male\_myp\_preference if they have a preference for younger females. 
+This process is then repeated with the males to produce a male population. The males are all initialised with the male\_map\_preference mating preference distribution since it does not affect this burn in period. Before the actual simulation runs the preference distribution can be set to male\_map\_preference when males have a preference for females of any age, or male\_myp\_preference if they have a preference for younger females. 
 
 
 \begin{table}[h]
@@ -371,14 +375,14 @@ The simulation was divided into two phases: the MAP simulation, which models whe
 
 The MAP model is run first. Each generation the model starts with an ageing phase. It loops through each female, and assigns them either to the next age or kills them based on a pseudo-random number and their mortality distribution, using the \texttt{increase\_age()} method (see Table \ref{tbl:personAttributes}). This process is repeated for the males.
 
-Next comes a reproduction phase which loops until the population size is restored to 1000. A female and a male are randomly selected from the female and male populations. Their mating preferences are checked and if they are are compatible a mating pair is formed. Then whether they are able to reproduce is checked with both the male and the female. If they are both able to, then a child is produced.
+Next comes a reproduction phase which loops until the population size is restored to 1000. A female and a male are randomly selected from the female and male populations. Their mating preferences are checked and if they are compatible a mating pair is formed. Then whether they are able to reproduce is checked with both the male and the female. If they are both able to, then a child is produced.
 
-The child's sex is randomly determined with a 50\% chance for a female and \% chance for a male to be born. The child inherits the reproductive, mortality and mating preference distributions of the parent of the same sex. The genetics of the offspring are determined by first performing a crossover of their parents' genes, followed by a mutation with an arbitrary mutation chance of 0.2 (see Table \ref{tbl:geneticsMethods}).
+The child's sex is randomly determined with a 50\% chance for a female and 50\% chance for a male to be born. The child inherits the reproductive, mortality and mating preference distributions of the parent of the same sex. The genetics of the offspring are determined by first performing a crossover of their parents' genes, followed by a mutation with an arbitrary mutation chance of 0.2 (see Table \ref{tbl:geneticsMethods}).
 
 Various statistics about the generation are calculated (including the age distribution of its members) and outputted (see the Generating an output section). The simulation then repeats with the next generation. After all the generations are complete the current population are outputted, then the simulation is repeated using the same method for the MYP model (making sure to change the mating preference distribution for the males).
 
 \section{Generating an output}
-There is little point to running a simulation if the results are not outputted. The \texttt{csv} module for Python was used both for parsing the input files, but for generating output \texttt{csv} files. The \texttt{csv} format is designed to be a human and machine readable format for storing tables of data and is readable by a variety of programming languages as well as by spreadsheet software, making it an accessible format to output to.
+There is little point to running a simulation if the results are not outputted. The \texttt{csv} module for Python was used both for parsing the input files, and for generating output \texttt{csv} files. The \texttt{csv} format is designed to be a human and machine readable format for storing tables of data and is readable by a variety of programming languages as well as by spreadsheet software, making it an accessible format to output to.
 
 The first thing outputted by the program is the properties of the initial population (using the \texttt{row\_builder()} method - see Table \ref{tbl:personMethods}), outputting the age, sex, life status, genes and preference distribution type to initial\_population\_output.csv. This process was repeated with the populations at the end of both the MAP and the MYP simulations, outputting to map\_population\_output.csv and myp\_population\_output.csv respectively.
 
@@ -399,14 +403,14 @@ Unfortunately the work was not completely implemented. The following features we
 Since the model was not fully implemented, with genetics being stored and mutated, but these mutations having no effect on fertility or mortality, the results are somewhat limited. Nevertheless some information may be gleaned from the output produced. Presented below are some of the results of a typical run and some analysis of what these results mean. Since the model relies heavily on pseudo-random numbers these results are dependent on one particular run, although the model could be run many times and the results averaged to minimise this effect.
 
 \section{Results of a typical run}
-The model was run for 100 generations, with both the MAP (males with a preference for females of any age) and MYP (males with a preference for younger females) using the same base population generated in the burn in period. 
+The model was run for 100 generations, with both the MAP (males with a preference for females of any age) and MYP (males with a preference for younger females) using the same base population generated in the burn in period. The full output can be found in Appendix \ref{adx:typicalOutput}.
 
 \subsection{Female and Male Numbers}
 The base population from the burn in period produces a population with 500 females and 500 males (1000 total). Although the measure of how many females and males there are at any point may not be that useful, it is good to ensure that one sex did not become dominant over the other since this could skew the other results. The population numbers are held at 1000 at all times.
 
 In the MAP model there was a mean of 498.4 female and 501.6 males (with variance $\ \sigma^2 = 276.969 $) with a median of 497 females and 503 males. The minimum number of females reached was 463 and the maximum 545 (range 82), and the minimum number of males was 455, with the maximum 537 (range 82).
 
-In the MAP model there was a mean of 495.36 female and 504.64 males (with variance $\ \sigma^2 = 138.091 $) with a median of 495 females and 505 males. The minimum number of females reached was 459 and the maximum 522 (range 63), and the minimum number of males was 478, with the maximum 541 (range 63).
+In the MYP model there was a mean of 495.36 female and 504.64 males (with variance $\ \sigma^2 = 138.091 $) with a median of 495 females and 505 males. The minimum number of females reached was 459 and the maximum 522 (range 63), and the minimum number of males was 478, with the maximum 541 (range 63).
 
 Both models exhibit a very slight skew overall towards the male population, but are similar to each other overall so this is unlikely to affect the outcome.
 
@@ -429,11 +433,11 @@ For the MYP simulation, the mean of the mean age gaps was 6.813, with variance $
 The MYP simulation is meant to model males' preference for younger females rather than those their own age and as such you would expect the age gap to bigger than MAP model. The lower mean age gap seen in the MYP model than the MAP model would suggest the opposite is the case, meaning the model may not adequately model the male's preference. The model could be extended to take into account the direction of the age gap (i.e. whether the male or female is the older of the pair) by creating a separate average and  count for couples where the males are older, the females are older and the pair are the same age.
 
 \subsection{Maximum age of reproduction}
-The maximum age of reproduction was the age of the oldest person to reproduce in a given generation (again divided by sex). This measure tells roughly the age after which women will cease to reproduce. It will also tell us whether males continue to reproduce after this point. However this age is the maximum such can be an outlier and is not representative of the group as a whole. 
+The maximum age of reproduction was the age of the oldest person to reproduce in a given generation (again divided by sex). This measure tells roughly the age after which women will cease to reproduce. It will also tell us whether males continue to reproduce after this point. However this age is the maximum and as such can be an outlier which is not representative of the group as a whole. 
 
 For the MAP simulation, the mean age for oldest female reproduction was 51.75, with variance $\ \sigma^2 = 7.765 $ and a median age of 50. The minimum maximum age of reproduction was 45 and the maximum was 60 (range 15). For males the mean age of oldest reproduction 52.15, with variance $\ \sigma^2 = 6.694 $ and a median age of 50. The minimum maximum age of reproduction was 50 and the maximum was 60 (range 10). This is indicative of males preferring females their own age, as their realised fertility is linked to the females' actual fertility meaning they cease to reproduce once the females are no longer capable of doing so, even though they remain to be fertile themselves. The average maximum age for females is also reasonably similar to the age at which menopause typically occurs.
 
-The MYP is more perhaps more interesting however as the maximum age of reproduction for both the females and the males was the same for each generation, at 30 and 35 respectively. Why the maximum age of reproduction stayed the same is generation is unclear. There is also a gap between the two ages, with males carrying on reproduction five years longer than the females. Both females and males in the MYP cease reproduction many years before those in the MAP model, suggesting there may be an issue in the MYP as you would expect the females to reproduce for fairly similar amounts of time, and for the MYP males to reproduce for longer than the MAP males.
+The MYP is more perhaps more interesting, as the maximum age of reproduction for both the females and the males was the same for each generation, at 30 and 35 respectively. Why the maximum age of reproduction stayed the same is generation is unclear. There is also a gap between the two ages, with males carrying on reproduction five years longer than the females. Both females and males in the MYP cease reproduction many years before those in the MAP model, suggesting there may be an issue in the MYP as you would expect the females to reproduce for fairly similar amounts of time, and for the MYP males to reproduce for longer than the MAP males.
 
 \subsection{Age Structures}
 The age structures produced by the simulations were fairly similar between the two simulations (MAP vs MYP). The age structures were also fairly stable from generation to generation. The two age groups 0-5 and 5-10 consistently made up just under 50\% of the population, indicating a high child mortality rate, meaning many will die before reaching the age where they are able to reproduce. Presented below are graphs showing the age structures over time for each simulation, as well as tables for the mean, variance, median, minimum, maximum and range for each age group. The mean number of people in the 0-5 age group represents average number of deaths (and therefore births) over the 100 generations, meaning a total of 30800 people were born in the MAP simulation and 30666 in the MYP simulation. The simulation ran for sufficient generations to guarantee that none of the individuals from the initial population are alive at the end (since each generation represented a time period of 5 years, with a 100 generation simulation lasting 500 years and the maximum age it is possible to reach is 85).
@@ -505,7 +509,7 @@ The age structures produced by the simulations were fairly similar between the t
 \end{table}
 
 \section{Model limitations and improvements}
-As previously stated the model was not fully implemented. Although genetics were implemented (including crossover of genes from parents and the introduction of the genes based on a mutation rate), these genetics had no impact on the model since they were not used to affect the mortality or fertility of individuals as previous models had done \cite{mateChoice2013}, but also did not use them to affect their mating preferences. Given more time these could be implemented on the relevant classes, then a more useful simulation could be run, with results that may be more interesting. There are also other measures that could be outputted each generation to provide a fuller picture of what is happening (such as outputting the ages at which people are dying and reproducing).
+As previously stated the model was not fully implemented. Although genetics were implemented (including crossover of genes from parents and the introduction of the genes based on a mutation rate), these genetics had no impact on the model since they were not used to affect the mortality or fertility of individuals as previous models had done \cite{mateChoice2013}. They were also not used to affect their mating preferences, one of the main aims. Given more time these could be implemented on the relevant classes, then a more useful simulation could be run, with results that may provide a more realistic simulation. There are also other measures that could be outputted each generation to provide a fuller picture of what is happening (such as outputting the ages at which people are dying and reproducing).
 
 \chapter{Conclusion}
 \label{cha:Conclusion}
@@ -528,6 +532,7 @@ Multi-agent systems and genetic algorithms provide a powerful tool for creating 
 \appendix
 \begin{landscape}
 \chapter{Python Code Listing}
+\label{adx:pythonCode}
 \pagestyle{plain}
 \scriptsize
 \begin{verbatim}
@@ -1181,6 +1186,7 @@ for person in myp_population:
 \end{landscape}
 
 \chapter{Input Files}
+\label{adx:inputFiles}
 \section{female\_data.csv}
 Used for female mortality and fertility distributions.
 \begin{framed}
@@ -1461,7 +1467,7 @@ Used for MYP model.
 \end{framed}
 
 \chapter{Typical Simulation Output}
-\label{adx:typicalSimulationOutput}
+\label{adx:typicalOutput}
 \section{Initial population output}
 \begin{framed}
 \begin{verbatim}
