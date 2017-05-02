@@ -5,7 +5,7 @@
 \supervisor{Daniel W. Franks}
 \BEng
 
-\wordcount{8976}
+\wordcount{9180}
 
 \includes{}
 
@@ -517,13 +517,13 @@ Since the work was not completed, the model produces very limited results. The f
 
 After this it would be interesting to see the effect of implementing persistence of couples between generations, with couples being formed based on mating preference, then staying together until they no longer have a preference for each other. This could provide a model for monogamy, with males staying with partners rather than investing resources in attracting a new mate. This could also be used to examine the difference between societies where monogamy is the norm, versus societies where polygyny is common, with possible implications for the age differences in mating pairs.
 
-There are also limitations to the model enforced by hardware -- the speed the model runs at is affected by the number of individuals of the population. With greater computing power, you would be able to model larger populations without the model slowing down too much -- possibly even allowing the population size to no longer fixed. 
+There are also limitations to the model enforced by hardware -- the speed the model runs at is affected by the number of individuals of the population. With greater computing power, you would be able to model larger populations without the model slowing down too much -- possibly even allowing the population size to no longer fixed. Metrics to do with timing efficiency could be recorded using the standard Python library \texttt{timeit}.
 
 There are also space constraints based on the amount of information stored about an individual, the number of individuals in the population and the number of generations the model is run for. In an ideal world you would be able to log the complete state of the system each generation (including every member of the population and their attributes, as well as information about the actions taken by the population that generation -- births, deaths \& their age structure, existing couples breaking up, new couples forming). With the full data of each individual being stored it would be possible to track lineage of individuals (their ancestors and their decedents) and produce family trees. 
 
 This kind of model can be adapted to model the other hypotheses for the evolution of menopause. For example, the mortality of children could be affected by grandmother who are post-menopausal, representing the effects of improved childcare, modelling the grandmothering hypothesis. Currently the agents in the model only interact with each other (for coupling and reproduction) with mortality and fertility being only affected by genetics. Environmental constraints could be imposed, such as the location of the person (since they would only have the pool of people in the same location as them to choose from for forming a mating pair) or finite resources, such as food (meaning that population size of a model without a fixed population size is not restrained by an arbitrary number, but instead the competition for resources). Limiting resources could provide a good model for the reproductive conflict hypothesis. The model can also be adapted for modelling hypotheses to do with other traits that affect reproduction besides menopause (such as the presence of homosexual animals in a group, who do not reproduce but may improve inclusive fitness through resource provision and providing security). 
 
-Multi-agent systems and genetic algorithms provide a powerful tool for creating intuitive models of complex systems, that can be adapted easily to test various hypotheses.
+The project acheived its aim of providing an overview of the various hypotheses concerning the origin of menopause, with a particular focus on the patriarch hypothesis. The computational model \cite{mateChoice2013} was not fully replicated meaning its validity could not be checked nor could the extension of allowing mating preference to coevolve. Rewriting the model into a popular object oriented language does make it easier for replication to be completed and for extension to occur in the future. 
 
 
 \bibliographystyle{plain}
